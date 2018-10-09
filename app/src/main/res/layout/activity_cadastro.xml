@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".gui.CadastroActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_marginTop="@dimen/margin_top_card"
+            app:cardCornerRadius="@dimen/card_border"
+            app:cardElevation="@dimen/card_elevation"
+            app:contentPadding="@dimen/card_padding">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textViewCadastro"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="36dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:gravity="center"
+                    android:text="@string/text_view_cadastro"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="40sp"
+                    tools:layout_editor_absoluteX="95dp"
+
+                    tools:layout_editor_absoluteY="46dp" />
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="8dp"
+                    app:contentPadding="8dp">
+
+                    <Spinner
+                        android:id="@+id/spinner1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:popupBackground="@color/colorBlack"
+                        android:spinnerMode="dropdown"
+                        tools:layout_editor_absoluteX="16dp"
+                        tools:layout_editor_absoluteY="129dp" />
+                </android.support.v7.widget.CardView>
+
+                <EditText
+                    android:id="@+id/editTextNome"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="16dp"
+                    android:hint="@string/prompt_nome"
+                    android:inputType="text"
+                    tools:layout_editor_absoluteX="16dp"
+                    tools:layout_editor_absoluteY="200dp" />
+
+
+                <EditText
+                    android:id="@+id/editTextEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="16dp"
+                    android:hint="@string/prompt_email"
+                    android:inputType="textEmailAddress"
+                    tools:layout_editor_absoluteX="16dp"
+                    tools:layout_editor_absoluteY="277dp" />
+
+                <EditText
+                    android:id="@+id/editTextConfirmarEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="16dp"
+                    android:hint="@string/prompt_confirmar_email"
+                    android:inputType="textEmailAddress"
+                    tools:layout_editor_absoluteX="16dp"
+                    tools:layout_editor_absoluteY="355dp" />
+
+                <EditText
+                    android:id="@+id/editTextSenha"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="16dp"
+                    android:hint="@string/prompt_senha"
+                    android:inputType="textPassword"
+                    tools:layout_editor_absoluteX="16dp"
+                    tools:layout_editor_absoluteY="430dp" />
+
+                <EditText
+                    android:id="@+id/editTextConfirmarSenha"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="16dp"
+                    android:hint="@string/prompt_confirmar_senha"
+                    android:inputType="textPassword"
+                    tools:layout_editor_absoluteX="16dp"
+                    tools:layout_editor_absoluteY="502dp" />
+
+
+                <EditText
+                    android:id="@+id/editTextCpf"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="16dp"
+                    android:ems="10"
+                    android:hint="@string/prompt_cpf"
+                    android:inputType="number"
+                    tools:layout_editor_absoluteX="17dp"
+                    tools:layout_editor_absoluteY="575dp" />
+
+                <EditText
+                    android:id="@+id/editTextDataNasc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="16dp"
+                    android:ems="10"
+                    android:hint="@string/prompt_data"
+                    android:inputType="date"
+                    tools:layout_editor_absoluteX="17dp"
+                    tools:layout_editor_absoluteY="646dp" />
+
+
+                <EditText
+                    android:id="@+id/editTextIMEI"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="16dp"
+                    android:ems="10"
+                    android:hint="@string/edit_text_imei"
+                    android:inputType="number"
+                    android:visibility="invisible"
+                    tools:layout_editor_absoluteX="16dp"
+                    tools:layout_editor_absoluteY="783dp" />
+
+                <EditText
+                    android:id="@+id/editTextCNPJ"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="16dp"
+                    android:ems="10"
+                    android:hint="@string/edit_text_cnpj"
+                    android:inputType="number"
+                    android:visibility="invisible"
+                    tools:layout_editor_absoluteX="16dp"
+                    tools:layout_editor_absoluteY="715dp" />
+
+                <Button
+                    android:id="@+id/button_criar_conta"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="16dp"
+                    android:background="@color/colorButoes"
+                    android:text="@string/button_criar_conta"
+                    android:textColor="@color/colorTextoBut"
+                    tools:layout_editor_absoluteX="46dp"
+                    tools:layout_editor_absoluteY="878dp" />
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+    </ScrollView>
+
+
+</LinearLayout>

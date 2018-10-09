@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">MakeParty</string>
+    <string name="button_criar_conta">CRIAR CONTA</string>
+    <string name="button_entrar">ENTRAR</string>
+    <string name="img_logo">Logo MakeParty</string>
+    <string name="label_login">LogIn</string>
+    <string name="label_cadastro">Cadastro</string>
+    <string name="label_home">Home</string>
+    <string name="label_escolha">Escolha</string>
+    <string name="text_click_esqueceu_senha">Esqueceu a senha?</string>
+    <string name="edit_text_email">E-mail</string>
+    <string name="edit_text_senha">Senha</string>
+    <string name="edit_text_nome">Nome</string>
+    <string name="text_view_cadastro">CADASTRO</string>
+    <string name="text_view_nome">Nome:</string>
+    <string name="text_view_email">E-mail:</string>
+    <string name="text_view_senha">Senha:</string>
+    <string name="edit_text_conf_senha">Confirmar senha</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_senha">Senha</string>
+    <string name="prompt_nome">Nome</string>
+    <string name="prompt_cpf">CPF</string>
+    <string name="prompt_data">Data de nascimento</string>
+    <string name="prompt_confirmar_email">Confirmar email</string>
+    <string name="prompt_confirmar_senha">Confirmar senha</string>
+    <string name="edit_text_cnpj">CNPJ</string>
+    <string name="edit_text_imei">MEI</string>
+    <string name="img_ic_cliente">Icone cliente</string>
+    <string name="img_ic_fornecedor">Icone fornecedor</string>
+    <string name="action_settings">Configurações</string>
+    <string name="Search">Pesquisar</string>
+    <string-array name="tipodeuser">
+        <item>Escolha o tipo de usuário:</item>
+        <item>Cliente</item>
+        <item>Fornecedor</item>
+    </string-array>
+
+
+</resources>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#CA70B6</color>
+    <color name="colorPrimaryDark">#B969A8</color>
+    <color name="colorAccent">#b654a1</color>
+    <color name="colorButoes">#CA70B6</color>
+    <color name="colorTextoBut">#ffffff</color>
+    <color name="colorFundo">#ffffff</color>
+    <color name="colorTextoNormal">#0d0d0d</color>
+    <color name="colorControlHighlight">#fff</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorBlue">#3F51B5</color>
+    <color name="colorRosa">#f956ad</color>
+    <color name="colorBlack">#0d0d0d</color>
+    <color name="colorRosaChoque">#d64090</color>
+    <color name="colorCinzaClaro">#efecee</color>
+    <!-- SwipeRefreshLayout -->
+    <color name="colorRefreshProgress">#33B5E5</color>
+    <color name="colorTransparent">#0000</color>
+
+</resources>
