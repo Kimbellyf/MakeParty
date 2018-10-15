@@ -29,6 +29,13 @@
     <string name="img_ic_fornecedor">Icone fornecedor</string>
     <string name="action_settings">Configurações</string>
     <string name="Search">Pesquisar</string>
+    <string name="ic_pacotes">Pacotes</string>
+    <string name="ic_casadefesta">Casa de festa</string>
+    <string name="ic_buffet">Buffet</string>
+    <string name="ic_decoracao">Decoração</string>
+    <string name="ic_animacao">Animação</string>
+    <string name="action_filtrar_por_preco">Filtrar por preco</string>
+    <string name="action_filtrar_por_regiao">Filtrar por região</string>
     <string-array name="tipodeuser">
         <item>Escolha o tipo de usuário:</item>
         <item>Cliente</item>

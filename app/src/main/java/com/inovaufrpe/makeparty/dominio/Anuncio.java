@@ -12,6 +12,15 @@ public class Anuncio {
     private String telefone;
     private String tipoDeAnuncio;
     private Fornecedor fornecedor;
+    private byte[] fotoPrincipal;
+
+    public byte[] getFotoPrincipal() {
+        return fotoPrincipal;
+    }
+
+    public void setFotoPrincipal(byte[] fotoPrincipal) {
+        this.fotoPrincipal = fotoPrincipal;
+    }
 
     public Fornecedor getFornecedor() {
         return fornecedor;

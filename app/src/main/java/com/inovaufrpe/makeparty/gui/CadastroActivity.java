@@ -59,7 +59,9 @@ public class CadastroActivity extends AppCompatActivity {
                     edtCnpj.setVisibility(View.VISIBLE);
                 } else{
                     edtImei.setVisibility(View.INVISIBLE);
+                    edtImei.setText("");
                     edtCnpj.setVisibility(View.INVISIBLE);
+                    edtCnpj.setText("");
                 }
             }
             @Override

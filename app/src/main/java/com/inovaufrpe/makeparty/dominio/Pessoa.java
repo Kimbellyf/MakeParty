@@ -9,6 +9,31 @@ public class Pessoa {
     private Date dataNasc;
     private String telefone;
     private Usuario usuario;
+    private byte[] fotoPessoa;
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
     public String getCpf() {
         return cpf;
@@ -36,28 +61,13 @@ public class Pessoa {
     }
 
 
-    public long getId() {
-        return id;
+    public byte[] getFotoPessoa() {
+        return fotoPessoa;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setFotoPessoa(byte[] fotoPessoa) {
+        this.fotoPessoa = fotoPessoa;
     }
 
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
 
 }

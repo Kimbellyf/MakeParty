@@ -12,10 +12,28 @@
         android:title="@string/Search"
         app:showAsAction="always" />
     <item
+        android:id="@+id/action_carrinho"
+        android:icon="@drawable/ic_carrinho_24dp"
+        android:orderInCategory="301"
+        app:showAsAction="always">
+
+    </item>
+    <item
+        android:id="@+id/action_filtrar_por_regiao"
+        android:orderInCategory="100"
+        android:title="@string/action_filtrar_por_regiao"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_filtrar_por_preco"
+        android:orderInCategory="100"
+        android:title="@string/action_filtrar_por_preco"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/action_settings1"
         android:orderInCategory="100"
         android:title="@string/action_settings"
         app:showAsAction="never" />
+
     <item
         android:orderInCategory="101"
         android:title="Sair" />

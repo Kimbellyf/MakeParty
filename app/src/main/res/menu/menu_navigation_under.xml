@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_pacotes"
+        android:title="@string/ic_pacotes"
+        />
+    <item
+        android:id="@+id/action_casa_festa"
+        android:title="@string/ic_casadefesta"
+        android:icon="@drawable/ic_store_casa_24dp">
+
+    </item>
+    <item
+        android:id="@+id/action_buffet"
+        android:title="@string/ic_buffet"
+        android:icon="@drawable/ic_cake_24dp"/>
+    <item
+        android:id="@+id/action_decoracao"
+        android:title="@string/ic_decoracao" />
+    <item
+        android:id="@+id/action_animacao"
+        android:title="@string/ic_animacao"/>
+
+
+</menu>
