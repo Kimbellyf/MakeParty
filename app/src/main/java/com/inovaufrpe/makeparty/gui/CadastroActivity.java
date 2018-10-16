@@ -54,7 +54,7 @@ public class CadastroActivity extends AppCompatActivity {
         spUsuario.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (parent.getSelectedItem().toString().equals("Fornecedor")){
+                if (parent.getSelectedItem().toString().equals("PessoaJuridica")){
                     edtImei.setVisibility(View.VISIBLE);
                     edtCnpj.setVisibility(View.VISIBLE);
                 } else{

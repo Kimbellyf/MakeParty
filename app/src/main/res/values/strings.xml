@@ -26,7 +26,7 @@
     <string name="edit_text_cnpj">CNPJ</string>
     <string name="edit_text_imei">MEI</string>
     <string name="img_ic_cliente">Icone cliente</string>
-    <string name="img_ic_fornecedor">Icone fornecedor</string>
+    <string name="img_ic_fornecedor">Icone pessoaJuridica</string>
     <string name="action_settings">Configurações</string>
     <string name="Search">Pesquisar</string>
     <string name="ic_pacotes">Pacotes</string>

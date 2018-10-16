@@ -11,7 +11,7 @@ public class Anuncio {
     private String endereco;
     private String telefone;
     private String tipoDeAnuncio;
-    private Fornecedor fornecedor;
+    private PessoaJuridica pessoaJuridica;
     private byte[] fotoPrincipal;
 
     public byte[] getFotoPrincipal() {
@@ -22,12 +22,12 @@ public class Anuncio {
         this.fotoPrincipal = fotoPrincipal;
     }
 
-    public Fornecedor getFornecedor() {
-        return fornecedor;
+    public PessoaJuridica getPessoaJuridica() {
+        return pessoaJuridica;
     }
 
-    public void setFornecedor(Fornecedor fornecedor) {
-        this.fornecedor = fornecedor;
+    public void setPessoaJuridica(PessoaJuridica pessoaJuridica) {
+        this.pessoaJuridica = pessoaJuridica;
     }
 
     public long getId() {
@@ -37,6 +37,7 @@ public class Anuncio {
     public void setId(long id) {
         this.id = id;
     }
+
     public String getTitulo() {
         return titulo;
     }
@@ -52,6 +53,7 @@ public class Anuncio {
     public void setDataPublicao(Date dataPublicao) {
         this.dataPublicao = dataPublicao;
     }
+
     public String getDescricao() {
         return descricao;
     }
@@ -59,6 +61,7 @@ public class Anuncio {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
+
     public double getPreco() {
         return preco;
     }
@@ -66,6 +69,7 @@ public class Anuncio {
     public void setPreco(double preco) {
         this.preco = preco;
     }
+
     public String getEndereco() {
         return endereco;
     }
@@ -73,6 +77,7 @@ public class Anuncio {
     public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
+
     public String getTelefone() {
         return telefone;
     }
@@ -80,6 +85,7 @@ public class Anuncio {
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
+
     public String getTipoDeAnuncio() {
         return tipoDeAnuncio;
     }

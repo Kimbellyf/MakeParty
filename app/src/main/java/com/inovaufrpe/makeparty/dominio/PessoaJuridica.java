@@ -1,6 +1,6 @@
 package com.inovaufrpe.makeparty.dominio;
 
-public class Fornecedor {
+public class PessoaJuridica {
     private Pessoa pessoa;
     private String cnpj;
     private String verifAluguelParaCasaDeFesta;
@@ -13,6 +13,7 @@ public class Fornecedor {
     public void setPessoa(Pessoa pessoa) {
         this.pessoa = pessoa;
     }
+
     public String getCnpj() {
         return cnpj;
     }
@@ -29,7 +30,7 @@ public class Fornecedor {
         this.verifAluguelParaCasaDeFesta = verifAluguelParaCasaDeFesta;
     }
 
-    public Fornecedor(String cnpj, String verifAluguelParaCasaDeFesta){
+    public PessoaJuridica(String cnpj, String verifAluguelParaCasaDeFesta){
         setCnpj(cnpj);
         setVerifAluguelParaCasaDeFesta(verifAluguelParaCasaDeFesta);
     }
