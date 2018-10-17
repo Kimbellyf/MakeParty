@@ -3,19 +3,13 @@ package com.inovaufrpe.makeparty.dominio;
 import java.util.Date;
 
 public class Avaliacao {
+
     private PessoaFisica pessoaFisica;
     private Anuncio anuncio;
     private String descricaoComentario;
     private Double avaliacaoUsuario;
     private Date dataComentario;
 
-    public Pessoa getPessoaFisica() {
-        return pessoaFisica;
-    }
-
-    public void setPessoaFisica(Pessoa pessoa) {
-        this.pessoaFisica = pessoa;
-    }
 
     public Date getDataComentario() {
         return dataComentario;
@@ -48,6 +42,15 @@ public class Avaliacao {
     public void setAnuncio(Anuncio anuncio) {
         this.anuncio = anuncio;
     }
+
+    public PessoaFisica getPessoaFisica() {
+        return pessoaFisica;
+    }
+
+    public void setPessoaFisica(PessoaFisica pessoaFisica) {
+        this.pessoaFisica = pessoaFisica;
+    }
+
 
 
 }

@@ -3,18 +3,20 @@ package com.inovaufrpe.makeparty.dominio;
 import java.util.Date;
 
 public class PessoaFisica {
-    private Pessoa pessoa;
+
+    private String nome;
     private String cpf;
     private Date dataNasc;
     private String telefone;
+    private Usuario usuario;
+    private byte[] foto;
 
-
-    public Pessoa getPessoa() {
-        return pessoa;
+    public String getNome() {
+        return nome;
     }
 
-    public void setPessoa(Pessoa pessoa) {
-        this.pessoa = pessoa;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public String getCpf() {
@@ -41,7 +43,20 @@ public class PessoaFisica {
         this.telefone = telefone;
     }
 
+    public Usuario getUsuario() {
+        return usuario;
+    }
 
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
 
+    public byte[] getFoto() {
+        return foto;
+    }
 
-}
+    public void setFoto(byte[] foto) {
+        this.foto = foto;
+    }
+
+    }

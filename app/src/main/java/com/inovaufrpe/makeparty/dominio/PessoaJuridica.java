@@ -1,17 +1,27 @@
 package com.inovaufrpe.makeparty.dominio;
 
 public class PessoaJuridica {
-    private Pessoa pessoa;
+
+    private String nomePessoaJuridica;
     private String cnpj;
-    private String verifAluguelParaCasaDeFesta;
+    private String autorizacaoAluguelCasa;
+    private byte[] foto;
+    private Usuario usuario;
+    private Plano plano;
+    private String telefone;
 
 
-    public Pessoa getPessoa() {
-        return pessoa;
+    public PessoaJuridica(String cnpj, String autorizacaoAluguelCasa){
+        setCnpj(cnpj);
+        setVerifAluguelParaCasaDeFesta(autorizacaoAluguelCasa);
     }
 
-    public void setPessoa(Pessoa pessoa) {
-        this.pessoa = pessoa;
+    public String getNomePessoaJuridica() {
+        return nomePessoaJuridica;
+    }
+
+    public void setNomePessoaJuridica(String nomePessoaJuridica) {
+        this.nomePessoaJuridica = nomePessoaJuridica;
     }
 
     public String getCnpj() {
@@ -23,16 +33,46 @@ public class PessoaJuridica {
     }
 
     public String getVerifAluguelParaCasaDeFesta() {
-        return verifAluguelParaCasaDeFesta;
+        return autorizacaoAluguelCasa;
     }
 
     public void setVerifAluguelParaCasaDeFesta(String verifAluguelParaCasaDeFesta) {
-        this.verifAluguelParaCasaDeFesta = verifAluguelParaCasaDeFesta;
+        this.autorizacaoAluguelCasa = verifAluguelParaCasaDeFesta;
     }
 
-    public PessoaJuridica(String cnpj, String verifAluguelParaCasaDeFesta){
-        setCnpj(cnpj);
-        setVerifAluguelParaCasaDeFesta(verifAluguelParaCasaDeFesta);
+    public byte[] getFoto() {
+        return foto;
     }
+
+    public void setFoto(byte[] foto) {
+        this.foto = foto;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public Plano getPlano() {
+        return plano;
+    }
+
+    public void setPlano(Plano plano) {
+        this.plano = plano;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+
+
 }
 

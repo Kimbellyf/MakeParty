@@ -13,9 +13,5 @@ public class ConexaoServidor extends AsyncTask<String, String, String> {
         return null;
     }
 
-    public String criarJsonObjeto(Object objeto){
-        return gson.toJson(objeto);
-    }
-
 
 }

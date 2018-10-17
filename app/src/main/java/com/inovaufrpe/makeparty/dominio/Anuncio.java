@@ -1,11 +1,12 @@
 package com.inovaufrpe.makeparty.dominio;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Anuncio {
-    private long id;
+
     private String titulo;
-    private Date dataPublicao;
+    private Date dataAnuncio;
     private String descricao;
     private double preco;
     private String endereco;
@@ -13,13 +14,15 @@ public class Anuncio {
     private String tipoDeAnuncio;
     private PessoaJuridica pessoaJuridica;
     private byte[] fotoPrincipal;
+    private ArrayList fotos;
 
-    public byte[] getFotoPrincipal() {
-        return fotoPrincipal;
+
+    public String getTitulo() {
+        return titulo;
     }
 
-    public void setFotoPrincipal(byte[] fotoPrincipal) {
-        this.fotoPrincipal = fotoPrincipal;
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
 
     public PessoaJuridica getPessoaJuridica() {
@@ -30,28 +33,12 @@ public class Anuncio {
         this.pessoaJuridica = pessoaJuridica;
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
     public Date getDataPublicao() {
-        return dataPublicao;
+        return dataAnuncio;
     }
 
     public void setDataPublicao(Date dataPublicao) {
-        this.dataPublicao = dataPublicao;
+        this.dataAnuncio = dataPublicao;
     }
 
     public String getDescricao() {
@@ -94,6 +81,13 @@ public class Anuncio {
         this.tipoDeAnuncio = tipoDeAnuncio;
     }
 
+    public byte[] getFotoPrincipal() {
+        return fotoPrincipal;
+    }
+
+    public void setFotoPrincipal(byte[] fotoPrincipal) {
+        this.fotoPrincipal = fotoPrincipal;
+    }
 
 
 }
