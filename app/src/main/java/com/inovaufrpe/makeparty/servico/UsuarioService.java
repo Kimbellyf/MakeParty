@@ -40,18 +40,17 @@ public class UsuarioService {
         this.respostaServidor = respostaServidor;
     }
 
+
+
+
     public String criarJsonObjeto(Object objeto) {
         return gson.toJson(objeto);
     }
 
-
-    public void criarUsuario(String nome, String email, String senha, ConexaoServidor conexaoServidor) {
-        String jsonName = criarJsonObjeto(nome);
-        String jsonEmail = criarJsonObjeto(email);
-        String jsonPassword = criarJsonObjeto(senha);
-        String novoJson = jsonName + jsonEmail + jsonPassword ;
-        conexaoServidor.execute(novoJson, CRIAR_USUARIO, METODO_POST);
-
-
+    public void criarUsuario(Object objeto) {
+        String novoJson = criarJsonObjeto(objeto) ;
+       // conexaoServidor.execute(novoJson, CRIAR_USUARIO, METODO_POST);
     }
+
+
 }
