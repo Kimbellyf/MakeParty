@@ -14,7 +14,8 @@ public class Anuncio {
     private String tipoDeAnuncio;
     private PessoaJuridica pessoaJuridica;
     private byte[] fotoPrincipal;
-    private ArrayList fotos;
+    //private ArrayList<> fotos;                  ARRAYLIST<OBJETO???>
+
 
 
     public String getTitulo() {
@@ -25,20 +26,12 @@ public class Anuncio {
         this.titulo = titulo;
     }
 
-    public PessoaJuridica getPessoaJuridica() {
-        return pessoaJuridica;
-    }
-
-    public void setPessoaJuridica(PessoaJuridica pessoaJuridica) {
-        this.pessoaJuridica = pessoaJuridica;
-    }
-
-    public Date getDataPublicao() {
+    public Date getDataAnuncio() {
         return dataAnuncio;
     }
 
-    public void setDataPublicao(Date dataPublicao) {
-        this.dataAnuncio = dataPublicao;
+    public void setDataAnuncio(Date dataAnuncio) {
+        this.dataAnuncio = dataAnuncio;
     }
 
     public String getDescricao() {
@@ -81,6 +74,14 @@ public class Anuncio {
         this.tipoDeAnuncio = tipoDeAnuncio;
     }
 
+    public PessoaJuridica getPessoaJuridica() {
+        return pessoaJuridica;
+    }
+
+    public void setPessoaJuridica(PessoaJuridica pessoaJuridica) {
+        this.pessoaJuridica = pessoaJuridica;
+    }
+
     public byte[] getFotoPrincipal() {
         return fotoPrincipal;
     }
@@ -88,6 +89,14 @@ public class Anuncio {
     public void setFotoPrincipal(byte[] fotoPrincipal) {
         this.fotoPrincipal = fotoPrincipal;
     }
+
+    //public ArrayList getFotos() {
+        //return fotos;
+    //}
+
+    //public void setFotos(ArrayList fotos) {
+        //this.fotos = fotos;
+    //}
 
 
 }

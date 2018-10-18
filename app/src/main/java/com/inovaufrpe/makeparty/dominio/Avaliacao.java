@@ -11,12 +11,20 @@ public class Avaliacao {
     private Date dataComentario;
 
 
-    public Date getDataComentario() {
-        return dataComentario;
+    public PessoaFisica getPessoaFisica() {
+        return pessoaFisica;
     }
 
-    public void setDataComentario(Date dataComentario) {
-        this.dataComentario = dataComentario;
+    public void setPessoaFisica(PessoaFisica pessoaFisica) {
+        this.pessoaFisica = pessoaFisica;
+    }
+
+    public Anuncio getAnuncio() {
+        return anuncio;
+    }
+
+    public void setAnuncio(Anuncio anuncio) {
+        this.anuncio = anuncio;
     }
 
     public String getDescricaoComentario() {
@@ -35,20 +43,12 @@ public class Avaliacao {
         this.avaliacaoUsuario = avaliacaoUsuario;
     }
 
-    public Anuncio getAnuncio() {
-        return anuncio;
+    public Date getDataComentario() {
+        return dataComentario;
     }
 
-    public void setAnuncio(Anuncio anuncio) {
-        this.anuncio = anuncio;
-    }
-
-    public PessoaFisica getPessoaFisica() {
-        return pessoaFisica;
-    }
-
-    public void setPessoaFisica(PessoaFisica pessoaFisica) {
-        this.pessoaFisica = pessoaFisica;
+    public void setDataComentario(Date dataComentario) {
+        this.dataComentario = dataComentario;
     }
 
 
