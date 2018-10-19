@@ -22,6 +22,8 @@ public class CadastroActivity extends AppCompatActivity {
         ListandoOpçoesSpinner();
         encontrandoViews();
         saberQualTipoDeUser();
+
+
     }
 
     public void ListandoOpçoesSpinner() {

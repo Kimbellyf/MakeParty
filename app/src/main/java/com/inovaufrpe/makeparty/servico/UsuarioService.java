@@ -51,7 +51,16 @@ public class UsuarioService {
     public void criarUsuario(Object objeto) {
         String novoJson = criarJson(objeto) ;
         conexaoServidor.execute(novoJson);
+
     }
+    //Metodo que quebra o json e pega a 2 }== token que é preciso para identificar o user nas requisicoes para n ter q ficar pedindo direto o id/token que o identifica
+    // eu uso esse metodo , pegando o token e salvando no SharedPreferens
+    public String pegandoTokenNoJson(String json){
+        Map<String,Object> jsonNodes = gson.fromJson(json, Map.class);
+        String resultado = jsonNodes.get("token").toString();
+        return resultado;
+    }
+
 
 
 }
