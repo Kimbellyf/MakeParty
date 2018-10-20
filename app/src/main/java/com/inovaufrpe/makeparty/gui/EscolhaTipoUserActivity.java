@@ -20,6 +20,6 @@ public class EscolhaTipoUserActivity extends AppCompatActivity {
         finish();
     }
     public void irParaEscolhaEntrarOuCadastrar(View view){this.mudarTela(EntrarOuCadastrarActivity.class);}
-    public void irParaTelaCliente(View view){this.mudarTela(TelaInicialClienteActivity.class);}
+    public void irParaTelaCliente(View view){this.mudarTela(TesteActivity.class);}
 
 }

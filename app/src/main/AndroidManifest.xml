@@ -13,8 +13,6 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
-
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_logo_launcher"
@@ -34,7 +32,11 @@
         <activity android:name=".gui.TelaInicialFornecedorActivity" />
         <activity android:name=".gui.TelaInicialClienteActivity" />
         <activity android:name=".gui.EntrarOuCadastrarActivity" />
-        <activity android:name=".gui.LoginActivity"></activity>
+        <activity android:name=".gui.LoginActivity" />
+        <activity android:name=".gui.FiltroInicialActivity" />
+        <activity android:name=".gui.MostraGPSActivity" />
+        <activity android:name=".gui.DetalhesAnuncioActivity" />
+        <activity android:name=".gui.TesteActivity"></activity>
     </application>
 
 </manifest>
