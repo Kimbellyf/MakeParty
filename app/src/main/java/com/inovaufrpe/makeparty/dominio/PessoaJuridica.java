@@ -2,27 +2,22 @@ package com.inovaufrpe.makeparty.dominio;
 
 public class PessoaJuridica {
 
-    private String nomePessoaJuridica;
+    private String socialname;
     private String cnpj;
-    private String autorizacaoAluguelCasa;
-    private byte[] foto;
-    private Usuario usuario;
-    private Plano plano;
-    private String telefone;
-    private Agenda agenda;
+    private String authorization;
+    private String photo;
+    private Usuario user;
+    private String phone;
+    private Plano plan;
+    private Agenda schedule;
 
 
-    public PessoaJuridica(String cnpj, String autorizacaoAluguelCasa){
-        setCnpj(cnpj);
-        setAutorizacaoAluguelCasa(autorizacaoAluguelCasa);
+    public String getSocialname() {
+        return socialname;
     }
 
-    public String getNomePessoaJuridica() {
-        return nomePessoaJuridica;
-    }
-
-    public void setNomePessoaJuridica(String nomePessoaJuridica) {
-        this.nomePessoaJuridica = nomePessoaJuridica;
+    public void setSocialname(String socialname) {
+        this.socialname = socialname;
     }
 
     public String getCnpj() {
@@ -33,55 +28,53 @@ public class PessoaJuridica {
         this.cnpj = cnpj;
     }
 
-    public String getAutorizacaoAluguelCasa() {
-        return autorizacaoAluguelCasa;
+    public String getAuthorization() {
+        return authorization;
     }
 
-    public void setAutorizacaoAluguelCasa(String autorizacaoAluguelCasa) {
-        this.autorizacaoAluguelCasa = autorizacaoAluguelCasa;
+    public void setAuthorization(String authorization) {
+        this.authorization = authorization;
     }
 
-    public byte[] getFoto() {
-        return foto;
+    public String getPhoto() {
+        return photo;
     }
 
-    public void setFoto(byte[] foto) {
-        this.foto = foto;
+    public void setPhoto(String photo) {
+        this.photo = photo;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public Usuario getUser() {
+        return user;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setUser(Usuario user) {
+        this.user = user;
     }
 
-    public Plano getPlano() {
-        return plano;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setPlano(Plano plano) {
-        this.plano = plano;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
-    public String getTelefone() {
-        return telefone;
+    public Plano getPlan() {
+        return plan;
     }
 
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
+    public void setPlan(Plano plan) {
+        this.plan = plan;
     }
 
-    public Agenda getAgenda() {
-        return agenda;
+    public Agenda getSchedule() {
+        return schedule;
     }
 
-    public void setAgenda(Agenda agenda) {
-        this.agenda = agenda;
+    public void setSchedule(Agenda schedule) {
+        this.schedule = schedule;
     }
-
-
 
 
 }

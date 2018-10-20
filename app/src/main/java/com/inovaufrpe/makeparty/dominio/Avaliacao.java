@@ -4,53 +4,50 @@ import java.util.Date;
 
 public class Avaliacao {
 
-    private PessoaFisica pessoaFisica;
-    private Anuncio anuncio;
-    private String descricaoComentario;
-    private Double avaliacaoUsuario;
-    private Date dataComentario;
+    private PessoaFisica socialname;
+    private Anuncio ad;
+    private String descriptionComment;
+    private Double ratingUser;
+    private Date dateComment;
 
-
-    public PessoaFisica getPessoaFisica() {
-        return pessoaFisica;
+    public PessoaFisica getSocialname() {
+        return socialname;
     }
 
-    public void setPessoaFisica(PessoaFisica pessoaFisica) {
-        this.pessoaFisica = pessoaFisica;
+    public void setSocialname(PessoaFisica socialname) {
+        this.socialname = socialname;
     }
 
-    public Anuncio getAnuncio() {
-        return anuncio;
+    public Anuncio getAd() {
+        return ad;
     }
 
-    public void setAnuncio(Anuncio anuncio) {
-        this.anuncio = anuncio;
+    public void setAd(Anuncio ad) {
+        this.ad = ad;
     }
 
-    public String getDescricaoComentario() {
-        return descricaoComentario;
+    public String getDescriptionComment() {
+        return descriptionComment;
     }
 
-    public void setDescricaoComentario(String descricaoComentario) {
-        this.descricaoComentario = descricaoComentario;
+    public void setDescriptionComment(String descriptionComment) {
+        this.descriptionComment = descriptionComment;
     }
 
-    public Double getAvaliacaoUsuario() {
-        return avaliacaoUsuario;
+    public Double getRatingUser() {
+        return ratingUser;
     }
 
-    public void setAvaliacaoUsuario(Double avaliacaoUsuario) {
-        this.avaliacaoUsuario = avaliacaoUsuario;
+    public void setRatingUser(Double ratingUser) {
+        this.ratingUser = ratingUser;
     }
 
-    public Date getDataComentario() {
-        return dataComentario;
+    public Date getDateComment() {
+        return dateComment;
     }
 
-    public void setDataComentario(Date dataComentario) {
-        this.dataComentario = dataComentario;
+    public void setDateComment(Date dateComment) {
+        this.dateComment = dateComment;
     }
-
-
 
 }

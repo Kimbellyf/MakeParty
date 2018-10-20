@@ -4,28 +4,24 @@ import java.util.ArrayList;
 
 public class ListaDesejos {
 
-    private ArrayList<Anuncio> anuncio;
-    private PessoaFisica pessoaFisica;
+    private ArrayList<Anuncio> ad;
+    private PessoaFisica nomesocial;
 
-
-
-
-    public ArrayList<Anuncio> getAnuncio() {
-        return anuncio;
+    public ArrayList<Anuncio> getAd() {
+        return ad;
     }
 
-    public void setAnuncio(ArrayList<Anuncio> anuncio) {
-        this.anuncio = anuncio;
+    public void setAd(ArrayList<Anuncio> ad) {
+        this.ad = ad;
     }
 
-    public PessoaFisica getPessoaFisica() {
-        return pessoaFisica;
+    public PessoaFisica getNomesocial() {
+        return nomesocial;
     }
 
-    public void setPessoaFisica(PessoaFisica pessoaFisica) {
-        this.pessoaFisica = pessoaFisica;
+    public void setNomesocial(PessoaFisica nomesocial) {
+        this.nomesocial = nomesocial;
     }
-
 
 
 

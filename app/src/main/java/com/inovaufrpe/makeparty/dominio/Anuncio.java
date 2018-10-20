@@ -5,89 +5,105 @@ import java.util.Date;
 
 public class Anuncio {
 
-    private String titulo;
-    private Date dataAnuncio;
-    private String descricao;
-    private double preco;
-    private Endereco endereco;
-    private String telefone;
-    private String tipoDeAnuncio;
-    private PessoaJuridica pessoaJuridica;
-    private byte[] fotoPrincipal;
-    //private ArrayList<> fotos;                  ARRAYLIST<OBJETO???>
+    private String title;
+    private Date dataAd;
+    private String description;
+    private double price;
+    private Endereco address;
+    private String phone;
+    private String type;
+    private String tags;
+    private PessoaJuridica socialname;
+    private PessoaJuridica owner;
+    private String photo;
+    //private ArrayList<> photos;                  ARRAYLIST<OBJETO???>
 
-
-
-    public String getTitulo() {
-        return titulo;
+    public String getTitle() {
+        return title;
     }
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public Date getDataAnuncio() {
-        return dataAnuncio;
+    public Date getDataAd() {
+        return dataAd;
     }
 
-    public void setDataAnuncio(Date dataAnuncio) {
-        this.dataAnuncio = dataAnuncio;
+    public void setDataAd(Date dataAnuncio) {
+        this.dataAd = dataAnuncio;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public double getPreco() {
-        return preco;
+    public double getPrice() {
+        return price;
     }
 
-    public void setPreco(double preco) {
-        this.preco = preco;
+    public void setPrice(double price) {
+        this.price = price;
     }
 
-    public Endereco getEndereco() {
-        return endereco;
+    public Endereco getAddress() {
+        return address;
     }
 
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
+    public void setAddress(Endereco endereco) {
+        this.address = endereco;
     }
 
-    public String getTelefone() {
-        return telefone;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
-    public String getTipoDeAnuncio() {
-        return tipoDeAnuncio;
+    public String getType() {
+        return type;
     }
 
-    public void setTipoDeAnuncio(String tipoDeAnuncio) {
-        this.tipoDeAnuncio = tipoDeAnuncio;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public PessoaJuridica getPessoaJuridica() {
-        return pessoaJuridica;
+    public String getTags() {
+        return tags;
     }
 
-    public void setPessoaJuridica(PessoaJuridica pessoaJuridica) {
-        this.pessoaJuridica = pessoaJuridica;
+    public void setTags(String tags) {
+        this.tags = tags;
     }
 
-    public byte[] getFotoPrincipal() {
-        return fotoPrincipal;
+    public PessoaJuridica getSocialname() {
+        return socialname;
     }
 
-    public void setFotoPrincipal(byte[] fotoPrincipal) {
-        this.fotoPrincipal = fotoPrincipal;
+    public void setSocialname(PessoaJuridica socialname) {
+        this.socialname = socialname;
+    }
+
+    public PessoaJuridica getOwner() {
+        return owner;
+    }
+
+    public void setOwner(PessoaJuridica owner) {
+        this.owner = owner;
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
     }
 
     //public ArrayList getFotos() {

@@ -2,33 +2,33 @@ package com.inovaufrpe.makeparty.dominio;
 
 class Plano {
 
-    private String tipoDePlano;
-    private int numeroAnunciosAtivos;
-    private int numeroDeFotos;
+    private String type;
+    private int numberAdActive;
+    private int numberPhotos;
 
 
-    public String getTipoDePlano() {
-        return tipoDePlano;
+    public String getType() {
+        return type;
     }
 
-    public void setTipoDePlano(String tipoDePlano) {
-        this.tipoDePlano = tipoDePlano;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public int getNumeroAnunciosAtivos() {
-        return numeroAnunciosAtivos;
+    public int getNumberAdActive() {
+        return numberAdActive;
     }
 
-    public void setNumeroAnunciosAtivos(int numeroAnunciosAtivos) {
-        this.numeroAnunciosAtivos = numeroAnunciosAtivos;
+    public void setNumberAdActive(int numberAdActive) {
+        this.numberAdActive = numberAdActive;
     }
 
-    public int getNumeroDeFotos() {
-        return numeroDeFotos;
+    public int getNumberPhotos() {
+        return numberPhotos;
     }
 
-    public void setNumeroDeFotos(int numeroFotos) {
-        this.numeroDeFotos = numeroFotos;
+    public void setNumberPhotos(int numberPhotos) {
+        this.numberPhotos = numberPhotos;
     }
 
 

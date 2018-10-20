@@ -1,6 +1,7 @@
 package com.inovaufrpe.makeparty.dominio;
 
 public class Usuario {
+
     private String email;
     private String password;
 
@@ -8,26 +9,23 @@ public class Usuario {
     public Usuario(){}
     public Usuario(String email, String senha){
         setEmail(email);
-        setSenha(senha);
+        setPassword(senha);
     }
 
-    public String getEmail(){
-
-        return this.email;
+    public String getEmail() {
+        return email;
     }
 
-    public void setEmail(String novoEmail){
-
-        this.email = novoEmail;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getSenha(){
-        return this.password;
+    public String getPassword() {
+        return password;
     }
 
-    public void setSenha(String novaSenha){
-
-        this.password = novaSenha;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
 }

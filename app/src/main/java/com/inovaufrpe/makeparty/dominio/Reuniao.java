@@ -4,44 +4,44 @@ import java.util.Date;
 
 public class Reuniao {
 
-    private PessoaFisica pessoaFisica;
-    private PessoaJuridica pessoaJuridica;
-    private Date dataReuniao;
-    private String tipoDeSolicitacao;
+    private PessoaFisica name;
+    private PessoaJuridica socialname;
+    private Date date;
+    private String typeSolicitation;
 
-
-
-    public PessoaFisica getPessoaFisica() {
-        return pessoaFisica;
+    public PessoaFisica getName() {
+        return name;
     }
 
-    public void setPessoaFisica(PessoaFisica pessoaFisica) {
-        this.pessoaFisica = pessoaFisica;
+    public void setName(PessoaFisica name) {
+        this.name = name;
     }
 
-    public PessoaJuridica getPessoaJuridica() {
-        return pessoaJuridica;
+    public PessoaJuridica getSocialname() {
+        return socialname;
     }
 
-    public void setPessoaJuridica(PessoaJuridica pessoaJuridica) {
-        this.pessoaJuridica = pessoaJuridica;
+    public void setSocialname(PessoaJuridica socialname) {
+        this.socialname = socialname;
     }
 
-    public Date getDataReuniao() {
-        return dataReuniao;
+    public Date getDate() {
+        return date;
     }
 
-    public void setDataReuniao(Date dataReuniao) {
-        this.dataReuniao = dataReuniao;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
-    public String getTipoDeSolicitacao() {
-        return tipoDeSolicitacao;
+    public String getTypeSolicitation() {
+        return typeSolicitation;
     }
 
-    public void setTipoDeSolicitacao(String tipoDeSolicitacao) {
-        this.tipoDeSolicitacao = tipoDeSolicitacao;
+    public void setTypeSolicitation(String typeSolicitation) {
+        this.typeSolicitation = typeSolicitation;
     }
+
+
 
 
 

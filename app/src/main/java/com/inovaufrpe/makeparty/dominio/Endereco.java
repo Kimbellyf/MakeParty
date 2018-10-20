@@ -2,37 +2,36 @@ package com.inovaufrpe.makeparty.dominio;
 
 public class Endereco {
 
-    private String rua;
-    private String bairro;
-    private String numero;
+    private String street;
+    private String neighborhood;
+    private String number;
     private String cep;
-    private String cidade;
-    private String estado;
+    private String town;
+    private String state;
 
 
-
-    public String getRua() {
-        return rua;
+    public String getStreet() {
+        return street;
     }
 
-    public void setRua(String rua) {
-        this.rua = rua;
+    public void setStreet(String street) {
+        this.street = street;
     }
 
-    public String getBairro() {
-        return bairro;
+    public String getNeighborhood() {
+        return neighborhood;
     }
 
-    public void setBairro(String bairro) {
-        this.bairro = bairro;
+    public void setNeighborhood(String neighborhood) {
+        this.neighborhood = neighborhood;
     }
 
-    public String getNumero() {
-        return numero;
+    public String getNumber() {
+        return number;
     }
 
-    public void setNumero(String numero) {
-        this.numero = numero;
+    public void setNumber(String number) {
+        this.number = number;
     }
 
     public String getCep() {
@@ -43,24 +42,21 @@ public class Endereco {
         this.cep = cep;
     }
 
-    public String getCidade() {
-        return cidade;
+    public String getTown() {
+        return town;
     }
 
-    public void setCidade(String cidade) {
-        this.cidade = cidade;
+    public void setTown(String town) {
+        this.town = town;
     }
 
-    public String getEstado() {
-        return estado;
+    public String getState() {
+        return state;
     }
 
-    public void setEstado(String estado) {
-        this.estado = estado;
+    public void setState(String state) {
+        this.state = state;
     }
-
-
-
 
 
 

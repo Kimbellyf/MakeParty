@@ -4,19 +4,19 @@ import java.util.Date;
 
 public class PessoaFisica {
 
-    private String nome;
+    private String name;
     private String cpf;
-    private Date dataNasc;
-    private String telefone;
-    private Usuario usuario;
-    private byte[] foto;
+    private Date birthdate;
+    private String phone;
+    private Usuario user;
+    //private String photo;
 
-    public String getNome() {
-        return nome;
+    public String getName() {
+        return name;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getCpf() {
@@ -27,36 +27,38 @@ public class PessoaFisica {
         this.cpf = cpf;
     }
 
-    public Date getDataNasc() {
-        return dataNasc;
+    public Date getBirthdate() {
+        return birthdate;
     }
 
-    public void setDataNasc(Date dataNasc) {
-        this.dataNasc = dataNasc;
+    public void setBirthdate(Date birthdate) {
+        this.birthdate = birthdate;
     }
 
-    public String getTelefone() {
-        return telefone;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public Usuario getUser() {
+        return user;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setUser(Usuario user) {
+        this.user = user;
     }
 
-    public byte[] getFoto() {
-        return foto;
-    }
+    //public String getPhoto() {
+      //  return photo;
+    //}
 
-    public void setFoto(byte[] foto) {
-        this.foto = foto;
-    }
+    //public void setPhoto(String photo) {
+      //  this.photo = photo;
+    //}
 
-    }
+
+
+}

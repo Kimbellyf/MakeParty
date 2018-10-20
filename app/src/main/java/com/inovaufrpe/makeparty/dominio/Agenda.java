@@ -4,14 +4,17 @@ import java.util.Date;
 
 public class Agenda {
 
-    private Date datasDisponiveis;
+    private Date dateAvailable;
 
-    public Date getDatasDisponiveis() {
-        return datasDisponiveis;
+
+
+
+    public Date getDateAvailable() {
+        return dateAvailable;
     }
 
-    public void setDatasDisponiveis(Date datasDisponiveis) {
-        this.datasDisponiveis = datasDisponiveis;
+    public void setDateAvailable(Date dateAvailable) {
+        this.dateAvailable = dateAvailable;
     }
 
 
