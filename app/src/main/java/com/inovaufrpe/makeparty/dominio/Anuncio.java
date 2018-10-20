@@ -9,7 +9,7 @@ public class Anuncio {
     private Date dataAnuncio;
     private String descricao;
     private double preco;
-    private String endereco;
+    private Endereco endereco;
     private String telefone;
     private String tipoDeAnuncio;
     private PessoaJuridica pessoaJuridica;
@@ -50,11 +50,11 @@ public class Anuncio {
         this.preco = preco;
     }
 
-    public String getEndereco() {
+    public Endereco getEndereco() {
         return endereco;
     }
 
-    public void setEndereco(String endereco) {
+    public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
 

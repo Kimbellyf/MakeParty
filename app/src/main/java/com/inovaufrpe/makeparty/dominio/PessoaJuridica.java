@@ -9,11 +9,12 @@ public class PessoaJuridica {
     private Usuario usuario;
     private Plano plano;
     private String telefone;
+    private Agenda agenda;
 
 
     public PessoaJuridica(String cnpj, String autorizacaoAluguelCasa){
         setCnpj(cnpj);
-        setVerifAluguelParaCasaDeFesta(autorizacaoAluguelCasa);
+        setAutorizacaoAluguelCasa(autorizacaoAluguelCasa);
     }
 
     public String getNomePessoaJuridica() {
@@ -32,12 +33,12 @@ public class PessoaJuridica {
         this.cnpj = cnpj;
     }
 
-    public String getVerifAluguelParaCasaDeFesta() {
+    public String getAutorizacaoAluguelCasa() {
         return autorizacaoAluguelCasa;
     }
 
-    public void setVerifAluguelParaCasaDeFesta(String verifAluguelParaCasaDeFesta) {
-        this.autorizacaoAluguelCasa = verifAluguelParaCasaDeFesta;
+    public void setAutorizacaoAluguelCasa(String autorizacaoAluguelCasa) {
+        this.autorizacaoAluguelCasa = autorizacaoAluguelCasa;
     }
 
     public byte[] getFoto() {
@@ -71,6 +72,15 @@ public class PessoaJuridica {
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
+
+    public Agenda getAgenda() {
+        return agenda;
+    }
+
+    public void setAgenda(Agenda agenda) {
+        this.agenda = agenda;
+    }
+
 
 
 
