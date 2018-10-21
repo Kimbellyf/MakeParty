@@ -13,7 +13,9 @@
         android:layout_gravity="bottom"
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="8dp"
-        app:menu="@menu/menu_navigation_under"/>
+        android:background="?android:attr/windowBackground"
+        app:layout_scrollFlags="scroll|enterAlways|snap"
+        app:menu="@menu/menu_navigation_under" />
 
 
 </android.support.design.widget.CoordinatorLayout>

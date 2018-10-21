@@ -15,6 +15,7 @@ public class TesteActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teste);
+        //acoesReferentesAoBottomNavigation();
     }
     public void acoesReferentesAoBottomNavigation(){
         bottomNavigationView =  (BottomNavigationView) findViewById(R.id.tab_bar_opcoes_embaixo);
