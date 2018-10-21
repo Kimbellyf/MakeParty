@@ -56,7 +56,7 @@
                         android:id="@+id/spinner1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:popupBackground="@color/colorBlack"
+                        android:popupBackground="@color/colorWhite"
                         android:spinnerMode="dropdown"
                         tools:layout_editor_absoluteX="16dp"
                         tools:layout_editor_absoluteY="129dp" />
@@ -142,20 +142,17 @@
                     android:inputType="date"
                     tools:layout_editor_absoluteX="17dp"
                     tools:layout_editor_absoluteY="646dp" />
-
-
                 <EditText
-                    android:id="@+id/editTextIMEI"
+                    android:id="@+id/editTextTelefone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_margin="16dp"
-                    android:ems="10"
-                    android:hint="@string/edit_text_imei"
+                    android:hint="@string/prompt_telefone"
                     android:inputType="number"
-                    android:visibility="invisible"
                     tools:layout_editor_absoluteX="16dp"
-                    tools:layout_editor_absoluteY="783dp" />
+                    tools:layout_editor_absoluteY="502dp" />
+
 
                 <EditText
                     android:id="@+id/editTextCNPJ"
@@ -170,6 +167,19 @@
                     tools:layout_editor_absoluteX="16dp"
                     tools:layout_editor_absoluteY="715dp" />
 
+                <EditText
+                    android:id="@+id/editTextMEI"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="16dp"
+                    android:ems="10"
+                    android:hint="@string/edit_text_mei"
+                    android:inputType="number"
+                    android:visibility="invisible"
+                    tools:layout_editor_absoluteX="16dp"
+                    tools:layout_editor_absoluteY="783dp" />
+
                 <Button
                     android:id="@+id/button_criar_conta"
                     android:layout_width="match_parent"
@@ -178,6 +188,7 @@
                     android:layout_margin="16dp"
                     android:background="@color/colorButoes"
                     android:text="@string/button_criar_conta"
+                    android:onClick="onClickCadastrar"
                     android:textColor="@color/colorTextoBut"
                     tools:layout_editor_absoluteX="46dp"
                     tools:layout_editor_absoluteY="878dp" />

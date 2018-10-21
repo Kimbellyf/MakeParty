@@ -24,7 +24,7 @@
     <string name="prompt_confirmar_email">Confirmar email</string>
     <string name="prompt_confirmar_senha">Confirmar senha</string>
     <string name="edit_text_cnpj">CNPJ</string>
-    <string name="edit_text_imei">MEI</string>
+    <string name="edit_text_mei">MEI</string>
     <string name="img_ic_cliente">Icone cliente</string>
     <string name="img_ic_fornecedor">Icone pessoaJuridica</string>
     <string name="action_settings">Configurações</string>
@@ -48,6 +48,13 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="carrinho">Carrinho</string>
+    <string name="prompt_telefone">Telefone</string>
+    <string name="label_user_avaliar_fornecedor">Avaliar fornecedor</string>
+    <string name="Confirmar">Confirmar</string>
+    <string name="text_resultado_user_avaliacao_para_fornecedor">Resultado avaliação</string>
+    <string name="text_avaliar_fornecedor">Avaliar fornecedor</string>
+    <string name="img_fornecedor_avaliacao">Imagem do fornecedor</string>
+    <string name="text_nome_fornecedor">Nome do fornecedor</string>
 
 
 </resources>

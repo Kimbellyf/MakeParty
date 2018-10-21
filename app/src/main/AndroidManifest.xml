@@ -36,7 +36,8 @@
         <activity android:name=".gui.FiltroInicialActivity" />
         <activity android:name=".gui.MostraGPSActivity" />
         <activity android:name=".gui.DetalhesAnuncioActivity" />
-        <activity android:name=".gui.TesteActivity"></activity>
+        <activity android:name=".gui.TesteActivity" />
+        <activity android:name=".gui.AvaliacaoNotaActivity"></activity>
     </application>
 
 </manifest>

@@ -22,13 +22,18 @@ public class ValidacaoGuiRapida {
     private static final int TAMANHO_DATA_SB = 8;
 
     public boolean isCampoVazio(String valor) {
-
-        return (TextUtils.isEmpty(valor) || valor.trim().isEmpty());
+        if (valor.isEmpty()) {
+            return true;
+        }
+        return false;
     }
 
     public boolean isEmailValido(String email) {
-
-        return (!(isCampoVazio(email)) || Patterns.EMAIL_ADDRESS.matcher(email).matches());
+        if (isCampoVazio(email) || !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public boolean isTelefoneValido(String telefone) {
@@ -53,7 +58,7 @@ public class ValidacaoGuiRapida {
     }
 
     public boolean isSenhaIgual(String senha, String confirmaSenha) {
-        return senha.equals(confirmaSenha);
+        return (senha.equals(confirmaSenha));
     }
 
     public boolean isCnpjValido(String cnpj) {
@@ -61,7 +66,7 @@ public class ValidacaoGuiRapida {
         return (!(isCampoVazio(cnpj)) || cnpj.length() == TAMCNPJ);
     }
 
-    static boolean dataMenorOuIgualQueAtual(String data) {
+    public static boolean dataMenorOuIgualQueAtual(String data) {
         SimpleDateFormat dataFormatada = new SimpleDateFormat(DATA_COMUM_CB);
         dataFormatada.setLenient(false);
         //Testa no formato dd/MM/yyyy

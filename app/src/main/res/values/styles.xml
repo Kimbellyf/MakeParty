@@ -16,4 +16,9 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="ToolBarWithNavigationBack" >
+        <item name="navigationIcon">@drawable/ic_arrow_back_24dp</item>
+    </style>
+
+
 </resources>
