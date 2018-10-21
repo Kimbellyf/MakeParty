@@ -7,6 +7,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.inovaufrpe.makeparty.R;
 import com.inovaufrpe.makeparty.servico.ValidacaoGuiRapida;
@@ -16,7 +17,7 @@ public class CadastroActivity extends AppCompatActivity {
     private EditText edtEmail, edtConfEmail, edtSenha, edtConfSenha, edtNome, edtCpf, edtNasc, edtMei, edtCnpj, edtTelefone;
     private Spinner spUsuario;
     private ValidacaoGuiRapida validacaoGuiRapida = new ValidacaoGuiRapida();
-    private String tipoDeUser;
+    private String tipoDeUserParaCadastro;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +68,7 @@ public class CadastroActivity extends AppCompatActivity {
                     edtCpf.setText("");
                     edtNasc.setText("");
                     edtNasc.setVisibility(View.INVISIBLE);
-                    tipoDeUser = "Fornecedor";
+                    tipoDeUserParaCadastro = "Fornecedor";
                 } else{
                     edtNome.setText("");
                     edtNome.setHint("Nome");
@@ -76,7 +77,7 @@ public class CadastroActivity extends AppCompatActivity {
                     edtCnpj.setVisibility(View.INVISIBLE);
                     edtCnpj.setText("");
                     edtCpf.setVisibility(View.VISIBLE);
-                    tipoDeUser = "Cliente";
+                    tipoDeUserParaCadastro = "Cliente";
                 }
             }
             @Override
@@ -89,9 +90,16 @@ public class CadastroActivity extends AppCompatActivity {
         String tipoUsuario = (String) spUsuario.getSelectedItem();
 
         String cadastroAtual="Cliente";
-        if (tipoDeUser.equals("Fornecedor")) {
+        if (tipoDeUserParaCadastro.equals("Fornecedor")) {
             cadastroAtual = "Fornecedor";
             if(verificarCamposEspecificosFornecedor()){
+                Toast.makeText(getApplicationContext(), "Cadastro para Fornecedor AINDA FALTA TERM", Toast.LENGTH_SHORT).show();
+            }
+        }else if(tipoDeUserParaCadastro.equals("Cliente")){
+            cadastroAtual ="Cliente";
+            if(verificarCamposEspecificosCliente()){
+                Toast.makeText(getApplicationContext(), "Cadastro para Cliente AINDA FALTA TERM", Toast.LENGTH_SHORT).show();
+
             }
         }
 
@@ -114,7 +122,7 @@ public class CadastroActivity extends AppCompatActivity {
         } else if (!confEmail.equals(email)) {
             this.edtConfEmail.setError("Confirmação de email diferente");
             return false;
-        } else if (validacaoGuiRapida.isSenhaValida(senha)) {
+        } else if (!validacaoGuiRapida.isSenhaValida(senha)) {
             this.edtSenha.setError("Senha inválida");
             return false;
 
@@ -135,7 +143,7 @@ public class CadastroActivity extends AppCompatActivity {
 
         if (!verificarCamposEmailSenhaETelefone()){
             return false;
-        }else if (validacaoGuiRapida.isCpfValido(cpf)){
+        }else if (!validacaoGuiRapida.isCpfValido(cpf)){
             this.edtCpf.setError("Cpf inválido");
             return false;
         }else if (validacaoGuiRapida.isDataValida(dataNasc)){
@@ -153,7 +161,7 @@ public class CadastroActivity extends AppCompatActivity {
         if (!verificarCamposEmailSenhaETelefone()) {
             return false;
 
-        }else if (validacaoGuiRapida.isCnpjValido(cnpj)) {
+        }else if (!validacaoGuiRapida.isCnpjValido(cnpj)) {
             this.edtCnpj.setError("CNPJ inválido");
             return false;
         }else{

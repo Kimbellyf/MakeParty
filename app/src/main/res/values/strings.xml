@@ -37,7 +37,6 @@
     <string name="action_filtrar_por_preco">Filtrar por preco</string>
     <string name="action_filtrar_por_regiao">Filtrar por região</string>
     <string-array name="tipodeuser">
-        <item>Escolha o tipo de usuário:</item>
         <item>Cliente</item>
         <item>Fornecedor</item>
     </string-array>
@@ -55,6 +54,7 @@
     <string name="text_avaliar_fornecedor">Avaliar fornecedor</string>
     <string name="img_fornecedor_avaliacao">Imagem do fornecedor</string>
     <string name="text_nome_fornecedor">Nome do fornecedor</string>
+    <string name="text_view_escolha_usuario">Escolha o tipo de usuário:</string>
 
 
 </resources>
