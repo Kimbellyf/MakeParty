@@ -15,43 +15,59 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="133dp"
         android:orientation="horizontal">
 
         <FrameLayout
             android:layout_width="144dp"
-            android:layout_height="match_parent">
+            android:layout_height="147dp">
             <!-- Foto do titulo -->
             <ImageView
                 android:id="@+id/img"
                 android:layout_width="200dp"
-                android:layout_height="137dp"
+                android:layout_height="102dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="16dp"
-                android:layout_marginTop="6dp" />
+                android:layout_marginTop="6dp"
+                android:contentDescription="@string/img_view_foto_anuncio"
+                android:src="@drawable/ic_fornecedor_nao" />
         </FrameLayout>
+
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="106dp"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/text"
+                android:id="@+id/textViewTitleAnuncio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="16dp"
+                android:text="@string/text_view_title_anuncio"
                 android:textSize="20sp" />
 
             <TextView
-                android:id="@+id/textViewNada"
+                android:id="@+id/textViewRazaoSocialFornecedor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="16dp"
-                android:textSize="20sp" />
+                android:text="@string/text_view_razao_social_fornecedor"
+                android:textSize="14sp" />
+            <TextView
+                android:id="@+id/textViewPrecoAnuncio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/text_view_preco_anuncio"
+                android:textSize="14sp" />
+
         </LinearLayout>
+
+
 
 
     </LinearLayout>

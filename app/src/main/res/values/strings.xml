@@ -55,6 +55,13 @@
     <string name="img_fornecedor_avaliacao">Imagem do fornecedor</string>
     <string name="text_nome_fornecedor">Nome do fornecedor</string>
     <string name="text_view_escolha_usuario">Escolha o tipo de usuário:</string>
+    <string name="text_view_title_anuncio">Titulo do anuncio</string>
+    <string name="text_view_razao_social_fornecedor">Nome do fornecedor</string>
+    <string name="text_view_preco_anuncio">R$0,00</string>
+    <string name="img_view_foto_anuncio">Foto do anúncio</string>
+    <string name="ic_avaliar_anuncio_fornecedor">Avaliar fornecedor pelo anúncio</string>
+    <string name="ic_adicionar_anuncio_a_lista_desejos">Adicionar anúncio a lista de desejos</string>
+    <string name="text_fornecedor_media_geral">Média geral do tipo de anúncio do fornecedor</string>
 
 
 </resources>
