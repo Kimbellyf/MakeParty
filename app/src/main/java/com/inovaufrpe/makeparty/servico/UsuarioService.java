@@ -27,7 +27,6 @@ public class UsuarioService {
     private Gson gson = new Gson();
 
 
-
     private String respostaServidor;
     private ConexaoServidor conexaoServidor = new ConexaoServidor();
 
@@ -62,19 +61,20 @@ public class UsuarioService {
 
     //método que usa a requisição http implementada em conexaoServidor para criar usuário
     public void criarUsuario(Object objeto) {
-        String novoJson = criarJson(objeto) ;
+        String novoJson = criarJson(objeto);
         conexaoServidor.execute(novoJson);
 
     }
+
     //Metodo que quebra o json e pega a 2 }== token que é preciso para identificar o user nas requisicoes para n ter q ficar pedindo direto o id/token que o identifica
     // eu uso esse metodo , pegando o token e salvando no SharedPreferens
-    public String pegandoTokenNoJson(String json){
-        Map<String,Object> jsonNodes = gson.fromJson(json, Map.class);
+    public String pegandoTokenNoJson(String json) {
+        Map<String, Object> jsonNodes = gson.fromJson(json, Map.class);
         String resultado = jsonNodes.get("token").toString();
         return resultado;
     }
     // Faz a requisição HTTP, cria a lista de carros e salva o JSON em arquivo
-    public static List<Anuncio> getAnunciosFromWebService(Context context, int tipo) throws IOException {
+    /*public static List<Anuncio> getAnunciosFromWebService(Context context, int tipo) throws IOException {
         String tipoString = getTipo(tipo);
         String url = URL.replace("{tipo}", tipoString);
         Log.d(TAG, "URL: " + url);
@@ -94,16 +94,16 @@ public class UsuarioService {
             JSONArray jsonAnuncios = obj.getJSONArray("anuncio");
             // Insere cada anuncio na lista
             for (int i = 0; i < jsonAnuncios.length(); i++) {
-                JSONObject jsonCarro = jsonAnuncios.getJSONObject(i);
+                JSONObject jsonAnuncio = jsonAnuncios.getJSONObject(i);
                 Anuncio c = new Anuncio();
-                // Lê as informações de cada carro
-                c.nome = jsonCarro.optString("nome");
-                c.desc = jsonCarro.optString("desc");
-                c.urlFoto = jsonCarro.optString("url_foto");
-                c.urlInfo = jsonCarro.optString("url_info");
-                c.urlVideo = jsonCarro.optString("url_video");
-                c.latitude = jsonCarro.optString("latitude");
-                c.longitude = jsonCarro.optString("longitude");
+                // Lê as informações de cada anuncio
+                c.nome = jsonAnuncio.optString("nome");
+                c.desc = jsonAnuncio.optString("desc");
+                c.urlFoto = jsonAnuncio.optString("url_foto");
+                c.urlInfo = jsonAnuncio.optString("url_info");
+                c.urlVideo = jsonAnuncio.optString("url_video");
+                c.latitude = jsonAnuncio.optString("latitude");
+                c.longitude = jsonAnuncio.optString("longitude");
                 if (LOG_ON) {
                     Log.d(TAG, "Anuncio " + c.nome + " > " + c.urlFoto);
                 }
@@ -116,7 +116,7 @@ public class UsuarioService {
             throw new IOException(e.getMessage(), e);
         }
         return anuncios;
-    }
+    }*/
 
 
 
