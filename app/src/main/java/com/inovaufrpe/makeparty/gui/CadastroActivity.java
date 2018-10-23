@@ -59,8 +59,14 @@ public class CadastroActivity extends AppCompatActivity {
         spUsuario.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                edtNome.setText("");
+                edtEmail.setText("");
+                edtConfEmail.setText("");
+                edtSenha.setText("");
+                edtConfSenha.setText("");
+                edtTelefone.setText("");
+
                 if (parent.getSelectedItem().toString().equals("Fornecedor")){
-                    edtNome.setText("");
                     edtNome.setHint("Razão social");
                     edtMei.setVisibility(View.INVISIBLE);
                     edtCnpj.setVisibility(View.VISIBLE);
@@ -70,7 +76,6 @@ public class CadastroActivity extends AppCompatActivity {
                     edtNasc.setVisibility(View.INVISIBLE);
                     tipoDeUserParaCadastro = "Fornecedor";
                 } else{
-                    edtNome.setText("");
                     edtNome.setHint("Nome");
                     edtMei.setVisibility(View.INVISIBLE);
                     edtMei.setText("");
@@ -111,10 +116,10 @@ public class CadastroActivity extends AppCompatActivity {
         String confSenha = edtConfSenha.getText().toString().trim();
         String telefone = edtTelefone.getText().toString().trim();
 
-        if (validacaoGuiRapida.isCampoVazio(nome)) {
-            this.edtNome.setError("Campo vazio");
+        if (!validacaoGuiRapida.isCampoAceitavel(nome)) {
+            this.edtNome.setError("Digite seu nome");
             return false;
-        } else if (validacaoGuiRapida.isEmailValido(email)) {
+        } else if (!validacaoGuiRapida.isEmailValido(email)) {
             this.edtEmail.setError("Formato inválido");
             return false;
         } else if (!confEmail.equals(email)) {
@@ -125,10 +130,10 @@ public class CadastroActivity extends AppCompatActivity {
             return false;
 
         } else if (!validacaoGuiRapida.isSenhaIgual(senha, confSenha)) {
-            this.edtConfSenha.setError("Senhas diferentes");
+            this.edtConfSenha.setError("A senha e a sua confirmação devem corresponder");
             return false;
 
-        } else if (validacaoGuiRapida.isTelefoneValido(telefone)) {
+        } else if (!validacaoGuiRapida.isTelefoneValido(telefone)) {
             this.edtTelefone.setError("Telefone inválido");
             return false;
         } else {
@@ -141,10 +146,10 @@ public class CadastroActivity extends AppCompatActivity {
 
         if (!verificarCamposEmailSenhaETelefone()){
             return false;
-        }else if (validacaoGuiRapida.isCpfValido(cpf)){
+        }else if (!validacaoGuiRapida.isCpfValido(cpf)){
             this.edtCpf.setError("Cpf inválido");
             return false;
-        }else if (validacaoGuiRapida.isDataValida(dataNasc)){
+        }else if (!validacaoGuiRapida.isDataValida(dataNasc)){
             this.edtNasc.setError("Data inválida");
             return false;
         } else{
@@ -159,7 +164,7 @@ public class CadastroActivity extends AppCompatActivity {
         if (!verificarCamposEmailSenhaETelefone()) {
             return false;
 
-        }else if (validacaoGuiRapida.isCnpjValido(cnpj)) {
+        }else if (!validacaoGuiRapida.isCnpjValido(cnpj)) {
             this.edtCnpj.setError("CNPJ inválido");
             return false;
         }else{
