@@ -76,6 +76,7 @@ public class CadastroActivity extends AppCompatActivity {
                     edtMei.setText("");
                     edtCnpj.setVisibility(View.INVISIBLE);
                     edtCnpj.setText("");
+                    edtNasc.setVisibility(View.VISIBLE);
                     edtCpf.setVisibility(View.VISIBLE);
                     tipoDeUserParaCadastro = "Cliente";
                 }
@@ -89,14 +90,11 @@ public class CadastroActivity extends AppCompatActivity {
     public void onClickCadastrar(View view) {
         String tipoUsuario = (String) spUsuario.getSelectedItem();
 
-        String cadastroAtual="Cliente";
         if (tipoDeUserParaCadastro.equals("Fornecedor")) {
-            cadastroAtual = "Fornecedor";
             if(verificarCamposEspecificosFornecedor()){
                 Toast.makeText(getApplicationContext(), "Cadastro para Fornecedor AINDA FALTA TERM", Toast.LENGTH_SHORT).show();
             }
         }else if(tipoDeUserParaCadastro.equals("Cliente")){
-            cadastroAtual ="Cliente";
             if(verificarCamposEspecificosCliente()){
                 Toast.makeText(getApplicationContext(), "Cadastro para Cliente AINDA FALTA TERM", Toast.LENGTH_SHORT).show();
 
@@ -123,14 +121,14 @@ public class CadastroActivity extends AppCompatActivity {
             this.edtConfEmail.setError("Confirmação de email diferente");
             return false;
         } else if (!validacaoGuiRapida.isSenhaValida(senha)) {
-            this.edtSenha.setError("Senha inválida");
+            this.edtSenha.setError("Senha inválida, coloque no min 6 caracteres");
             return false;
 
         } else if (!validacaoGuiRapida.isSenhaIgual(senha, confSenha)) {
             this.edtConfSenha.setError("Senhas diferentes");
             return false;
 
-        } else if (!validacaoGuiRapida.isTelefoneValido(telefone)) {
+        } else if (validacaoGuiRapida.isTelefoneValido(telefone)) {
             this.edtTelefone.setError("Telefone inválido");
             return false;
         } else {
@@ -143,7 +141,7 @@ public class CadastroActivity extends AppCompatActivity {
 
         if (!verificarCamposEmailSenhaETelefone()){
             return false;
-        }else if (!validacaoGuiRapida.isCpfValido(cpf)){
+        }else if (validacaoGuiRapida.isCpfValido(cpf)){
             this.edtCpf.setError("Cpf inválido");
             return false;
         }else if (validacaoGuiRapida.isDataValida(dataNasc)){
@@ -161,7 +159,7 @@ public class CadastroActivity extends AppCompatActivity {
         if (!verificarCamposEmailSenhaETelefone()) {
             return false;
 
-        }else if (!validacaoGuiRapida.isCnpjValido(cnpj)) {
+        }else if (validacaoGuiRapida.isCnpjValido(cnpj)) {
             this.edtCnpj.setError("CNPJ inválido");
             return false;
         }else{

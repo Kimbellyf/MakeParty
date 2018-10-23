@@ -38,21 +38,17 @@ public class ValidacaoGuiRapida {
 
     public boolean isTelefoneValido(String telefone) {
 
-        return ((isCampoVazio(telefone)) && telefone.length() == TAMTEL);
+        return ((isCampoVazio(telefone))  || telefone.length() == TAMTEL);
     }
 
     public boolean isCpfValido(String cpf) {
 
-        return ((isCampoVazio(cpf)) && cpf.length() == TAMCPF);
+        return ((isCampoVazio(cpf))  || cpf.length() == TAMCPF);
     }
 
     public boolean isSenhaValida(String senha) {
 
-        if (isCampoVazio(senha)) {
-            return false;
-        } else {
-           return true;
-        }
+        return (isCampoVazio(senha)|| senha.length()>=SEIS);
     }
 
     public boolean isSenhaIgual(String senha, String confirmaSenha) {
@@ -61,7 +57,7 @@ public class ValidacaoGuiRapida {
 
     public boolean isCnpjValido(String cnpj) {
 
-        return ((isCampoVazio(cnpj)) && cnpj.length() == TAMCNPJ);
+        return ((isCampoVazio(cnpj)) || cnpj.length() == TAMCNPJ);
     }
 
     public static boolean dataMenorOuIgualQueAtual(String data) {

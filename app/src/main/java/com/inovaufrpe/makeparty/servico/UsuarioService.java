@@ -1,12 +1,25 @@
 package com.inovaufrpe.makeparty.servico;
 
-import com.google.gson.Gson;
+import android.content.Context;
+import android.util.Log;
 
+import com.google.gson.Gson;
+import com.inovaufrpe.makeparty.dominio.Anuncio;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 
 public class UsuarioService {
 
+    private static final String TAG = "UsuarioService";
     private static final String URL_BASE = "https://makepartyserver.herokuapp.com/";
     private static final String URL_CRIAR_USUARIO = URL_BASE + "users";
     private static final String URL_AUTENTICAR_USUARIO = URL_BASE + "users/authenticate";
@@ -59,6 +72,50 @@ public class UsuarioService {
         Map<String,Object> jsonNodes = gson.fromJson(json, Map.class);
         String resultado = jsonNodes.get("token").toString();
         return resultado;
+    }
+    // Faz a requisição HTTP, cria a lista de carros e salva o JSON em arquivo
+    public static List<Anuncio> getAnunciosFromWebService(Context context, int tipo) throws IOException {
+        String tipoString = getTipo(tipo);
+        String url = URL.replace("{tipo}", tipoString);
+        Log.d(TAG, "URL: " + url);
+        HttpHelper http = new HttpHelper();
+        String json = http.doGet(url);
+        List<Anuncio> anuncios = parserJSON(context, json);
+//        salvaArquivoNaMemoriaInterna(context, url, json);
+        // Depois de buscar salva os carros
+        salvarAnuncios(context, tipo, anuncios);
+        return anuncios;
+    }
+    private static List<Anuncio> parserJSON(Context context, String json) throws IOException {
+        List<Anuncio> anuncios = new ArrayList<Anuncio>();
+        try {
+            JSONObject root = new JSONObject(json);
+            JSONObject obj = root.getJSONObject("anuncios");
+            JSONArray jsonAnuncios = obj.getJSONArray("anuncio");
+            // Insere cada anuncio na lista
+            for (int i = 0; i < jsonAnuncios.length(); i++) {
+                JSONObject jsonCarro = jsonAnuncios.getJSONObject(i);
+                Anuncio c = new Anuncio();
+                // Lê as informações de cada carro
+                c.nome = jsonCarro.optString("nome");
+                c.desc = jsonCarro.optString("desc");
+                c.urlFoto = jsonCarro.optString("url_foto");
+                c.urlInfo = jsonCarro.optString("url_info");
+                c.urlVideo = jsonCarro.optString("url_video");
+                c.latitude = jsonCarro.optString("latitude");
+                c.longitude = jsonCarro.optString("longitude");
+                if (LOG_ON) {
+                    Log.d(TAG, "Anuncio " + c.nome + " > " + c.urlFoto);
+                }
+                anuncios.add(c);
+            }
+            if (LOG_ON) {
+                Log.d(TAG, anuncios.size() + " encontrados.");
+            }
+        } catch (JSONException e) {
+            throw new IOException(e.getMessage(), e);
+        }
+        return anuncios;
     }
 
 

@@ -7,6 +7,7 @@
     <string name="label_cadastro">Cadastro</string>
     <string name="label_home">Home</string>
     <string name="label_escolha">Escolha</string>
+    <string name="label_definir_regiao">Definir região no mapa</string>
     <string name="text_click_esqueceu_senha">Esqueceu a senha?</string>
     <string name="edit_text_email">E-mail</string>
     <string name="edit_text_senha">Senha</string>
@@ -62,6 +63,7 @@
     <string name="ic_avaliar_anuncio_fornecedor">Avaliar fornecedor pelo anúncio</string>
     <string name="ic_adicionar_anuncio_a_lista_desejos">Adicionar anúncio a lista de desejos</string>
     <string name="text_fornecedor_media_geral">Média geral do tipo de anúncio do fornecedor</string>
+
 
 
 </resources>
