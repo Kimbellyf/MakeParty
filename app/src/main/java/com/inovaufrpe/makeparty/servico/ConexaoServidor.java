@@ -1,6 +1,7 @@
 package com.inovaufrpe.makeparty.servico;
 
 import android.os.AsyncTask;
+
 import java.net.HttpURLConnection;
 
 
@@ -10,13 +11,13 @@ import java.io.InputStreamReader;
 import java.io.PrintStream;
 
 import java.net.URL;
-import java.util.Objects;
 
 
 public class ConexaoServidor extends AsyncTask<String, String, String> {
 
 
     private UsuarioService usuarioService = new UsuarioService();
+    //public AsyncResposta delegate = null;
 
 
 //requisição HTTP

@@ -5,6 +5,7 @@ import android.util.Log;
 
 import com.google.gson.Gson;
 import com.inovaufrpe.makeparty.dominio.Anuncio;
+import com.inovaufrpe.makeparty.utils.bibliotecalivroandroid.utils.HttpHelper;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -20,10 +21,39 @@ import java.util.Map;
 public class UsuarioService {
 
     private static final String TAG = "UsuarioService";
+    private static final boolean LOG_ON = false;
     private static final String URL_BASE = "https://makepartyserver.herokuapp.com/";
+
+    //URLS com cadastro, autenticar e atualizar token == POST
     private static final String URL_CRIAR_USUARIO = URL_BASE + "users";
-    private static final String URL_AUTENTICAR_USUARIO = URL_BASE + "users/authenticate";
+    private static final String URL_CADASTRAR_PF = URL_BASE + "users/signup/customer";
+    private static final String URL_CADASTRO_PJ = URL_BASE + "users/signup/advertiser";
+    private static final String URL_AUTENTICAR_USUARIO = URL_BASE + "/users/authenticate";
     private static final String URL_ATUALIZAR_TOKEN = URL_BASE + "users/refresh-token";
+
+    // Os que possuem url somente URLBASE + "customers" ou "advertisers" podem ser usados PUT,DELETE E GET
+    private static final String URL_ATUALIZAR_PF = URL_BASE + "customers";
+    private static final String URL_ATUALIZAR_PJ = URL_BASE + "advertisers";
+
+    //POST, PUT, DELETE E GET
+    private static final String URL_COLOCAR_ANUNCIO = URL_BASE + "ads";
+    private static final String URL_LISTAR_ANUNCIOS = URL_BASE + "ads";
+
+    //GET ANÚNCIOS
+    private  static final String URL_LISTAR_ANUNCIOS_PELA_TAG = URL_BASE + "tags/:tag";
+    private  static final String URL_LISTAR_ANUNCIOS_PELO_TIPO = URL_BASE + "/types/:type";
+
+    //GET
+    private static final String URL_LISTAR_USUARIOS = URL_BASE +"users";
+    private static final String URL_PESQUISAR_PF_PELO_ID = URL_BASE + "customers/:id";
+    private static final String URL_PESQUISAR_PJ_PELO_ID = URL_BASE + "advertisers/:id";
+    private static final String URL_LISTAR_PJS = URL_BASE + "advertisers";
+
+
+
+
+
+    private static final String ROTALOGAR = URL_BASE + "auth/login";
     private Gson gson = new Gson();
 
 
@@ -73,51 +103,5 @@ public class UsuarioService {
         String resultado = jsonNodes.get("token").toString();
         return resultado;
     }
-    // Faz a requisição HTTP, cria a lista de carros e salva o JSON em arquivo
-    /*public static List<Anuncio> getAnunciosFromWebService(Context context, int tipo) throws IOException {
-        String tipoString = getTipo(tipo);
-        String url = URL.replace("{tipo}", tipoString);
-        Log.d(TAG, "URL: " + url);
-        HttpHelper http = new HttpHelper();
-        String json = http.doGet(url);
-        List<Anuncio> anuncios = parserJSON(context, json);
-//        salvaArquivoNaMemoriaInterna(context, url, json);
-        // Depois de buscar salva os carros
-        salvarAnuncios(context, tipo, anuncios);
-        return anuncios;
-    }
-    private static List<Anuncio> parserJSON(Context context, String json) throws IOException {
-        List<Anuncio> anuncios = new ArrayList<Anuncio>();
-        try {
-            JSONObject root = new JSONObject(json);
-            JSONObject obj = root.getJSONObject("anuncios");
-            JSONArray jsonAnuncios = obj.getJSONArray("anuncio");
-            // Insere cada anuncio na lista
-            for (int i = 0; i < jsonAnuncios.length(); i++) {
-                JSONObject jsonAnuncio = jsonAnuncios.getJSONObject(i);
-                Anuncio c = new Anuncio();
-                // Lê as informações de cada anuncio
-                c.nome = jsonAnuncio.optString("nome");
-                c.desc = jsonAnuncio.optString("desc");
-                c.urlFoto = jsonAnuncio.optString("url_foto");
-                c.urlInfo = jsonAnuncio.optString("url_info");
-                c.urlVideo = jsonAnuncio.optString("url_video");
-                c.latitude = jsonAnuncio.optString("latitude");
-                c.longitude = jsonAnuncio.optString("longitude");
-                if (LOG_ON) {
-                    Log.d(TAG, "Anuncio " + c.nome + " > " + c.urlFoto);
-                }
-                anuncios.add(c);
-            }
-            if (LOG_ON) {
-                Log.d(TAG, anuncios.size() + " encontrados.");
-            }
-        } catch (JSONException e) {
-            throw new IOException(e.getMessage(), e);
-        }
-        return anuncios;
-    }*/
-
-
 
 }

@@ -63,7 +63,11 @@
     <string name="ic_avaliar_anuncio_fornecedor">Avaliar fornecedor pelo anúncio</string>
     <string name="ic_adicionar_anuncio_a_lista_desejos">Adicionar anúncio a lista de desejos</string>
     <string name="text_fornecedor_media_geral">Média geral do tipo de anúncio do fornecedor</string>
-
+    <string name="text_pacotes">Pacotes</string>
+    <string name="text_casas_de_festas">Casas de festas</string>
+    <string name="text_buffet">Buffet</string>
+    <string name="text_decoracao">Decoração</string>
+    <string name="text_animacao">Animação</string>
 
 
 </resources>

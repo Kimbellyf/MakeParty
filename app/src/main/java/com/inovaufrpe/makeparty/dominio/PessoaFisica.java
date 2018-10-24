@@ -6,10 +6,19 @@ public class PessoaFisica {
 
     private String name;
     private String cpf;
-    private Date birthdate;
+    private String birthdate;
     private String phone;
     private Usuario user;
+    //private Byte photo;
     //private String photo;
+
+    public PessoaFisica(Usuario user,String name, String cpf, String birthdate, String phone) {
+        this.name = name;
+        this.cpf = cpf;
+        this.birthdate = birthdate;
+        this.phone = phone;
+        this.user = user;
+    }
 
     public String getName() {
         return name;
@@ -27,11 +36,11 @@ public class PessoaFisica {
         this.cpf = cpf;
     }
 
-    public Date getBirthdate() {
+    public String getBirthdate() {
         return birthdate;
     }
 
-    public void setBirthdate(Date birthdate) {
+    public void setBirthdate(String birthdate) {
         this.birthdate = birthdate;
     }
 

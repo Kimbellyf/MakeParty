@@ -6,11 +6,21 @@ public class PessoaJuridica {
     private String cnpj;
     private String authorization;
     private String photo;
+    //private Byte photo;
     private Usuario user;
     private String phone;
     private Plano plan;
     private Agenda schedule;
 
+
+    public PessoaJuridica() {
+    }
+    public PessoaJuridica(Usuario user, String socialname, String cnpj, String phone) {
+        this.socialname = socialname;
+        this.cnpj = cnpj;
+        this.user = user;
+        this.phone = phone;
+    }
 
     public String getSocialname() {
         return socialname;

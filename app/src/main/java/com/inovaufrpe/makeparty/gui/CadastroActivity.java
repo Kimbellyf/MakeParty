@@ -9,15 +9,23 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.inovaufrpe.makeparty.R;
+import com.inovaufrpe.makeparty.dominio.PessoaFisica;
+import com.inovaufrpe.makeparty.dominio.PessoaJuridica;
+import com.inovaufrpe.makeparty.dominio.Usuario;
+import com.inovaufrpe.makeparty.servico.ConexaoServidor;
 import com.inovaufrpe.makeparty.servico.ValidacaoGuiRapida;
 import com.inovaufrpe.makeparty.utils.Mask;
+
+import java.util.Date;
 
 public class CadastroActivity extends AppCompatActivity {
     private EditText edtEmail, edtConfEmail, edtSenha, edtConfSenha, edtNome, edtCpf, edtNasc, edtMei, edtCnpj, edtTelefone;
     private Spinner spUsuario;
     private ValidacaoGuiRapida validacaoGuiRapida = new ValidacaoGuiRapida();
     private String tipoDeUserParaCadastro;
+    ConexaoServidor conexaoServidor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,12 +103,16 @@ public class CadastroActivity extends AppCompatActivity {
     public void onClickCadastrar(View view) {
         String tipoUsuario = (String) spUsuario.getSelectedItem();
 
+
         if (tipoDeUserParaCadastro.equals("Fornecedor")) {
             if(verificarCamposEspecificosFornecedor()){
+                String telefone = edtTelefone.toString().trim().replace(".","").replace("-","").replace("(","").replace(")","");
+                setarFornecedor();
                 Toast.makeText(getApplicationContext(), "Cadastro para Fornecedor AINDA FALTA TERM", Toast.LENGTH_SHORT).show();
             }
         }else if(tipoDeUserParaCadastro.equals("Cliente")){
             if(verificarCamposEspecificosCliente()){
+                setarCliente();
                 Toast.makeText(getApplicationContext(), "Cadastro para Cliente AINDA FALTA TERM", Toast.LENGTH_SHORT).show();
 
             }
@@ -109,7 +121,7 @@ public class CadastroActivity extends AppCompatActivity {
 
     }
     private boolean verificarCamposEmailSenhaETelefone() {
-        String nome = edtNome.getText().toString();
+        String nome = edtNome.getText().toString().trim();
         String email = edtEmail.getText().toString().trim();
         String confEmail = edtConfEmail.getText().toString().trim();
         String senha = edtSenha.getText().toString().trim();
@@ -172,5 +184,32 @@ public class CadastroActivity extends AppCompatActivity {
         }
 
     }
+
+    private void setarFornecedor(){
+        String email = edtEmail.getText().toString().trim();
+        String senha = edtSenha.getText().toString().trim();
+        String razaoSocial = edtNome.getText().toString().trim();
+        String telefone = edtTelefone.getText().toString().trim().replace(".","").replace("-","").replace("(","").replace(")","");
+        String cnpj = edtCnpj.getText().toString().trim().replace(".","").replace("-","").replace("/","");
+
+        Usuario usuario = new Usuario(email, senha);
+        PessoaJuridica pessoaJuridica = new PessoaJuridica(usuario, razaoSocial,cnpj,telefone);
+    }
+    private void setarCliente(){
+        String email = edtEmail.getText().toString().trim();
+        String senha = edtSenha.getText().toString().trim();
+        String nome = edtNome.getText().toString().trim();
+        String telefone = edtTelefone.getText().toString().trim().replace(".","").replace("-","").replace("(","").replace(")","");
+        String cpf = edtCpf.getText().toString().trim().replace(".","").replace("-","");
+        String dataNasc = edtNasc.getText().toString();
+
+        Usuario usuario = new Usuario(email, senha);
+        PessoaFisica pessoaFisica = new PessoaFisica(usuario,nome,cpf,validacaoGuiRapida.dataFormatoBanco(dataNasc),telefone);
+    }
+    private void connectToServer(){
+        conexaoServidor = new ConexaoServidor();
+       // conexaoServidor.delegate = this;
+    }
+
 
 }
