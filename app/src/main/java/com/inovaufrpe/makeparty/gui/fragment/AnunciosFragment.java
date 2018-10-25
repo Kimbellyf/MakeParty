@@ -22,8 +22,10 @@ import com.inovaufrpe.makeparty.dominio.Anuncio;
 import com.inovaufrpe.makeparty.gui.adapter.AnuncioAdapter;
 import com.inovaufrpe.makeparty.infra.MakePartyApplication;
 import com.inovaufrpe.makeparty.R;
+import com.inovaufrpe.makeparty.utils.bibliotecalivroandroid.utils.AndroidUtils;
 
 import java.io.File;
+import java.net.HttpURLConnection;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -74,13 +76,15 @@ public class AnunciosFragment extends Fragment {
         return new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
+                //HttpURLConnection.
                 // Valida se existe conexão ao fazer o gesto Pull to Refresh
-                /* if (AndroidUtils.isNetworkAvailable(getContext())) {
+                if (AndroidUtils.isNetworkAvailable(getContext())) {
                     // Atualiza ao fazer o gesto Pull to Refresh
                 } else {
                     swipeLayout.setRefreshing(false);
                     //snack(recyclerView, R.string.msg_error_conexao_indisponivel);
-                }*/
+
+                }
             }
         };
     }
