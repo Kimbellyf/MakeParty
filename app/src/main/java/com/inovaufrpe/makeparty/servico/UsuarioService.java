@@ -20,41 +20,6 @@ import java.util.Map;
 
 public class UsuarioService {
 
-    private static final String TAG = "UsuarioService";
-    private static final boolean LOG_ON = false;
-    private static final String URL_BASE = "https://makepartyserver.herokuapp.com/";
-
-    //URLS com cadastro, autenticar e atualizar token == POST
-    private static final String URL_CRIAR_USUARIO = URL_BASE + "users";
-
-    private static final String URL_CADASTRAR_PF = URL_BASE + "users/signup/customer";
-    private static final String URL_CADASTRO_PJ = URL_BASE + "users/signup/advertiser";
-    private static final String URL_AUTENTICAR_USUARIO = URL_BASE + "/users/authenticate";
-    private static final String URL_ATUALIZAR_TOKEN = URL_BASE + "users/refresh-token";
-
-    // Os que possuem url somente URLBASE + "customers" ou "advertisers" podem ser usados PUT,DELETE E GET
-    private static final String URL_ATUALIZAR_PF = URL_BASE + "customers";
-    private static final String URL_ATUALIZAR_PJ = URL_BASE + "advertisers";
-
-    //POST, PUT, DELETE E GET
-    private static final String URL_COLOCAR_ANUNCIO = URL_BASE + "ads";
-    private static final String URL_LISTAR_ANUNCIOS = URL_BASE + "ads";
-
-    //GET ANÚNCIOS
-    private  static final String URL_LISTAR_ANUNCIOS_PELA_TAG = URL_BASE + "tags/:tag";
-    private  static final String URL_LISTAR_ANUNCIOS_PELO_TIPO = URL_BASE + "/types/:type";
-
-    //GET
-    private static final String URL_LISTAR_USUARIOS = URL_BASE +"users";
-    private static final String URL_PESQUISAR_PF_PELO_ID = URL_BASE + "customers/:id";
-    private static final String URL_PESQUISAR_PJ_PELO_ID = URL_BASE + "advertisers/:id";
-    private static final String URL_LISTAR_PJS = URL_BASE + "advertisers";
-
-
-
-
-
-    private static final String ROTALOGAR = URL_BASE + "auth/login";
     private Gson gson = new Gson();
 
 
