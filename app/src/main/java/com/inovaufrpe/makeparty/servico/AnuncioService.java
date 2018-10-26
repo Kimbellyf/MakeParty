@@ -3,6 +3,7 @@ package com.inovaufrpe.makeparty.servico;
 import android.content.Context;
 import android.util.Log;
 
+import com.google.gson.Gson;
 import com.inovaufrpe.makeparty.R;
 import com.inovaufrpe.makeparty.dominio.Anuncio;
 import com.inovaufrpe.makeparty.utils.bibliotecalivroandroid.utils.FileUtils;
@@ -18,6 +19,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class AnuncioService {
 
@@ -27,13 +29,17 @@ public class AnuncioService {
     //POST, PUT, DELETE E GET
     private static final String URL_COLOCAR_ANUNCIO = URL_BASE + "ads";
     private static final String URL_LISTAR_ANUNCIOS = URL_BASE + "ads";
-
     //GET ANÚNCIOS
     private static final String URL_LISTAR_ANUNCIOS_PELA_TAG = URL_BASE + "ads/tags/:tag";
     private static final String URL_LISTAR_ANUNCIOS_PELO_TIPO = URL_BASE + "ads/types/:type";
     private static final String URL_PESQUISAR_PJ_PELO_ID = URL_BASE + "advertisers/:id";
     private static final String URL_LISTAR_PJS = URL_BASE + "advertisers";
+    private Gson gson = new Gson();
+    private String respostaServidor;
+    private ConexaoServidor conexaoServidor = new ConexaoServidor();
 
+    public AnuncioService() {
+    } //CONSTRUTOR
 
     private static String getTipo(int tipo) {
         if (tipo == R.string.text_pacotes) {
@@ -47,7 +53,6 @@ public class AnuncioService {
         }
         return "animacao";
     }
-
     // Faz a requisição HTTP, cria a lista de anuncios e salva o JSON em arquivo
     public static List<Anuncio> getAnunciosFromWebService(Context context, int tipo) throws IOException {
         String tipoString = getTipo(tipo);
@@ -90,6 +95,7 @@ public class AnuncioService {
         }
         return anuncios;
     }
+
     private static void salvaArquivoNaMemoriaInterna(Context context, String url, String json) {
         String fileName = url.substring(url.lastIndexOf("/") + 1);
         File f = FileUtils.getFile(context, fileName);
@@ -97,6 +103,7 @@ public class AnuncioService {
         Log.d(TAG, "Arquivo salvo: " + f);
 
     }
+
     public static List<Anuncio> getAnunciosFromRaw(Context context, int tipo) throws IOException {
         //String json = readFile(context, tipo);
         //List<Anuncio> anuncios = parserJSON(context, json);
@@ -119,4 +126,80 @@ public class AnuncioService {
         Log.d(TAG, "Retornando anuncios do arquivo " + fileName + ".");
         return anuncios;
     }
+
+    //converte um objeto para json
+    public String criarJson(Object objeto) {
+        return gson.toJson(objeto);
+    }
+
+    //método que usa a requisição http implementada em conexaoServidor para criar usuário
+    public void criarAnuncio(Object objeto) {
+        String novoJson = criarJson(objeto);
+        conexaoServidor.execute(novoJson);
+
+    }
+
+    public Gson getGson() {
+        return gson;
+    }
+
+    public void setGson(Gson gson) {
+        this.gson = gson;
+    }
+
+    public ConexaoServidor getConexaoServidor() {
+        return conexaoServidor;
+    }
+
+    public void setConexaoServidor(ConexaoServidor conexaoServidor) {
+        this.conexaoServidor = conexaoServidor;
+    }
+
+    public String getRespostaServidor() {
+        return respostaServidor;
+    }
+
+    public void setRespostaServidor(String respostaServidor) {
+        this.respostaServidor = respostaServidor;
+    }
+
+
+    public static String getTAG() {
+        return TAG;
+    }
+
+    public static boolean isLogOn() {
+        return LOG_ON;
+    }
+
+    public static String getUrlBase() {
+        return URL_BASE;
+    }
+
+    public static String getUrlColocarAnuncio() {
+        return URL_COLOCAR_ANUNCIO;
+    }
+
+    public static String getUrlListarAnuncios() {
+        return URL_LISTAR_ANUNCIOS;
+    }
+
+    public static String getUrlListarAnunciosPelaTag() {
+        return URL_LISTAR_ANUNCIOS_PELA_TAG;
+    }
+
+    public static String getUrlListarAnunciosPeloTipo() {
+        return URL_LISTAR_ANUNCIOS_PELO_TIPO;
+    }
+
+    public static String getUrlPesquisarPjPeloId() {
+        return URL_PESQUISAR_PJ_PELO_ID;
+    }
+
+    public static String getUrlListarPjs() {
+        return URL_LISTAR_PJS;
+    }
+
+
+
 }

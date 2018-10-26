@@ -16,7 +16,7 @@ import java.net.URL;
 public class ConexaoServidor extends AsyncTask<String, String, String> {
 
 
-    private UsuarioService usuarioService = new UsuarioService();
+    private ClienteService clienteService = new ClienteService();
     //public AsyncResposta delegate = null;
 
 
@@ -24,7 +24,7 @@ public class ConexaoServidor extends AsyncTask<String, String, String> {
     private String conectarUser(String... strings){
         String jsonResposta = null;
         try{
-            URL url = new URL(usuarioService.getUrlCriarUsuario());
+            URL url = new URL(clienteService.getUrlCadastrarPf());
             HttpURLConnection conexao = (HttpURLConnection) url.openConnection();
             conexao.setRequestMethod("POST");
             conexao.addRequestProperty("Content-type", "application/json");
@@ -55,7 +55,7 @@ public class ConexaoServidor extends AsyncTask<String, String, String> {
         }catch(Exception e){
             e.printStackTrace();
         }
-        usuarioService.setRespostaServidor(jsonResposta);
+        clienteService.setRespostaServidor(jsonResposta);
 
         return jsonResposta;
     }

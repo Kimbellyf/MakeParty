@@ -1,6 +1,5 @@
 package com.inovaufrpe.makeparty.gui;
 
-import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,17 +9,14 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.google.gson.Gson;
 import com.inovaufrpe.makeparty.R;
 import com.inovaufrpe.makeparty.dominio.PessoaFisica;
 import com.inovaufrpe.makeparty.dominio.PessoaJuridica;
 import com.inovaufrpe.makeparty.dominio.Usuario;
 import com.inovaufrpe.makeparty.servico.ConexaoServidor;
-import com.inovaufrpe.makeparty.servico.UsuarioService;
+import com.inovaufrpe.makeparty.servico.ClienteService;
 import com.inovaufrpe.makeparty.servico.ValidacaoGuiRapida;
 import com.inovaufrpe.makeparty.utils.Mask;
-
-import java.util.Date;
 
 public class CadastroActivity extends AppCompatActivity {
     private EditText edtEmail, edtConfEmail, edtSenha, edtConfSenha, edtNome, edtCpf, edtNasc, edtMei, edtCnpj, edtTelefone;
@@ -28,7 +24,7 @@ public class CadastroActivity extends AppCompatActivity {
     private ValidacaoGuiRapida validacaoGuiRapida = new ValidacaoGuiRapida();
     private String tipoDeUserParaCadastro;
     ConexaoServidor conexaoServidor;
-    UsuarioService usuarioService = new UsuarioService();
+    ClienteService clienteService = new ClienteService();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

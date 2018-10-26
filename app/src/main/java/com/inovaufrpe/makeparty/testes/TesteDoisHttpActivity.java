@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.inovaufrpe.makeparty.R;
 import com.inovaufrpe.makeparty.servico.ConexaoServidor;
-import com.inovaufrpe.makeparty.servico.UsuarioService;
+import com.inovaufrpe.makeparty.servico.ClienteService;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -26,7 +26,7 @@ import java.net.URL;
 public class TesteDoisHttpActivity extends AppCompatActivity {
 
     ConexaoServidor conexaoServidor;
-    UsuarioService usuarioService = new UsuarioService();
+    ClienteService clienteService = new ClienteService();
     TextView text;
 
     @Override
@@ -34,7 +34,7 @@ public class TesteDoisHttpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teste_dois_http);
         text = findViewById(R.id.textView2);
-        new CheckConnectionStatus().execute(usuarioService.getUrlCadastrarPf());
+        new CheckConnectionStatus().execute(clienteService.getUrlCadastrarPf());
 
     }
     class CheckConnectionStatus extends AsyncTask<String, Void, String> {
