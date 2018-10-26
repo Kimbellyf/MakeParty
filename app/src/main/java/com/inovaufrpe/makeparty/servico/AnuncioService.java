@@ -29,8 +29,8 @@ public class AnuncioService {
     private static final String URL_LISTAR_ANUNCIOS = URL_BASE + "ads";
 
     //GET ANÚNCIOS
-    private static final String URL_LISTAR_ANUNCIOS_PELA_TAG = URL_BASE + "tags/:tag";
-    private static final String URL_LISTAR_ANUNCIOS_PELO_TIPO = URL_BASE + "/types/:type";
+    private static final String URL_LISTAR_ANUNCIOS_PELA_TAG = URL_BASE + "ads/tags/:tag";
+    private static final String URL_LISTAR_ANUNCIOS_PELO_TIPO = URL_BASE + "ads/types/:type";
     private static final String URL_PESQUISAR_PJ_PELO_ID = URL_BASE + "advertisers/:id";
     private static final String URL_LISTAR_PJS = URL_BASE + "advertisers";
 
