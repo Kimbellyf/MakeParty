@@ -65,7 +65,13 @@
         <activity android:name=".gui.TesteActivity" />
         <activity android:name=".gui.AvaliacaoNotaActivity" />
         <activity android:name=".gui.AtualizarPerfilClienteActivity" />
-        <activity android:name=".testes.HttpRequestExampleActivity"></activity>
+        <activity android:name=".testes.HttpRequestExampleActivity" />
+        <activity android:name=".testes.TesteDoisHttpActivity" />
+        <activity android:name=".testes.TesteTresActivity" />
+        <activity android:name=".testes.TesteQuatroActivity" />
+        <activity android:name=".testes.TesteCincoActivity">
+            
+        </activity>
     </application>
 
 </manifest>

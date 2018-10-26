@@ -26,6 +26,7 @@ public class UsuarioService {
 
     //URLS com cadastro, autenticar e atualizar token == POST
     private static final String URL_CRIAR_USUARIO = URL_BASE + "users";
+
     private static final String URL_CADASTRAR_PF = URL_BASE + "users/signup/customer";
     private static final String URL_CADASTRO_PJ = URL_BASE + "users/signup/advertiser";
     private static final String URL_AUTENTICAR_USUARIO = URL_BASE + "/users/authenticate";
@@ -63,6 +64,85 @@ public class UsuarioService {
 
     public UsuarioService() {
     } //CONSTRUTOR
+    public static String getTAG() {
+        return TAG;
+    }
+
+    public static boolean isLogOn() {
+        return LOG_ON;
+    }
+
+    public static String getUrlBase() {
+        return URL_BASE;
+    }
+
+    public static String getUrlCadastrarPf() {
+        return URL_CADASTRAR_PF;
+    }
+
+    public static String getUrlCadastroPj() {
+        return URL_CADASTRO_PJ;
+    }
+
+    public static String getUrlAtualizarPf() {
+        return URL_ATUALIZAR_PF;
+    }
+
+    public static String getUrlAtualizarPj() {
+        return URL_ATUALIZAR_PJ;
+    }
+
+    public static String getUrlColocarAnuncio() {
+        return URL_COLOCAR_ANUNCIO;
+    }
+
+    public static String getUrlListarAnuncios() {
+        return URL_LISTAR_ANUNCIOS;
+    }
+
+    public static String getUrlListarAnunciosPelaTag() {
+        return URL_LISTAR_ANUNCIOS_PELA_TAG;
+    }
+
+    public static String getUrlListarAnunciosPeloTipo() {
+        return URL_LISTAR_ANUNCIOS_PELO_TIPO;
+    }
+
+    public static String getUrlListarUsuarios() {
+        return URL_LISTAR_USUARIOS;
+    }
+
+    public static String getUrlPesquisarPfPeloId() {
+        return URL_PESQUISAR_PF_PELO_ID;
+    }
+
+    public static String getUrlPesquisarPjPeloId() {
+        return URL_PESQUISAR_PJ_PELO_ID;
+    }
+
+    public static String getUrlListarPjs() {
+        return URL_LISTAR_PJS;
+    }
+
+    public static String getROTALOGAR() {
+        return ROTALOGAR;
+    }
+
+    public Gson getGson() {
+        return gson;
+    }
+
+    public void setGson(Gson gson) {
+        this.gson = gson;
+    }
+
+    public ConexaoServidor getConexaoServidor() {
+        return conexaoServidor;
+    }
+
+    public void setConexaoServidor(ConexaoServidor conexaoServidor) {
+        this.conexaoServidor = conexaoServidor;
+    }
 
     public static String getUrlCriarUsuario() {
         return URL_CRIAR_USUARIO;

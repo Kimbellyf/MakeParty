@@ -12,11 +12,12 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.inovaufrpe.makeparty.utils.bibliotecalivroandroid.task.TaskListener;
+import com.inovaufrpe.makeparty.utils.bibliotecalivroandroid.task.TaskResult;
+
 import java.util.HashMap;
 import java.util.Map;
 
-import livroandroid.lib.task.TaskListener;
-import livroandroid.lib.task.TaskResult;
 
 /**
  */

@@ -18,7 +18,8 @@ import android.util.TypedValue;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
-import br.com.livroandroid.androidutils.R;
+import com.inovaufrpe.makeparty.R;
+
 
 public class AndroidUtils {
     protected static final String TAG = "livroandroid";

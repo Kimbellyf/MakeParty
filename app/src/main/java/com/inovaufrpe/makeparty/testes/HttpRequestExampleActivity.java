@@ -14,6 +14,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
+//TESTE GET COM OKHTTP, SIM, RETORNOU, MAS N RETRANSFORMEI OS DADOS OBTIDOS EM OBJETOS DNV, SÓ VEIO OS COD JSON
 public class HttpRequestExampleActivity extends AppCompatActivity {
     private TextView mTextViewResult;
 

@@ -51,13 +51,13 @@ public class AnuncioService {
     // Faz a requisição HTTP, cria a lista de anuncios e salva o JSON em arquivo
     public static List<Anuncio> getAnunciosFromWebService(Context context, int tipo) throws IOException {
         String tipoString = getTipo(tipo);
-        String url = URL_LISTAR_ANUNCIOS_PELO_TIPO.replace(":type}", tipoString);
+        String url = URL_LISTAR_ANUNCIOS_PELO_TIPO.replace(":type", tipoString);
         Log.d(TAG, "URL: " + url);
         HttpHelper http = new HttpHelper();
         String json = http.doGet(url);
         List<Anuncio> anuncios = parserJSON(context, json);
         salvaArquivoNaMemoriaInterna(context, url, json);
-        // Depois de buscar salva os carros
+        // Depois de buscar salva os anuncios
         //salvarAnuncios(context, tipo, anuncios);
         return anuncios;
     }

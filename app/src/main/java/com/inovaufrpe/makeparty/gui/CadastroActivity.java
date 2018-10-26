@@ -1,5 +1,6 @@
 package com.inovaufrpe.makeparty.gui;
 
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -15,6 +16,7 @@ import com.inovaufrpe.makeparty.dominio.PessoaFisica;
 import com.inovaufrpe.makeparty.dominio.PessoaJuridica;
 import com.inovaufrpe.makeparty.dominio.Usuario;
 import com.inovaufrpe.makeparty.servico.ConexaoServidor;
+import com.inovaufrpe.makeparty.servico.UsuarioService;
 import com.inovaufrpe.makeparty.servico.ValidacaoGuiRapida;
 import com.inovaufrpe.makeparty.utils.Mask;
 
@@ -26,6 +28,7 @@ public class CadastroActivity extends AppCompatActivity {
     private ValidacaoGuiRapida validacaoGuiRapida = new ValidacaoGuiRapida();
     private String tipoDeUserParaCadastro;
     ConexaoServidor conexaoServidor;
+    UsuarioService usuarioService = new UsuarioService();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

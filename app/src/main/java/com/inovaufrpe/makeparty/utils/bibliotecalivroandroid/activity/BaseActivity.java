@@ -7,7 +7,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-import livroandroid.lib.utils.AlertUtils;
+import com.inovaufrpe.makeparty.utils.bibliotecalivroandroid.utils.AlertUtils;
+
 
 /**
  * Created by Ricardo Lecheta on 22/09/2014.
