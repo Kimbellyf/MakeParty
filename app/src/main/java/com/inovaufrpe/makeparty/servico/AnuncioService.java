@@ -6,6 +6,7 @@ import android.util.Log;
 import com.google.gson.Gson;
 import com.inovaufrpe.makeparty.R;
 import com.inovaufrpe.makeparty.dominio.Anuncio;
+import com.inovaufrpe.makeparty.dominio.PessoaJuridica;
 import com.inovaufrpe.makeparty.utils.bibliotecalivroandroid.utils.FileUtils;
 import com.inovaufrpe.makeparty.utils.bibliotecalivroandroid.utils.HttpHelper;
 import com.inovaufrpe.makeparty.utils.bibliotecalivroandroid.utils.IOUtils;
@@ -130,6 +131,12 @@ public class AnuncioService {
     //converte um objeto para json
     public String criarJson(Object objeto) {
         return gson.toJson(objeto);
+    }
+
+    //converte um json para objeto
+    public Anuncio criarObjeto(String json) {
+        return gson.fromJson(json,Anuncio.class);
+
     }
 
     //método que usa a requisição http implementada em conexaoServidor para criar usuário

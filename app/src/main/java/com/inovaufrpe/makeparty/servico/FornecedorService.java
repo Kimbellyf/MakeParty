@@ -1,6 +1,8 @@
 package com.inovaufrpe.makeparty.servico;
 
 import com.google.gson.Gson;
+import com.inovaufrpe.makeparty.dominio.PessoaFisica;
+import com.inovaufrpe.makeparty.dominio.PessoaJuridica;
 
 import java.util.Map;
 
@@ -26,6 +28,11 @@ public class FornecedorService {
     //converte um objeto para json
     public String criarJson(Object objeto) {
         return gson.toJson(objeto);
+    }
+
+    //converte um json para objeto
+    public PessoaJuridica criarObjeto(String json) {
+        return gson.fromJson(json,PessoaJuridica.class);
     }
 
     //método que usa a requisição http implementada em conexaoServidor para criar usuário

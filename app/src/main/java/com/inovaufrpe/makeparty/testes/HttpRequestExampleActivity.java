@@ -29,7 +29,7 @@ public class HttpRequestExampleActivity extends AppCompatActivity {
     //Metodo GET
     private void requisicaoMetodoOkHttp(){
         OkHttpClient client = new OkHttpClient();
-        String url = "https://makepartyserver.herokuapp.com/ads";
+        String url = "https://makepartyserver.herokuapp.com/users";
         Request request = new Request.Builder()
                 .url(url)
                 .build();

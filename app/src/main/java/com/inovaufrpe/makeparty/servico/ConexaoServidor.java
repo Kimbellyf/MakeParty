@@ -1,80 +1,49 @@
 package com.inovaufrpe.makeparty.servico;
 
 import android.os.AsyncTask;
+import java.io.IOException;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 
-import java.net.HttpURLConnection;
+// CLASSE DE REQUISIÇÃO CLIENTE HTTP
+public class ConexaoServidor{
 
+    //POST HTTP - RECEBE 2 PARÂMETROS - 0BJETO JSON(JA CONVERTIDO) E ROTA (URL)
+            public String postHttp(String json, String rota) throws IOException {
 
+                OkHttpClient client = new OkHttpClient();
+                String url = rota;
+                Request.Builder builder = new Request.Builder();
+                builder.url(url);
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.PrintStream;
+                MediaType mediaType = MediaType.parse("application/json; charset=utf-8");
+                RequestBody body = RequestBody.create(mediaType, json);
+                builder.post(body); // AQUI ELE TEM UM FUNÇÃO DO PRÓPRIO OBJETO PARA POST
+                Request request = builder.build();
 
-import java.net.URL;
+                Response response = client.newCall(request).execute();
+                String jsonDeResposta = response.body().string();
+                return jsonDeResposta;
 
-
-public class ConexaoServidor extends AsyncTask<String, String, String> {
-
-
-    private ClienteService clienteService = new ClienteService();
-    //public AsyncResposta delegate = null;
-
-
-//requisição HTTP
-    private String conectarUser(String... strings){
-        String jsonResposta = null;
-        try{
-            URL url = new URL(clienteService.getUrlCadastrarPf());
-            HttpURLConnection conexao = (HttpURLConnection) url.openConnection();
-            conexao.setRequestMethod("POST");
-            conexao.addRequestProperty("Content-type", "application/json");
-
-            conexao.setDoOutput(true);
-            conexao.setDoInput(true);
-
-            PrintStream printStream = new PrintStream(conexao.getOutputStream());
-            printStream.println();
-
-            conexao.connect();
-
-            BufferedReader reader = new BufferedReader( new InputStreamReader( conexao.getInputStream()));
-
-            conexao.disconnect();
-            StringBuilder sbHtml = new StringBuilder();
-            String linha;
-
-            while( ( linha = reader.readLine() ) != null )
-            {
-                sbHtml.append (linha);
             }
-            jsonResposta = sbHtml.toString();
-            reader.close();
-            printStream.close();
-            conexao.disconnect();
 
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-        clienteService.setRespostaServidor(jsonResposta);
+   //GET HTTP 1 PARÂMETRO É A ROTA
+            public String getHttp(String rota) throws IOException {
 
-        return jsonResposta;
-    }
+                String url = rota;
+                OkHttpClient client = new OkHttpClient();
 
+                Request request = new Request.Builder().url(url).build(); // AQUI NÃO PRECISAR CHAMAR BUILD.GET()
+                Response response = client.newCall(request).execute();
 
-//Thread para das requisições
-    @Override  // Este método é usado para exibir qualquer forma de progresso na interface do usuário, enquanto a tarefa ainda está em execução.
-    protected String doInBackground(String... strings) {
-        String jsonResposta = null;
-
-        jsonResposta = conectarUser(strings);
-        return jsonResposta;
-    }
-
-    //@Override // Este passo é usado para configurar a tarefa, por exemplo, mostrando uma barra de progresso na interface do usuário.
-    //protected void onPreExecute(){
-    //}
-
-    //@Override //O resultado da execução em background é passado para este passo como um parâmetro.
-    //protected void onPostExecute(){
-    //}
+                String jsonDeResposta = response.body().string();
+                return jsonDeResposta;
+            }
 }
+
+
+
+
