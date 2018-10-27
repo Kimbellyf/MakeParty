@@ -5,10 +5,8 @@ public class Endereco {
     private String street;
     private String neighborhood;
     private String number;
-    private String cep;
-    private String town;
-    private String state;
-
+    private String zipcode;
+    private String city;
 
     public String getStreet() {
         return street;
@@ -34,20 +32,20 @@ public class Endereco {
         this.number = number;
     }
 
-    public String getCep() {
-        return cep;
+    public String getZipcode() {
+        return zipcode;
     }
 
-    public void setCep(String cep) {
-        this.cep = cep;
+    public void setZipcode(String zipcode) {
+        this.zipcode = zipcode;
     }
 
-    public String getTown() {
-        return town;
+    public String getCity() {
+        return city;
     }
 
-    public void setTown(String town) {
-        this.town = town;
+    public void setCity(String city) {
+        this.city = city;
     }
 
     public String getState() {
@@ -57,6 +55,11 @@ public class Endereco {
     public void setState(String state) {
         this.state = state;
     }
+
+    private String state;
+
+
+
 
 
 
