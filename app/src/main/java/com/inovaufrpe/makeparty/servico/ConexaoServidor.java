@@ -28,6 +28,8 @@ public class ConexaoServidor{
                 String jsonDeResposta = response.body().string();
                 return jsonDeResposta;
 
+
+
             }
 
    //GET HTTP 1 PARÂMETRO É A ROTA

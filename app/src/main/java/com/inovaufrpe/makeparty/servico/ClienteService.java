@@ -3,6 +3,7 @@ package com.inovaufrpe.makeparty.servico;
 import com.google.gson.Gson;
 import com.inovaufrpe.makeparty.dominio.PessoaFisica;
 
+import java.io.IOException;
 import java.util.Map;
 
 public class ClienteService {
@@ -34,11 +35,10 @@ public class ClienteService {
         return gson.fromJson(json,PessoaFisica.class);
     }
 
-
     //método que usa a requisição http implementada em conexaoServidor para criar usuário
-    public void criarCliente(Object objeto) {
+    public void criarCliente(Object objeto) throws IOException {
         String novoJson = criarJson(objeto);
-        conexaoServidor.execute(novoJson);
+        conexaoServidor.postHttp(novoJson,URL_CADASTRAR_PF);
 
     }
 
@@ -58,10 +58,6 @@ public class ClienteService {
         this.gson = gson;
     }
 
-    public static String getUrlAtualizarToken() {
-        return URL_ATUALIZAR_TOKEN;
-    }
-
     public ConexaoServidor getConexaoServidor() {
         return conexaoServidor;
     }
@@ -78,10 +74,6 @@ public class ClienteService {
         this.respostaServidor = respostaServidor;
     }
 
-    public static String getTAG() {
-        return TAG;
-    }
-
     public static boolean isLogOn() {
         return LOG_ON;
     }
@@ -90,23 +82,5 @@ public class ClienteService {
         return URL_BASE;
     }
 
-    public static String getUrlCadastrarPf() {
-        return URL_CADASTRAR_PF;
-    }
 
-    public static String getUrlAtualizarPf() {
-        return URL_ATUALIZAR_PF;
-    }
-
-    public static String getUrlAutenticarUsuario() {
-        return URL_AUTENTICAR_USUARIO;
-    }
-
-    public static String getUrlPesquisarPfPeloId() {
-        return URL_PESQUISAR_PF_PELO_ID;
-    }
-
-    public static String getUrlListarUsuarios() {
-        return URL_LISTAR_USUARIOS;
-    }
 }

@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.inovaufrpe.makeparty.dominio.PessoaFisica;
 import com.inovaufrpe.makeparty.dominio.PessoaJuridica;
 
+import java.io.IOException;
 import java.util.Map;
 
 public class FornecedorService {
@@ -36,10 +37,9 @@ public class FornecedorService {
     }
 
     //método que usa a requisição http implementada em conexaoServidor para criar usuário
-    public void criarFornecedor(Object objeto) {
+    public void criarFornecedor(Object objeto) throws IOException {
         String novoJson = criarJson(objeto);
-        conexaoServidor.execute(novoJson);
-
+        conexaoServidor.postHttp(novoJson,URL_CADASTRO_PJ);
     }
 
     //Metodo que quebra o json e pega a 2 }== token que é preciso para identificar o user nas requisicoes para n ter q ficar pedindo direto o id/token que o identifica
@@ -58,10 +58,6 @@ public class FornecedorService {
         this.gson = gson;
     }
 
-    public static String getUrlAtualizarToken() {
-        return URL_ATUALIZAR_TOKEN;
-    }
-
     public ConexaoServidor getConexaoServidor() {
         return conexaoServidor;
     }
@@ -78,7 +74,6 @@ public class FornecedorService {
         this.respostaServidor = respostaServidor;
     }
 
-
     public static String getTAG() {
         return TAG;
     }
@@ -91,27 +86,5 @@ public class FornecedorService {
         return URL_BASE;
     }
 
-    public static String getUrlCadastroPj() {
-        return URL_CADASTRO_PJ;
-    }
 
-    public static String getUrlAtualizarPj() {
-        return URL_ATUALIZAR_PJ;
-    }
-
-    public static String getUrlAutenticarUsuario() {
-        return URL_AUTENTICAR_USUARIO;
-    }
-
-    public static String getUrlPesquisarPjPeloId() {
-        return URL_PESQUISAR_PJ_PELO_ID;
-    }
-
-    public static String getUrlListarPjs() {
-        return URL_LISTAR_PJS;
-    }
-
-    public static String getUrlListarUsuarios() {
-        return URL_LISTAR_USUARIOS;
-    }
 }

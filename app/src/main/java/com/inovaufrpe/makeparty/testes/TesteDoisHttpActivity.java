@@ -34,7 +34,7 @@ public class TesteDoisHttpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teste_dois_http);
         text = findViewById(R.id.textView2);
-        new CheckConnectionStatus().execute(clienteService.getUrlCadastrarPf());
+        //new CheckConnectionStatus().execute();
 
     }
     class CheckConnectionStatus extends AsyncTask<String, Void, String> {
