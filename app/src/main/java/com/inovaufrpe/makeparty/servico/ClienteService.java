@@ -1,12 +1,14 @@
 package com.inovaufrpe.makeparty.servico;
 
+import android.os.AsyncTask;
+
 import com.google.gson.Gson;
 import com.inovaufrpe.makeparty.dominio.PessoaFisica;
 
 import java.io.IOException;
 import java.util.Map;
 
-public class ClienteService {
+public class ClienteService{
 
     private static final String TAG = "ClienteService";
     private static final boolean LOG_ON = false;
@@ -16,7 +18,7 @@ public class ClienteService {
     private static final String URL_ATUALIZAR_TOKEN = URL_BASE + "users/refresh-token";
     private static final String URL_AUTENTICAR_USUARIO = URL_BASE + "/users/authenticate";
     private static final String URL_PESQUISAR_PF_PELO_ID = URL_BASE + "customers/:id";
-    private static final String URL_LISTAR_USUARIOS = URL_BASE +"users";
+    private static final String URL_LISTAR_USUARIOS = URL_BASE + "users";
     private Gson gson = new Gson();
     private String respostaServidor;
     private ConexaoServidor conexaoServidor = new ConexaoServidor();
@@ -32,15 +34,16 @@ public class ClienteService {
 
     //converte um json para objeto
     public PessoaFisica criarObjeto(String json) {
-        return gson.fromJson(json,PessoaFisica.class);
+        return gson.fromJson(json, PessoaFisica.class);
     }
 
-    //método que usa a requisição http implementada em conexaoServidor para criar usuário
+
     public void criarCliente(Object objeto) throws IOException {
         String novoJson = criarJson(objeto);
-        conexaoServidor.postHttp(novoJson,URL_CADASTRAR_PF);
+        conexaoServidor.postHttp(novoJson, URL_CADASTRAR_PF);
 
     }
+
 
     //Metodo que quebra o json e pega a 2 }== token que é preciso para identificar o user nas requisicoes para n ter q ficar pedindo direto o id/token que o identifica
     // eu uso esse metodo , pegando o token e salvando no SharedPreferens

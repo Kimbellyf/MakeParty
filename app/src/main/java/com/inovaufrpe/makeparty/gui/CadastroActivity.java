@@ -18,6 +18,8 @@ import com.inovaufrpe.makeparty.servico.ClienteService;
 import com.inovaufrpe.makeparty.servico.ValidacaoGuiRapida;
 import com.inovaufrpe.makeparty.utils.Mask;
 
+import java.io.IOException;
+
 public class CadastroActivity extends AppCompatActivity {
     private EditText edtEmail, edtConfEmail, edtSenha, edtConfSenha, edtNome, edtCpf, edtNasc, edtMei, edtCnpj, edtTelefone;
     private Spinner spUsuario;
@@ -99,7 +101,7 @@ public class CadastroActivity extends AppCompatActivity {
         });
     }
     //Aqui embaixo ainda falta chamar os serviços para efetivar o cadastro, só ta transf em string por enq
-    public void onClickCadastrar(View view) {
+    public void onClickCadastrar(View view) throws IOException {
         String tipoUsuario = (String) spUsuario.getSelectedItem();
 
 
@@ -111,14 +113,20 @@ public class CadastroActivity extends AppCompatActivity {
             }
         }else if(tipoDeUserParaCadastro.equals("Cliente")){
             if(verificarCamposEspecificosCliente()){
-                setarCliente();
+                try {
+                    setarCliente();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 Toast.makeText(getApplicationContext(), "Cadastro para Cliente AINDA FALTA TERM", Toast.LENGTH_SHORT).show();
+
 
             }
         }
 
 
     }
+
     private boolean verificarCamposEmailSenhaETelefone() {
         String nome = edtNome.getText().toString().trim();
         String email = edtEmail.getText().toString().trim();
@@ -150,7 +158,11 @@ public class CadastroActivity extends AppCompatActivity {
         } else {
             return true;
         }
+
+
+
     }
+
     private boolean verificarCamposEspecificosCliente(){
         String cpf = edtCpf.getText().toString().trim();
         String dataNasc = edtNasc.getText().toString().trim();
@@ -184,7 +196,7 @@ public class CadastroActivity extends AppCompatActivity {
 
     }
 
-    private void setarFornecedor(){
+    private void setarFornecedor() throws IOException {
         String email = edtEmail.getText().toString().trim();
         String senha = edtSenha.getText().toString().trim();
         String razaoSocial = edtNome.getText().toString().trim();
@@ -193,8 +205,10 @@ public class CadastroActivity extends AppCompatActivity {
 
         Usuario usuario = new Usuario(email, senha);
         PessoaJuridica pessoaJuridica = new PessoaJuridica(usuario, razaoSocial,cnpj,telefone);
+        ClienteService cliente = new ClienteService(); //a
+        cliente.criarCliente(pessoaJuridica);            // a
     }
-    private void setarCliente(){
+    private void setarCliente() throws IOException { //a
         String email = edtEmail.getText().toString().trim();
         String senha = edtSenha.getText().toString().trim();
         String nome = edtNome.getText().toString().trim();
@@ -204,6 +218,8 @@ public class CadastroActivity extends AppCompatActivity {
 
         Usuario usuario = new Usuario(email, senha);
         PessoaFisica pessoaFisica = new PessoaFisica(usuario,nome,cpf,validacaoGuiRapida.dataFormatoBanco(dataNasc),telefone);
+        ClienteService cliente = new ClienteService(); //a
+        cliente.criarCliente(pessoaFisica);            // a
     }
     private void connectToServer(){
         conexaoServidor = new ConexaoServidor();
