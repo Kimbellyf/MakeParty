@@ -18,6 +18,7 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.inovaufrpe.makeparty.R;
+import com.inovaufrpe.makeparty.gui.fragment.AnunciosFragment;
 
 public class TelaInicialClienteActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private BottomNavigationView bottomNavigationView;
@@ -32,6 +33,7 @@ public class TelaInicialClienteActivity extends AppCompatActivity implements Nav
         //acoesReferentesAoBottomNavigation();
         toolbarComMenuNavAbreEFecha();
         viewDoMenuNavListaClicavel();
+        //criarFragment(savedInstanceState);
 
 
     }
@@ -47,6 +49,16 @@ public class TelaInicialClienteActivity extends AppCompatActivity implements Nav
     private void viewDoMenuNavListaClicavel(){
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+    }
+    private void criarFragment(Bundle savedInstanceState) {
+        if (savedInstanceState == null) {
+            //ServicoTitulo servicoTitulo = new ServicoTitulo();
+            //ArrayList<Titulo> titulos = servicoTitulo.getMeuHamba();
+            //FiltroTitulo.instance.setTitulosList(titulos);
+            AnunciosFragment frag = new AnunciosFragment();
+            frag.setArguments(getIntent().getExtras());
+            getSupportFragmentManager().beginTransaction().add(R.id.container, frag).commit();
+        }
     }
     @Override
     public void onBackPressed() {
