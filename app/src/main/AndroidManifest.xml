@@ -70,7 +70,7 @@
         <activity android:name=".testes.TesteTresActivity" />
         <activity android:name=".testes.TesteQuatroActivity" />
         <activity android:name=".testes.TesteCincoActivity">
-            
+
         </activity>
     </application>
 

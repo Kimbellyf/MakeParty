@@ -5,6 +5,7 @@ import java.util.Date;
 
 public class Anuncio {
 
+    public Long id;
     private String title;
     private Date dataAd;
     private String description;
@@ -17,6 +18,13 @@ public class Anuncio {
     private PessoaJuridica owner;
     private String photo;
     //private ArrayList<> photos;                  ARRAYLIST<OBJETO???>
+
+    // Flag para a action bar de contexto
+    public boolean selected;
+    // Está favoritado se vem do banco de dadosine
+    public boolean favorited;
+
+
 
     public String getTitle() {
         return title;

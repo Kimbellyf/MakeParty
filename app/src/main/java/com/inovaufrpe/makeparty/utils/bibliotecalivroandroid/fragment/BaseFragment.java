@@ -67,7 +67,7 @@ public abstract class BaseFragment extends DebugFragment {
     public class BaseTask<T> implements TaskListener<T> {
 
         @Override
-        public T execute() {
+        public T execute() throws Exception {
             return null;
         }
 

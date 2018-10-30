@@ -69,5 +69,15 @@
     <string name="text_decoracao">Decoração</string>
     <string name="text_animacao">Animação</string>
 
+    <string name="msg_error_conexao_indisponivel">Conexão indisponível</string>
+    <string name="msg_carro_sem_video">Carro sem vídeo cadastrado</string>
+    <string name="msg_url_invalida">URL de vídeo inválida</string>
+    <string name="msg_error_io">Ocorreu algum erro ao buscar os dados.</string>
+    <string name="msg_erro_io_timeout">Erro de timeout na consulta.</string>
+    <string name="msg_error_campo_obrigatorio">Campo obrigatório.</string>
+    <string name="msg_alerta_permissao">Para utilizar este aplicativo, você precisa aceitar as permissões.</string>
+    <string name="transition_key">img_transition_key</string>
+    <string name="action_add_lista_desejo">Adicionar a lista de desejos</string>
+
 
 </resources>

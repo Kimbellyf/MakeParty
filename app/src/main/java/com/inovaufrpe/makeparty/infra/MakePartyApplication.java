@@ -3,10 +3,12 @@ package com.inovaufrpe.makeparty.infra;
 import android.app.Application;
 import android.util.Log;
 
+import com.squareup.otto.Bus;
+
 public class MakePartyApplication extends Application {
     private static final String TAG = " MakePartyApplication";
     private static MakePartyApplication instance = null;
-    //private Bus bus = new Bus();
+    private Bus bus = new Bus();
 
     public static MakePartyApplication getInstance() {
         return instance; // Singleton
@@ -26,7 +28,7 @@ public class MakePartyApplication extends Application {
         Log.d(TAG, " MakePartyApplication.onTerminate()");
     }
 
-    //public Bus getBus() {
-      //  return bus;
-    //}
+    public Bus getBus() {
+        return bus;
+    }
 }
