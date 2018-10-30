@@ -15,6 +15,7 @@ import com.inovaufrpe.makeparty.dominio.PessoaJuridica;
 import com.inovaufrpe.makeparty.dominio.Usuario;
 import com.inovaufrpe.makeparty.servico.ConexaoServidor;
 import com.inovaufrpe.makeparty.servico.ClienteService;
+import com.inovaufrpe.makeparty.servico.FornecedorService;
 import com.inovaufrpe.makeparty.servico.ValidacaoGuiRapida;
 import com.inovaufrpe.makeparty.utils.Mask;
 
@@ -205,8 +206,8 @@ public class CadastroActivity extends AppCompatActivity {
 
         Usuario usuario = new Usuario(email, senha);
         PessoaJuridica pessoaJuridica = new PessoaJuridica(usuario, razaoSocial,cnpj,telefone);
-        ClienteService cliente = new ClienteService(); //a
-        cliente.criarCliente(pessoaJuridica);            // a
+        FornecedorService fornecedor = new FornecedorService();
+        fornecedor.criarFornecedor(pessoaJuridica);
     }
     private void setarCliente() throws IOException { //a
         String email = edtEmail.getText().toString().trim();
@@ -218,8 +219,8 @@ public class CadastroActivity extends AppCompatActivity {
 
         Usuario usuario = new Usuario(email, senha);
         PessoaFisica pessoaFisica = new PessoaFisica(usuario,nome,cpf,validacaoGuiRapida.dataFormatoBanco(dataNasc),telefone);
-        ClienteService cliente = new ClienteService(); //a
-        cliente.criarCliente(pessoaFisica);            // a
+        ClienteService cliente = new ClienteService();
+        cliente.criarCliente(pessoaFisica);
     }
     private void connectToServer(){
         conexaoServidor = new ConexaoServidor();
