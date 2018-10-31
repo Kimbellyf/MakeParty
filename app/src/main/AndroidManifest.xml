@@ -69,9 +69,10 @@
         <activity android:name=".testes.TesteDoisHttpActivity" />
         <activity android:name=".testes.TesteTresActivity" />
         <activity android:name=".testes.TesteQuatroActivity" />
-        <activity android:name=".testes.TesteCincoActivity">
-
-        </activity>
+        <activity android:name=".testes.TesteCincoActivity" />
+        <activity android:name=".gui.CalendarActivity" />
+        <activity android:name=".gui.NotificacoesActivity" />
+        <activity android:name=".gui.ConfiguracoesActivity"></activity>
     </application>
 
 </manifest>

@@ -39,7 +39,6 @@ public class TelaInicialFornecedorActivity extends AppCompatActivity {
             }
         });
     }
-    @Override
     private void setView() {
         notificacoes = findViewById(R.id.notificacoesId);
         calendar = findViewById(R.id.calendarId);

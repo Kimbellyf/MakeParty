@@ -78,6 +78,7 @@
     <string name="msg_alerta_permissao">Para utilizar este aplicativo, você precisa aceitar as permissões.</string>
     <string name="transition_key">img_transition_key</string>
     <string name="action_add_lista_desejo">Adicionar a lista de desejos</string>
+    <string name="title_activity_notificacoes">NotificacoesActivity</string>
 
 
 </resources>
