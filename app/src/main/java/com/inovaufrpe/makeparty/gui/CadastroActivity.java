@@ -106,18 +106,26 @@ public class CadastroActivity extends AppCompatActivity {
     }
     //Aqui embaixo ainda falta chamar os serviços para efetivar o cadastro, só ta transf em string por enq
     public void onClickCadastrar(View view) throws IOException {
-        String tipoUsuario = (String) spUsuario.getSelectedItem();
-
 
         if (tipoDeUserParaCadastro.equals("Fornecedor")) {
             if(verificarCamposEspecificosFornecedor()){
                 String telefone = edtTelefone.toString().trim().replace(".","").replace("-","").replace("(","").replace(")","");
-                setarFornecedor();
+                String fornecedor = setarFornecedor();
+                try {
+                    cadastrar(fornecedor);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 Toast.makeText(getApplicationContext(), "Cadastro para Fornecedor AINDA FALTA TERM", Toast.LENGTH_SHORT).show();
             }
         }else if(tipoDeUserParaCadastro.equals("Cliente")){
             if(verificarCamposEspecificosCliente()){
                 String cliente = setarCliente();
+                try {
+                    cadastrar(cliente);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 Toast.makeText(getApplicationContext(), "Cadastro para Cliente AINDA FALTA TERM", Toast.LENGTH_SHORT).show();
 
 
@@ -196,7 +204,7 @@ public class CadastroActivity extends AppCompatActivity {
 
     }
 
-    private void setarFornecedor() throws IOException {
+    private String setarFornecedor(){ //throws IOException {
         String email = edtEmail.getText().toString().trim();
         String senha = edtSenha.getText().toString().trim();
         String razaoSocial = edtNome.getText().toString().trim();
@@ -205,8 +213,11 @@ public class CadastroActivity extends AppCompatActivity {
 
         Usuario usuario = new Usuario(email, senha);
         PessoaJuridica pessoaJuridica = new PessoaJuridica(usuario, razaoSocial,cnpj,telefone);
-        FornecedorService fornecedor = new FornecedorService();
-        fornecedor.criarFornecedor(pessoaJuridica);
+        //FornecedorService fornecedor = new FornecedorService();
+        //fornecedor.criarFornecedor(pessoaJuridica);
+        Gson gson = new Gson();
+        String pj = gson.toJson(pessoaJuridica);
+        return pj;
     }
     private String setarCliente(){ //throws IOException { //a
         String email = edtEmail.getText().toString().trim();
@@ -238,7 +249,11 @@ public class CadastroActivity extends AppCompatActivity {
             @Override
             public void run() {
                 //validar = HttpConnection.post("https://makepartyserver.herokuapp.com/users/signup/advertiser",data);
-                validar = HttpConnection.post("https://makepartyserver.herokuapp.com/users/signup/customer",data);
+                if (tipoDeUserParaCadastro.equals("Cliente")){
+                    validar = HttpConnection.post("https://makepartyserver.herokuapp.com/users/signup/customer",data);
+                }else{
+                    validar = HttpConnection.post("https://makepartyserver.herokuapp.com/users/signup/advertiser",data);
+                }
 //
             }
         });
