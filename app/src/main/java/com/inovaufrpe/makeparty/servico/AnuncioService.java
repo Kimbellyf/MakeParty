@@ -51,8 +51,10 @@ public class AnuncioService {
             return "buffet";
         } else if (tipo == R.string.text_decoracao) {
             return "decoracao";
+        } else if (tipo == R.string.text_animacao){
+            return "animacao";
         }
-        return "animacao";
+        return "";
     }
     public static List<Anuncio> getTodosAnuncios(Context context) throws IOException {
         String url = URL_LISTAR_ANUNCIOS;

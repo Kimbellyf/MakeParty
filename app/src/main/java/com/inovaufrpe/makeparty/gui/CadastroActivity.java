@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.inovaufrpe.makeparty.R;
 import com.inovaufrpe.makeparty.dominio.PessoaFisica;
 import com.inovaufrpe.makeparty.dominio.PessoaJuridica;
@@ -17,6 +18,7 @@ import com.inovaufrpe.makeparty.servico.ConexaoServidor;
 import com.inovaufrpe.makeparty.servico.ClienteService;
 import com.inovaufrpe.makeparty.servico.FornecedorService;
 import com.inovaufrpe.makeparty.servico.ValidacaoGuiRapida;
+import com.inovaufrpe.makeparty.testes.HttpConnection;
 import com.inovaufrpe.makeparty.utils.Mask;
 
 import java.io.IOException;
@@ -28,6 +30,7 @@ public class CadastroActivity extends AppCompatActivity {
     private String tipoDeUserParaCadastro;
     ConexaoServidor conexaoServidor;
     ClienteService clienteService = new ClienteService();
+    private String validar = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -114,11 +117,7 @@ public class CadastroActivity extends AppCompatActivity {
             }
         }else if(tipoDeUserParaCadastro.equals("Cliente")){
             if(verificarCamposEspecificosCliente()){
-                try {
-                    setarCliente();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                String cliente = setarCliente();
                 Toast.makeText(getApplicationContext(), "Cadastro para Cliente AINDA FALTA TERM", Toast.LENGTH_SHORT).show();
 
 
@@ -209,7 +208,7 @@ public class CadastroActivity extends AppCompatActivity {
         FornecedorService fornecedor = new FornecedorService();
         fornecedor.criarFornecedor(pessoaJuridica);
     }
-    private void setarCliente() throws IOException { //a
+    private String setarCliente(){ //throws IOException { //a
         String email = edtEmail.getText().toString().trim();
         String senha = edtSenha.getText().toString().trim();
         String nome = edtNome.getText().toString().trim();
@@ -219,13 +218,32 @@ public class CadastroActivity extends AppCompatActivity {
 
         Usuario usuario = new Usuario(email, senha);
         PessoaFisica pessoaFisica = new PessoaFisica(usuario,nome,cpf,validacaoGuiRapida.dataFormatoBanco(dataNasc),telefone);
-        ClienteService cliente = new ClienteService();
-        cliente.criarCliente(pessoaFisica);
+        //ClienteService cliente = new ClienteService();
+        //cliente.criarCliente(pessoaFisica);
+        Gson gson = new Gson();
+        String pf = gson.toJson(pessoaFisica);
+        return pf;
     }
     private void connectToServer(){
         conexaoServidor = new ConexaoServidor();
        // conexaoServidor.delegate = this;
     }
+    private void cadastrar(String json) throws InterruptedException{
+        callServer("POST",json);
+    }
 
+
+    private void callServer(final String method, final String data)  throws InterruptedException{
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                //validar = HttpConnection.post("https://makepartyserver.herokuapp.com/users/signup/advertiser",data);
+                validar = HttpConnection.post("https://makepartyserver.herokuapp.com/users/signup/customer",data);
+//
+            }
+        });
+        thread.start();
+        thread.join();
+    }
 
 }

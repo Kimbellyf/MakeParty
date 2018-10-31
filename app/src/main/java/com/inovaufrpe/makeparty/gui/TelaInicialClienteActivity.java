@@ -33,7 +33,7 @@ public class TelaInicialClienteActivity extends AppCompatActivity implements Nav
         //acoesReferentesAoBottomNavigation();
         toolbarComMenuNavAbreEFecha();
         viewDoMenuNavListaClicavel();
-        //criarFragment(savedInstanceState);
+        criarFragment(savedInstanceState);
 
 
     }
@@ -51,6 +51,7 @@ public class TelaInicialClienteActivity extends AppCompatActivity implements Nav
         navigationView.setNavigationItemSelectedListener(this);
     }
     private void criarFragment(Bundle savedInstanceState) {
+        //getSupportActionBar().setTitle(getString(getIntent().getIntExtra("tipo",6)));
         if (savedInstanceState == null) {
             //ServicoTitulo servicoTitulo = new ServicoTitulo();
             //ArrayList<Titulo> titulos = servicoTitulo.getMeuHamba();
@@ -58,6 +59,7 @@ public class TelaInicialClienteActivity extends AppCompatActivity implements Nav
             AnunciosFragment frag = new AnunciosFragment();
             frag.setArguments(getIntent().getExtras());
             getSupportFragmentManager().beginTransaction().add(R.id.container, frag).commit();
+            //getSupportFragmentManager().beginTransaction().replace(R.id.container, frag).commit();
         }
     }
     @Override

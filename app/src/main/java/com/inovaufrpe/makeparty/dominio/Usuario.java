@@ -1,6 +1,8 @@
 package com.inovaufrpe.makeparty.dominio;
 
-public class Usuario {
+import java.io.Serializable;
+
+public class Usuario implements Serializable {
 
     private String email;
     private String password;

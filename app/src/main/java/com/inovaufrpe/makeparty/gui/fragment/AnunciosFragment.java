@@ -102,7 +102,8 @@ public class AnunciosFragment extends BaseFragment {
             // Busca os Anuncios em background
             if (nome != null) {
                 // É uma busca por nome
-                return AnuncioService.searchByNome(nome);
+                //return AnuncioService.searchByNome(nome);
+                return AnuncioService.getAnunciosByTipo(tipo);
             } else {
                 // É para listar por tipo
                 //return Retrofit.getAnuncioREST().getAnuncios(tipo);
