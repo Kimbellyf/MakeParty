@@ -115,7 +115,7 @@ public class CadastroActivity extends AppCompatActivity {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                Toast.makeText(getApplicationContext(), "Cadastro para Fornecedor AINDA FALTA TERM", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "FORNECEDOR CADASTRADO(AINDA TRATAR)", Toast.LENGTH_SHORT).show();
             }
         }else if(tipoDeUserParaCadastro.equals("Cliente")){
             if(verificarCamposEspecificosCliente()){
@@ -125,7 +125,7 @@ public class CadastroActivity extends AppCompatActivity {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                Toast.makeText(getApplicationContext(), "Cadastro para Cliente AINDA FALTA TERM", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "CLIENTE CADASTRADO(AINDA TRATAR)", Toast.LENGTH_SHORT).show();
 
 
             }
