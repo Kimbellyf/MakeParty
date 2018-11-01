@@ -46,33 +46,33 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity android:name=".gui.SplashActivity">
+        <activity android:name=".usuario.gui.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".gui.EscolhaTipoUserActivity" />
-        <activity android:name=".gui.CadastroActivity" />
-        <activity android:name=".gui.TelaInicialFornecedorActivity" />
-        <activity android:name=".gui.TelaInicialClienteActivity" />
-        <activity android:name=".gui.EntrarOuCadastrarActivity" />
-        <activity android:name=".gui.LoginActivity" />
-        <activity android:name=".gui.FiltroInicialActivity" />
-        <activity android:name=".gui.MostraGPSActivity" />
-        <activity android:name=".gui.DetalhesAnuncioActivity" />
-        <activity android:name=".gui.TesteActivity" />
-        <activity android:name=".gui.AvaliacaoNotaActivity" />
-        <activity android:name=".gui.AtualizarPerfilClienteActivity" />
+        <activity android:name=".usuario.gui.EscolhaTipoUserActivity" />
+        <activity android:name=".usuario.gui.CadastroActivity" />
+        <activity android:name=".fornecedor.gui.TelaInicialFornecedorActivity" />
+        <activity android:name=".cliente.gui.TelaInicialClienteActivity" />
+        <activity android:name=".usuario.gui.EntrarOuCadastrarActivity" />
+        <activity android:name=".usuario.gui.LoginActivity" />
+        <activity android:name=".cliente.gui.FiltroInicialActivity" />
+        <activity android:name=".cliente.gui.MostraGPSActivity" />
+        <activity android:name=".cliente.gui.DetalhesAnuncioActivity" />
+        <activity android:name=".usuario.gui.TesteActivity" />
+        <activity android:name=".cliente.gui.AvaliacaoNotaActivity" />
+        <activity android:name=".cliente.gui.AtualizarPerfilClienteActivity" />
         <activity android:name=".testes.HttpRequestExampleActivity" />
         <activity android:name=".testes.TesteDoisHttpActivity" />
         <activity android:name=".testes.TesteTresActivity" />
         <activity android:name=".testes.TesteQuatroActivity" />
         <activity android:name=".testes.TesteCincoActivity" />
-        <activity android:name=".gui.CalendarActivity" />
-        <activity android:name=".gui.NotificacoesActivity" />
-        <activity android:name=".gui.ConfiguracoesActivity"></activity>
+        <activity android:name=".fornecedor.gui.CalendarActivity" />
+        <activity android:name=".fornecedor.gui.NotificacoesActivity" />
+        <activity android:name=".fornecedor.gui.ConfiguracoesActivity"></activity>
     </application>
 
 </manifest>
