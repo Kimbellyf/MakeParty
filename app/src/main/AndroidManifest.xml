@@ -65,11 +65,6 @@
         <activity android:name=".usuario.gui.TesteActivity" />
         <activity android:name=".cliente.gui.AvaliacaoNotaActivity" />
         <activity android:name=".cliente.gui.AtualizarPerfilClienteActivity" />
-        <activity android:name=".testes.HttpRequestExampleActivity" />
-        <activity android:name=".testes.TesteDoisHttpActivity" />
-        <activity android:name=".testes.TesteTresActivity" />
-        <activity android:name=".testes.TesteQuatroActivity" />
-        <activity android:name=".testes.TesteCincoActivity" />
         <activity android:name=".fornecedor.gui.CalendarActivity" />
         <activity android:name=".fornecedor.gui.NotificacoesActivity" />
         <activity android:name=".fornecedor.gui.ConfiguracoesActivity"></activity>
