@@ -1,7 +1,9 @@
 package com.inovaufrpe.makeparty.usuario.gui;
 
+import android.app.ProgressDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -29,6 +31,7 @@ public class CadastroActivity extends AppCompatActivity {
     private String tipoDeUserParaCadastro;
     ConexaoServidor conexaoServidor;
     ClienteService clienteService = new ClienteService();
+    private ProgressDialog mprogressDialog;
     private String validar = "";
 
     @Override
@@ -103,19 +106,19 @@ public class CadastroActivity extends AppCompatActivity {
             }
         });
     }
-    //Aqui embaixo ainda falta chamar os serviços para efetivar o cadastro, só ta transf em string por enq
+    //Aqui embaixo recebe o onClick do cadastro e chama as funções para validar ou n, enquanto isso com um progressDialog até terminar a op do post
     public void onClickCadastrar(View view) throws IOException {
-
+        mprogressDialog = new ProgressDialog(CadastroActivity.this);
+        this.mprogressDialog.setMessage("Cadastrando...");
+        mprogressDialog.show();
         if (tipoDeUserParaCadastro.equals("Fornecedor")) {
             if(verificarCamposEspecificosFornecedor()){
-                String telefone = edtTelefone.toString().trim().replace(".","").replace("-","").replace("(","").replace(")","");
                 String fornecedor = setarFornecedor();
                 try {
                     cadastrar(fornecedor);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                Toast.makeText(getApplicationContext(), "FORNECEDOR CADASTRADO(AINDA TRATAR)", Toast.LENGTH_SHORT).show();
             }
         }else if(tipoDeUserParaCadastro.equals("Cliente")){
             if(verificarCamposEspecificosCliente()){
@@ -125,11 +128,11 @@ public class CadastroActivity extends AppCompatActivity {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                Toast.makeText(getApplicationContext(), "CLIENTE CADASTRADO(AINDA TRATAR)", Toast.LENGTH_SHORT).show();
-
 
             }
-        }
+        }mprogressDialog.dismiss();
+        exibirMensagemSeValidouCadastro();
+
 
 
     }
@@ -247,17 +250,38 @@ public class CadastroActivity extends AppCompatActivity {
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
-                //validar = HttpConnection.post("https://makepartyserver.herokuapp.com/users/signup/advertiser",data);
+                //Nesse metodo aq n tem como printar nd, ja foi testado com toast, só da p colocar no logcat, então só da p guardar a msg e chamar o metodo em outro lugar
+                //no Onclick no caso, e nesse chamar outro metodo p printar a resposta , se foi cadastrado ou n
                 if (tipoDeUserParaCadastro.equals("Cliente")){
+                    //esses 2 metodos aq, ambos guardam a resp do servidor/API, mas o primeiro q tenta fazer o post realmente
                     validar = HttpConnection.post("https://makepartyserver.herokuapp.com/users/signup/customer",data);
+                    String answer = HttpConnection.getSetDataWeb("https://muvmedia-api.herokuapp.com/public/register/user", method, data);
+                    if (validar.substring(2,5).equals("err")){
+                        validar ="Já existe um usuário com este e-mail ou cpf";
+
+                    }else{
+                        validar = "Cadastro efetivado como cliente com sucesso";
+                    }
+                    //Log
+                    Log.d("errorAi","ANCHO"+validar);
+                    Log.i("Script", "ANSWER: "+ answer);
+                    Log.i("Script1","opa" + answer.substring(2,5));
                 }else{
                     validar = HttpConnection.post("https://makepartyserver.herokuapp.com/users/signup/advertiser",data);
+                    if (validar.substring(2,5).equals("err")){
+                        validar ="Já existe um usuário com este e-mail ou cnpj";
+                    }else{
+                        validar = "Cadastro efetivado como fornecedor com sucesso";
+                    }
                 }
 //
             }
         });
         thread.start();
         thread.join();
+    }
+    private void exibirMensagemSeValidouCadastro() {
+        Toast.makeText(getApplicationContext(), validar, Toast.LENGTH_SHORT).show();
     }
 
 }

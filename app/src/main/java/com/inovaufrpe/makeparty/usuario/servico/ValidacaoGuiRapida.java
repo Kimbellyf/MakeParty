@@ -35,7 +35,7 @@ public class ValidacaoGuiRapida {
 
     public boolean isTelefoneValido(String telefone) {
         telefone = String.valueOf(telefone).replace(".","").replace("-","").replace("(","").replace(")","");
-        return ((telefone.length() == TAMTEL));
+        return ((telefone.length() == TAMTEL)||(telefone.length()==TAMTEL-1));
     }
 
     public boolean isCpfValido(String cpf) {
