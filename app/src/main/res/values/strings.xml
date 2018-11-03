@@ -79,6 +79,7 @@
     <string name="transition_key">img_transition_key</string>
     <string name="action_add_lista_desejo">Adicionar a lista de desejos</string>
     <string name="title_activity_notificacoes">NotificacoesActivity</string>
+    <string name="text_view_verificar_disponibilidade_anuncio">Verificar disponibilidade</string>
 
 
 </resources>

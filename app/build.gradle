@@ -46,4 +46,5 @@ dependencies {
     implementation group: 'org.apache.httpcomponents', name: 'httpclient-android', version: '4.3.5.1'
     implementation 'me.dm7.barcodescanner:zxing:1.9'
     implementation 'com.github.rtoshiro.mflibrary:mflibrary:1.0.0'
+    implementation 'me.relex:circleindicator:1.2.2@aar'
 }
