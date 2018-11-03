@@ -3,7 +3,7 @@ package com.inovaufrpe.makeparty.usuario.dominio;
 import java.io.Serializable;
 
 public class Usuario implements Serializable {
-
+    private String _id;
     private String email;
     private String password;
 
@@ -12,6 +12,13 @@ public class Usuario implements Serializable {
     public Usuario(String email, String senha){
         setEmail(email);
         setPassword(senha);
+    }
+    public String get_id() {
+        return _id;
+    }
+
+    public void set_id(String _id) {
+        this._id = _id;
     }
 
     public String getEmail() {
