@@ -13,6 +13,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -51,17 +52,28 @@ public class AnunciosFragment extends BaseFragment {
     // Action Bar de Contexto
     private ActionMode actionMode;
 
+    // Método para instanciar esse fragment pelo tipo.
+    public static AnunciosFragment newInstance(String tipo) {
+        Bundle args = new Bundle();
+        args.putString("tipo", tipo);
+        AnunciosFragment f = new AnunciosFragment();
+        f.setArguments(args);
+        return f;
+    }
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             this.tipo = getArguments().getString("tipo");
         }
-        setHasOptionsMenu(true);
+        //setHasOptionsMenu(true);
 
         // Registra a classe para receber eventos.
         MakePartyApplication.getInstance().getBus().register(this);
     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -117,7 +129,7 @@ public class AnunciosFragment extends BaseFragment {
                 AnunciosFragment.this.anuncios = anuncios;
 
                 // O correto seria validar se excluiu e recarregar a lista.
-//                taskAnuncios(true);
+            taskAnuncios(true);
 
                 // Atualiza a view na UI Thread
                 recyclerView.setAdapter(new AnuncioAdapter(getContext(), anuncios, onClickAnuncio()));
@@ -146,15 +158,15 @@ public class AnunciosFragment extends BaseFragment {
                 Anuncio c = anuncios.get(idx);
 
                 if (actionMode == null) {
-                    ImageView img = holder.img;
+                    //ImageView img = holder.img;
 
                     Intent intent = new Intent(getActivity(), DetalhesAnuncioActivity.class);
                     //intent.putExtra("anuncio", c);
                     String key = getString(R.string.transition_key);
 
                     // Compat
-                    ActivityOptionsCompat opts = ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(), img, key);
-                    ActivityCompat.startActivity(getActivity(), intent, opts.toBundle());
+                    //ActivityOptionsCompat opts = ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(), img, key);
+                    //ActivityCompat.startActivity(getActivity(), intent, opts.toBundle());
                 } else {
                     // Seleciona o anuncio e atualiza a lista
                     c.selected = !c.selected;
@@ -169,7 +181,7 @@ public class AnunciosFragment extends BaseFragment {
                     return;
                 }
 
-                //Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
+                Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
                 actionMode = getAppCompatActivity().startSupportActionMode(getActionModeCallback());
 
                 Anuncio c = anuncios.get(idx);
@@ -187,8 +199,8 @@ public class AnunciosFragment extends BaseFragment {
 
         // SearchView
         MenuItem item = menu.findItem(R.id.action_search);
-        SearchView searchView = (SearchView) MenuItemCompat.getActionView(item);
-        searchView.setOnQueryTextListener(onSearch());
+        //SearchView searchView = (SearchView) MenuItemCompat.getActionView(item);
+        //searchView.setOnQueryTextListener(onSearch());
     }
 
     private SearchView.OnQueryTextListener onSearch() {
@@ -316,7 +328,7 @@ public class AnunciosFragment extends BaseFragment {
                     // Mostra mensagem de sucesso
                     snack(recyclerView, selectedAnuncios.size() + " anuncios excluídos com sucesso");
                     // Atualiza a lista de anuncios
-                    //taskAnuncios(true);
+                    taskAnuncios(true);
                     // Atualiza a lista
                     recyclerView.getAdapter().notifyDataSetChanged();
                 }

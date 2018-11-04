@@ -255,7 +255,7 @@ public class CadastroActivity extends AppCompatActivity {
                 if (tipoDeUserParaCadastro.equals("Cliente")){
                     //esses 2 metodos aq, ambos guardam a resp do servidor/API, mas o primeiro q tenta fazer o post realmente
                     validar = HttpConnection.post("https://makepartyserver.herokuapp.com/users/signup/customer",data);
-                    String answer = HttpConnection.getSetDataWeb("https://muvmedia-api.herokuapp.com/public/register/user", method, data);
+                    String answer = HttpConnection.getSetDataWeb("https://makepartyserver.herokuapp.com/users/signup/customer", method, data);
                     if (validar.substring(2,5).equals("err")){
                         validar ="Já existe um usuário com este e-mail ou cpf";
 
