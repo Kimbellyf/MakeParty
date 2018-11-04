@@ -8,9 +8,11 @@
 
     <ImageView
         android:id="@+id/imageViewLogo"
-        android:layout_width="190dp"
+        android:layout_width="258dp"
         android:layout_height="196dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:contentDescription="@string/img_logo"
@@ -21,11 +23,11 @@
 
     <ImageView
         android:id="@+id/imageViewFornecedor"
-        android:layout_width="189dp"
-        android:layout_height="164dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="124dp"
+        android:layout_height="127dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="24dp"
         android:contentDescription="@string/img_ic_fornecedor"
         android:onClick="irParaEscolhaEntrarOuCadastrar"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,11 +36,11 @@
 
     <ImageView
         android:id="@+id/imageViewCliente"
-        android:layout_width="186dp"
-        android:layout_height="163dp"
+        android:layout_width="131dp"
+        android:layout_height="126dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:contentDescription="@string/img_ic_cliente"
