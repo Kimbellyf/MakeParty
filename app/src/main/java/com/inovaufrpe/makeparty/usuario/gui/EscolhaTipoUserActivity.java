@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.inovaufrpe.makeparty.R;
+import com.inovaufrpe.makeparty.cliente.gui.TelaInicialClienteActivity;
 
 public class EscolhaTipoUserActivity extends AppCompatActivity {
 
@@ -20,6 +21,6 @@ public class EscolhaTipoUserActivity extends AppCompatActivity {
         finish();
     }
     public void irParaEscolhaEntrarOuCadastrar(View view){this.mudarTela(EntrarOuCadastrarActivity.class);}
-    public void irParaTelaCliente(View view){this.mudarTela(TesteActivity.class);}
+    public void irParaTelaCliente(View view){this.mudarTela(TelaInicialClienteActivity.class);}
 
 }

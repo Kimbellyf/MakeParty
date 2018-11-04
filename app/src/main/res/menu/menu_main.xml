@@ -16,14 +16,16 @@
         android:icon="@drawable/ic_carrinho_24dp"
         android:title="@string/carrinho"
         android:orderInCategory="301"
-        app:showAsAction="always">
+        android:visible="false"
+        app:showAsAction="never">
 
     </item>
     <item
         android:id="@+id/action_add_lista_desejo"
-        android:orderInCategory="100"
+        android:icon="@drawable/ic_favorite_24dp"
+        android:orderInCategory="301"
         android:title="@string/action_add_lista_desejo"
-        app:showAsAction="never" />
+        app:showAsAction="always" />
     <item
         android:id="@+id/action_filtrar_por_regiao"
         android:orderInCategory="100"
@@ -41,6 +43,7 @@
         app:showAsAction="never" />
 
     <item
+        android:id="@+id/action_sair"
         android:orderInCategory="101"
         android:title="Sair" />
 

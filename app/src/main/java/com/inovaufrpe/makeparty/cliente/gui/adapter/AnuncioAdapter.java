@@ -78,7 +78,8 @@ public class AnuncioAdapter extends RecyclerView.Adapter<AnuncioAdapter.Anuncios
         }
         //anuncios.get(position).getSelecionado()
         //int corFundo = context.getResources().getColor(anuncios.get(position).getSelecionado() ? R.color.colorBlue : R.color.colorWhite);
-        int corFundo = ContextCompat.getColor(context, c.selected ? R.color.colorBlue : R.color.colorWhite);
+        int corFundo = context.getResources().getColor(c.selected ? R.color.colorBlue : R.color.colorWhite);
+        //int corFundo = ContextCompat.getColor(context, c.selected ? R.color.colorBlue : R.color.colorWhite);
 
         holder.cardView.setCardBackgroundColor(corFundo);
     }
@@ -91,24 +92,22 @@ public class AnuncioAdapter extends RecyclerView.Adapter<AnuncioAdapter.Anuncios
     //metodo abaixo diz q é classe view e que herda de RecyclerView.ViewHolder
     //declara os itens view do adapter de anuncio (o que tem de view em cada item da lista )
     public static class AnunciosViewHolder extends RecyclerView.ViewHolder {
-        public ImageView imageView;
-        public View view;
-        CardView cardView;
+         CardView cardView;
+        public ImageView img;
         public TextView title;
         public TextView tDesc;
-        public ImageView img;
         private ProgressBar progress;
+        public View view;
 
         public AnunciosViewHolder(View view) {
             super(view);
             this.view = view;
 
             //// Cria as views para salvar no ViewHolder
-            imageView = view.findViewById(R.id.img);
             cardView = view.findViewById(R.id.card_view);
+            img = (ImageView) view.findViewById(R.id.img);
             title = (TextView) view.findViewById(R.id.textViewTitleAnuncio);
             tDesc = (TextView) view.findViewById(R.id.textViewRazaoSocialFornecedor);
-            img = (ImageView) view.findViewById(R.id.img);
             progress = (ProgressBar) view.findViewById(R.id.progress);
             cardView = (CardView) view.findViewById(R.id.card_view);
 

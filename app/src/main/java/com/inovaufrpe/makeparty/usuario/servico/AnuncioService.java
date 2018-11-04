@@ -75,7 +75,7 @@ public class AnuncioService {
     }
 
     public static List<Anuncio> getAnunciosByTipo(String tipo) throws IOException {
-        String url = URL_LISTAR_ANUNCIOS_PELO_TIPO.replace(":type", tipo);
+        String url = URL_LISTAR_ANUNCIOS_PELO_TIPO.replace(":type", "Festa");
 
         // Request HTTP GET
         HttpHelper http = new HttpHelper();
