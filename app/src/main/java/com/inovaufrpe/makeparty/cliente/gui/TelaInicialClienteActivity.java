@@ -16,7 +16,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.inovaufrpe.makeparty.R;
-import com.inovaufrpe.makeparty.cliente.gui.fragment.AnunciosFragment;
+//import com.inovaufrpe.makeparty.cliente.gui.fragment.AnunciosFragment;
+import com.inovaufrpe.makeparty.cliente.gui.fragment.AnunciosOutroFragment;
 
 public class TelaInicialClienteActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private BottomNavigationView bottomNavigationView;
@@ -54,7 +55,7 @@ public class TelaInicialClienteActivity extends AppCompatActivity implements Nav
             //ServicoTitulo servicoTitulo = new ServicoTitulo();
             //ArrayList<Titulo> titulos = servicoTitulo.getMeuHamba();
             //FiltroTitulo.instance.setTitulosList(titulos);
-            AnunciosFragment frag = new AnunciosFragment();
+            AnunciosOutroFragment frag = new AnunciosOutroFragment();
             frag.setArguments(getIntent().getExtras());
             getSupportFragmentManager().beginTransaction().add(R.id.container, frag).commit();
             //getSupportFragmentManager().beginTransaction().replace(R.id.container, frag).commit();

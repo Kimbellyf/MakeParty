@@ -3,6 +3,7 @@ package com.inovaufrpe.makeparty.usuario.servico;
 import android.content.Context;
 import android.util.Base64;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -81,6 +82,7 @@ public class AnuncioService {
         HttpHelper http = new HttpHelper();
         http.LOG_ON = true;
         String json = http.doGet(url);
+        Log.d("um json ai",json);
 
         // Parser JSON
         Type listType = new TypeToken<ArrayList<Anuncio>>() {}.getType();
