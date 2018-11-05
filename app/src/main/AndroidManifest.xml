@@ -67,7 +67,8 @@
         <activity android:name=".cliente.gui.AtualizarPerfilClienteActivity" />
         <activity android:name=".fornecedor.gui.CalendarActivity" />
         <activity android:name=".fornecedor.gui.NotificacoesActivity" />
-        <activity android:name=".fornecedor.gui.ConfiguracoesActivity"></activity>
+        <activity android:name=".fornecedor.gui.ConfiguracoesActivity" />
+        <activity android:name=".fornecedor.gui.AnunciosActivity"></activity>
     </application>
 
 </manifest>

@@ -6,12 +6,13 @@ import android.widget.ListView;
 
 import com.inovaufrpe.makeparty.R;
 
-public class NotificacoesActivity extends AppCompatActivity {
-    private ListView listaNotificacoes;
+
+public class AnunciosActivity extends AppCompatActivity {
+    private ListView listaAnuncios;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_notificacoes);
+        setContentView(R.layout.activity_anuncios);
     }
 }
