@@ -5,33 +5,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".usuario.gui.EntrarOuCadastrarActivity">
-
-    <Button
-        android:id="@+id/button_criar_conta"
-        android:layout_width="242dp"
-        android:layout_height="51dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:background="@color/colorButoes"
-        android:onClick="irParaTelaCriarConta"
-        android:text="@string/button_criar_conta"
-        android:textColor="@color/colorTextoBut"
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center">
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="319dp"
+        android:layout_height="109dp"
+        android:layout_margin="16dp"
+        android:contentDescription="@string/img_logo"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.515"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_entrar" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logovetor" />
 
     <Button
         android:id="@+id/button_entrar"
         android:layout_width="244dp"
         android:layout_height="48dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="56dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_margin="16dp"
         android:background="@color/colorButoes"
         android:onClick="irParaTelaEntrar"
         android:text="@string/button_entrar"
@@ -40,21 +35,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="319dp"
-        android:layout_height="109dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="76dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:contentDescription="@string/img_logo"
+    <Button
+        android:id="@+id/button_criar_conta"
+        android:layout_width="242dp"
+        android:layout_height="51dp"
+        android:layout_margin="16dp"
+        android:background="@color/colorButoes"
+        android:onClick="irParaTelaCriarConta"
+        android:text="@string/button_criar_conta"
+        android:textColor="@color/colorTextoBut"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.515"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logovetor" />
+        app:layout_constraintTop_toBottomOf="@+id/button_entrar" />
+</LinearLayout>
+
+
 
 
 </android.support.constraint.ConstraintLayout>

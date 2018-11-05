@@ -13,7 +13,7 @@ public class TelaInicialFornecedorActivity extends AppCompatActivity {
     private ImageView notificacoes;
     private ImageView calendar;
     private ImageView configuracoes;
-    //private ImageView solicitacoes;
+    private ImageView anuncios;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,12 +38,18 @@ public class TelaInicialFornecedorActivity extends AppCompatActivity {
                 startActivity(new Intent(TelaInicialFornecedorActivity.this,ConfiguracoesActivity.class));
             }
         });
+        anuncios.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(TelaInicialFornecedorActivity.this, AnunciosActivity.class));
+            }
+        });
     }
     private void setView() {
         notificacoes = findViewById(R.id.notificacoesId);
         calendar = findViewById(R.id.calendarId);
         configuracoes = findViewById(R.id.configuracoesId);
-        //solicitacoes = findViewById(R.id.solicitacoesId);
+        anuncios = findViewById(R.id.anunciosId);
     }
 
     @Override

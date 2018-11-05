@@ -16,13 +16,16 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:weightSum="2">
         <ImageView
+            android:layout_weight="1"
             android:id="@+id/notificacoesId"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="16dp"/>
         <ImageView
+            android:layout_weight="1"
             android:id="@+id/calendarId"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -32,13 +35,16 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:weightSum="2">
         <ImageView
-            android:id="@+id/solicitacoesId"
+            android:layout_weight="1"
+            android:id="@+id/anunciosId"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="16dp"/>
         <ImageView
+            android:layout_weight="1"
             android:id="@+id/configuracoesId"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
