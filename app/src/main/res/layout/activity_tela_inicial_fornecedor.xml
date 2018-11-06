@@ -1,55 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fornecedor.gui.TelaInicialFornecedorActivity">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_margin="16dp"
     android:gravity="center"
     android:orientation="vertical"
-    android:weightSum="2">
+    android:weightSum="2"
+    tools:context=".fornecedor.gui.TelaInicialFornecedorActivity">
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/materialup.appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/materialup.toolbar"
+            style="@style/ToolBarWithNavigationBack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="?attr/actionBarSize"
+            app:layout_scrollFlags="scroll|enterAlways|snap"
+            app:theme="@style/ThemeOverlay.AppCompat.Light"
+            app:title="@string/label_app"
+            app:titleTextColor="@color/colorFundo" />
+    </android.support.design.widget.AppBarLayout>
+
     <LinearLayout
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginEnd="16dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
         android:layout_weight="1"
         android:weightSum="2">
+
         <ImageView
-            android:layout_weight="1"
             android:id="@+id/notificacoesId"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="16dp"/>
-        <ImageView
+            android:layout_margin="16dp"
             android:layout_weight="1"
+            android:contentDescription="@string/img_view_notificacoes"
+            android:src="@drawable/icone_alerta" />
+
+        <ImageView
             android:id="@+id/calendarId"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="16dp"/>
+            android:layout_margin="16dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/img_view_calendario"
+            android:src="@drawable/calendartres" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal"
+        android:layout_marginTop="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginEnd="16dp"
         android:layout_weight="1"
+        android:orientation="horizontal"
         android:weightSum="2">
+
         <ImageView
-            android:layout_weight="1"
             android:id="@+id/anunciosId"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="16dp"/>
-        <ImageView
+            android:layout_margin="16dp"
             android:layout_weight="1"
+            android:contentDescription="@string/img_view_fazer_anuncio"
+            android:src="@drawable/megafone" />
+
+        <ImageView
             android:id="@+id/configuracoesId"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="16dp"/>
+            android:layout_margin="16dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/img_view_config"
+            android:src="@drawable/engrenagemoi" />
     </LinearLayout>
-
 </LinearLayout>
-</android.support.constraint.ConstraintLayout>

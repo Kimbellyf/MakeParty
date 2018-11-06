@@ -1,8 +1,6 @@
 package com.inovaufrpe.makeparty.fornecedor.gui;
 
 import android.content.Intent;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -35,13 +33,13 @@ public class TelaInicialFornecedorActivity extends AppCompatActivity {
         configuracoes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(TelaInicialFornecedorActivity.this,ConfiguracoesActivity.class));
+                startActivity(new Intent(TelaInicialFornecedorActivity.this,ConfiguracoesFornecedorActivity.class));
             }
         });
         anuncios.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(TelaInicialFornecedorActivity.this, AnunciosActivity.class));
+                startActivity(new Intent(TelaInicialFornecedorActivity.this, AnunciosFornecedorActivity.class));
             }
         });
     }
@@ -54,7 +52,8 @@ public class TelaInicialFornecedorActivity extends AppCompatActivity {
 
     @Override // por enq dando o back e só fechando
     public void onBackPressed() {
-        super.onBackPressed();
+        finish();
+        //super.onBackPressed();
     }
 
 
