@@ -5,51 +5,54 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".usuario.gui.EscolhaTipoUserActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+        <ImageView
+            android:id="@+id/imageViewLogo"
+            android:layout_width="258dp"
+            android:layout_height="196dp"
+            android:contentDescription="@string/img_logo"
+            android:src="@drawable/logovetor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:gravity="center">
+            <ImageView
+                android:id="@+id/imageViewFornecedor"
+                android:layout_width="124dp"
+                android:layout_height="127dp"
+                android:layout_margin="8dp"
+                android:contentDescription="@string/img_ic_fornecedor"
+                android:onClick="irParaEscolhaEntrarOuCadastrar"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageViewLogo"
+                app:srcCompat="@drawable/ic_fornecedor_nao"
+                android:layout_weight="1"/>
 
-    <ImageView
-        android:id="@+id/imageViewLogo"
-        android:layout_width="258dp"
-        android:layout_height="196dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:contentDescription="@string/img_logo"
-        android:src="@drawable/logovetor"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <ImageView
+                android:id="@+id/imageViewCliente"
+                android:layout_width="131dp"
+                android:layout_height="126dp"
+                android:layout_margin="8dp"
+                android:contentDescription="@string/img_ic_cliente"
+                android:onClick="irParaTelaCliente"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/imageViewFornecedor"
+                app:layout_constraintTop_toBottomOf="@+id/imageViewLogo"
+                app:srcCompat="@drawable/ic_cestinha_cliente"
+                android:layout_weight="1"/>
 
-    <ImageView
-        android:id="@+id/imageViewFornecedor"
-        android:layout_width="124dp"
-        android:layout_height="127dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginLeft="36dp"
-        android:layout_marginTop="24dp"
-        android:contentDescription="@string/img_ic_fornecedor"
-        android:onClick="irParaEscolhaEntrarOuCadastrar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewLogo"
-        app:srcCompat="@drawable/ic_fornecedor_nao" />
-
-    <ImageView
-        android:id="@+id/imageViewCliente"
-        android:layout_width="131dp"
-        android:layout_height="126dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:contentDescription="@string/img_ic_cliente"
-        android:onClick="irParaTelaCliente"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/imageViewFornecedor"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewLogo"
-        app:srcCompat="@drawable/ic_cestinha_cliente" />
+        </LinearLayout>
+    </LinearLayout>
 
 
 </android.support.constraint.ConstraintLayout>
