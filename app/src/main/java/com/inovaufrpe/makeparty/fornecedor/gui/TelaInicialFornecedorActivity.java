@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import com.inovaufrpe.makeparty.R;
+import com.inovaufrpe.makeparty.cliente.gui.TelaInicialClienteActivity;
 
 public class TelaInicialFornecedorActivity extends AppCompatActivity {
     private ImageView notificacoes;
@@ -48,6 +49,11 @@ public class TelaInicialFornecedorActivity extends AppCompatActivity {
         calendar = findViewById(R.id.calendarId);
         configuracoes = findViewById(R.id.configuracoesId);
         anuncios = findViewById(R.id.anunciosId);
+    }
+    private void mudarTela(Class tela){
+        Intent intent=new Intent(this, tela);
+        startActivity(intent);
+        finish();
     }
 
     @Override // por enq dando o back e só fechando

@@ -53,9 +53,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".usuario.gui.EscolhaTipoUserActivity">
-        </activity>
-        <activity android:name=".usuario.gui.CadastroActivity"
+        <activity android:name=".usuario.gui.EscolhaTipoUserActivity"></activity>
+        <activity
+            android:name=".usuario.gui.CadastroActivity"
             android:label="@string/label_cadastro"
             android:parentActivityName=".usuario.gui.EntrarOuCadastrarActivity">
             <meta-data
@@ -63,15 +63,17 @@
                 android:value=".usuario.gui.EntrarOuCadastrarActivity" />
         </activity>
         <activity android:name=".fornecedor.gui.TelaInicialFornecedorActivity" />
-        <activity android:name=".cliente.gui.TelaInicialClienteActivity"/>
-        <activity android:name=".usuario.gui.EntrarOuCadastrarActivity"
+        <activity android:name=".cliente.gui.TelaInicialClienteActivity" />
+        <activity
+            android:name=".usuario.gui.EntrarOuCadastrarActivity"
             android:label="@string/label_entrar_ou_cadastrar"
             android:parentActivityName=".usuario.gui.EscolhaTipoUserActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".usuario.gui.EscolhaTipoUserActivity" />
         </activity>
-        <activity android:name=".usuario.gui.LoginActivity"
+        <activity
+            android:name=".usuario.gui.LoginActivity"
             android:label="@string/label_login"
             android:parentActivityName=".usuario.gui.EntrarOuCadastrarActivity">
             <meta-data
@@ -87,7 +89,8 @@
         <activity android:name=".fornecedor.gui.CalendarActivity" />
         <activity android:name=".fornecedor.gui.NotificacoesActivity" />
         <activity android:name=".fornecedor.gui.ConfiguracoesFornecedorActivity" />
-        <activity android:name=".fornecedor.gui.AnunciosFornecedorActivity"></activity>
+        <activity android:name=".fornecedor.gui.AnunciosFornecedorActivity" />
+        <activity android:name=".fornecedor.gui.CapturaDadosCalendarActivity"></activity>
     </application>
 
 </manifest>
