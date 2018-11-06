@@ -36,6 +36,7 @@ public class CadastroActivity extends AppCompatActivity {
     ClienteService clienteService = new ClienteService();
     private ProgressDialog mprogressDialog;
     private String validar = "";
+    private boolean isValido = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -135,6 +136,9 @@ public class CadastroActivity extends AppCompatActivity {
             }
         }mprogressDialog.dismiss();
         exibirMensagemSeValidouCadastro();
+        if (isValido){
+            startActivity(new Intent(CadastroActivity.this,EntrarOuCadastrarActivity.class));
+        }
 
 
 
@@ -246,7 +250,6 @@ public class CadastroActivity extends AppCompatActivity {
     }
     private void cadastrar(String json) throws InterruptedException{
         callServer("POST",json);
-        startActivity(new Intent(CadastroActivity.this,EntrarOuCadastrarActivity.class));
     }
 
 
@@ -265,6 +268,7 @@ public class CadastroActivity extends AppCompatActivity {
 
                     }else{
                         validar = "Cadastro efetivado como cliente com sucesso";
+                        isValido = true;
                     }
                     //Log
                     Log.d("errorAi","ANCHO"+validar);
@@ -276,6 +280,7 @@ public class CadastroActivity extends AppCompatActivity {
                         validar ="Já existe um usuário com este e-mail ou cnpj";
                     }else{
                         validar = "Cadastro efetivado como fornecedor com sucesso";
+                        isValido = true;
                     }
                 }
 //
@@ -286,14 +291,7 @@ public class CadastroActivity extends AppCompatActivity {
     }
     private void exibirMensagemSeValidouCadastro() {
         Toast.makeText(getApplicationContext(), validar, Toast.LENGTH_SHORT).show();
+
     }
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
-    }
+
 }

@@ -53,12 +53,31 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".usuario.gui.EscolhaTipoUserActivity" />
-        <activity android:name=".usuario.gui.CadastroActivity" />
+        <activity android:name=".usuario.gui.EscolhaTipoUserActivity">
+        </activity>
+        <activity android:name=".usuario.gui.CadastroActivity"
+            android:label="@string/label_cadastro"
+            android:parentActivityName=".usuario.gui.EntrarOuCadastrarActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".usuario.gui.EntrarOuCadastrarActivity" />
+        </activity>
         <activity android:name=".fornecedor.gui.TelaInicialFornecedorActivity" />
-        <activity android:name=".cliente.gui.TelaInicialClienteActivity" />
-        <activity android:name=".usuario.gui.EntrarOuCadastrarActivity" />
-        <activity android:name=".usuario.gui.LoginActivity" />
+        <activity android:name=".cliente.gui.TelaInicialClienteActivity"/>
+        <activity android:name=".usuario.gui.EntrarOuCadastrarActivity"
+            android:label="@string/label_entrar_ou_cadastrar"
+            android:parentActivityName=".usuario.gui.EscolhaTipoUserActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".usuario.gui.EscolhaTipoUserActivity" />
+        </activity>
+        <activity android:name=".usuario.gui.LoginActivity"
+            android:label="@string/label_login"
+            android:parentActivityName=".usuario.gui.EntrarOuCadastrarActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".usuario.gui.EntrarOuCadastrarActivity" />
+        </activity>
         <activity android:name=".cliente.gui.FiltroInicialActivity" />
         <activity android:name=".cliente.gui.MostraGPSActivity" />
         <activity android:name=".cliente.gui.DetalhesAnuncioActivity" />

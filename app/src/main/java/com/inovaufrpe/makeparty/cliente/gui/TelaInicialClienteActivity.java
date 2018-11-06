@@ -18,6 +18,7 @@ import android.view.MenuItem;
 import com.inovaufrpe.makeparty.R;
 //import com.inovaufrpe.makeparty.cliente.gui.fragment.AnunciosFragment;
 import com.inovaufrpe.makeparty.cliente.gui.fragment.AnunciosOutroFragment;
+import com.inovaufrpe.makeparty.infra.MakePartyApplication;
 
 public class TelaInicialClienteActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private BottomNavigationView bottomNavigationView;
@@ -89,7 +90,8 @@ public class TelaInicialClienteActivity extends AppCompatActivity implements Nav
         } else if (id == R.id.action_carrinho) {
         } else if (id == R.id.action_filtrar_por_regiao) {
         } else if (id == R.id.action_filtrar_por_preco) {
-
+        }else if (id==R.id.action_sair){
+            finish();
         }
 
         return super.onOptionsItemSelected(item);

@@ -52,14 +52,9 @@ public class TelaInicialFornecedorActivity extends AppCompatActivity {
         anuncios = findViewById(R.id.anunciosId);
     }
 
-    @Override
+    @Override // por enq dando o back e só fechando
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
+        super.onBackPressed();
     }
 
 

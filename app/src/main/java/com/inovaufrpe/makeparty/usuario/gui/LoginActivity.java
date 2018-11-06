@@ -14,6 +14,8 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.inovaufrpe.makeparty.R;
+import com.inovaufrpe.makeparty.cliente.gui.TelaInicialClienteActivity;
+import com.inovaufrpe.makeparty.fornecedor.gui.TelaInicialFornecedorActivity;
 import com.inovaufrpe.makeparty.infra.Sessao;
 import com.inovaufrpe.makeparty.infra.SessionApi;
 import com.inovaufrpe.makeparty.usuario.dominio.Usuario;
@@ -25,6 +27,7 @@ public class LoginActivity extends AppCompatActivity{
     private EditText edtEmail, edtSenha;
     private ProgressDialog dialog;
     private ValidacaoGuiRapida validacaoGuiRapida = new ValidacaoGuiRapida();
+    private String tipoUserLogou ="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,10 +66,17 @@ public class LoginActivity extends AppCompatActivity{
                 } else {
                     getSessaoApi();
                     dialog.dismiss();
-                    String token = Sessao.instance.getResposta();
-                    //Intent intent = new Intent(getApplicationContext(), BottomNavigation.class);
-                    //startActivity(intent);
+                    String[] parts = Sessao.instance.getResposta().split(",");
+                    String token = parts[0].substring(9,parts[0].length()); //FALTA GUARDALO AINDA e setar o usuario
+                    tipoUserLogou = parts[1].substring(8,parts[1].length()-2);
+                    //Toast.makeText(this, tipoUserLogou, Toast.LENGTH_SHORT).show();
+
                     Toast.makeText(this, "Logado", Toast.LENGTH_SHORT).show();
+                    if (tipoUserLogou.equals("customer")){
+                        irParaTelaInicialCliente();
+                    }else{
+                        irParaTelaInicialFornecedor();
+                    }
                 }
             } else {
                 Toast.makeText(this, "Sem conexão com a internet", Toast.LENGTH_SHORT).show();
@@ -147,13 +157,16 @@ public class LoginActivity extends AppCompatActivity{
             return false;
         }
     }
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
+    private void mudarTela(Class tela){
+        Intent intent=new Intent(this, tela);
+        startActivity(intent);
+        finish();
     }
+    public void irParaTelaInicialCliente(){
+        this.mudarTela(TelaInicialClienteActivity.class);
+    }
+    public void irParaTelaInicialFornecedor(){
+        this.mudarTela(TelaInicialFornecedorActivity.class);
+    }
+
 }

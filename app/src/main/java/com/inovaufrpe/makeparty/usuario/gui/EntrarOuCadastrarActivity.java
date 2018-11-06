@@ -19,7 +19,6 @@ public class EntrarOuCadastrarActivity extends AppCompatActivity {
     private void mudarTela(Class proximaTela){
         Intent intent = new Intent( EntrarOuCadastrarActivity.this, proximaTela);
         startActivity(intent);
-        finish();
     }
 
     public void irParaTelaEntrar(View view) {
@@ -31,11 +30,6 @@ public class EntrarOuCadastrarActivity extends AppCompatActivity {
     }
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
+        this.mudarTela(EscolhaTipoUserActivity.class);
     }
 }
