@@ -1,6 +1,7 @@
 package com.inovaufrpe.makeparty.usuario.gui;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -245,6 +246,7 @@ public class CadastroActivity extends AppCompatActivity {
     }
     private void cadastrar(String json) throws InterruptedException{
         callServer("POST",json);
+        startActivity(new Intent(CadastroActivity.this,EntrarOuCadastrarActivity.class));
     }
 
 
