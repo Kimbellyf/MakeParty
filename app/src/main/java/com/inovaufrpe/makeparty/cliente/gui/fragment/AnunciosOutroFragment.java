@@ -163,23 +163,23 @@ public class AnunciosOutroFragment extends BaseFragment {
     // Atualiza o título da action bar (CAB)
     private void updateActionModeTitle() {
         if (actionMode != null) {
-            actionMode.setTitle("Selecione os carros.");
+            actionMode.setTitle("Selecione os anuncios.");
             actionMode.setSubtitle(null);
             List<Anuncio> selectedAnuncios = getSelectedAnuncios();
             if (selectedAnuncios.size() == 1) {
-                actionMode.setSubtitle("1 carro selecionado");
+                actionMode.setSubtitle("1 anuncio selecionado");
             } else if (selectedAnuncios.size() > 1) {
-                actionMode.setSubtitle(selectedAnuncios.size() + " carros selecionados");
+                actionMode.setSubtitle(selectedAnuncios.size() + "anuncios selecionados");
             }
             updateShareIntent(selectedAnuncios);
         }
     }
 
-    // Atualiza a share intent com os carros selecionados
+    // Atualiza a share intent com os anuncios selecionados
     private void updateShareIntent(List<Anuncio> selectedAnuncios) {
         if (shareIntent != null) {
-            // Texto com os carros
-            shareIntent.putExtra(Intent.EXTRA_TEXT, "Carros: " + selectedAnuncios);
+            // Texto com os anúncios
+            shareIntent.putExtra(Intent.EXTRA_TEXT, "Anúncios: " + selectedAnuncios);
         }
     }
 
@@ -254,7 +254,7 @@ public class AnunciosOutroFragment extends BaseFragment {
         };
     }
 
-    // Task para buscar os carros
+    // Task para buscar os anuncios
     private class GetAnunciosTask implements TaskListener<List<Anuncio>> {
         private boolean refresh;
 
@@ -328,7 +328,7 @@ public class AnunciosOutroFragment extends BaseFragment {
             shareIntent.putParcelableArrayListExtra(Intent.EXTRA_STREAM, imageUris);
             shareIntent.setType("image/*");
             // Cria o Intent Chooser com as opções
-            startActivity(Intent.createChooser(shareIntent, "Enviar Carros"));
+            startActivity(Intent.createChooser(shareIntent, "Enviar anúncios"));
         }
 
         @Override

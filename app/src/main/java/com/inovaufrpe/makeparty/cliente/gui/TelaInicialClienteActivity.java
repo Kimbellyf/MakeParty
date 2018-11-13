@@ -17,6 +17,7 @@ import android.view.MenuItem;
 
 import com.inovaufrpe.makeparty.R;
 //import com.inovaufrpe.makeparty.cliente.gui.fragment.AnunciosFragment;
+import com.inovaufrpe.makeparty.cliente.gui.fragment.AnunciosFragment;
 import com.inovaufrpe.makeparty.cliente.gui.fragment.AnunciosOutroFragment;
 import com.inovaufrpe.makeparty.infra.MakePartyApplication;
 
@@ -57,6 +58,7 @@ public class TelaInicialClienteActivity extends AppCompatActivity implements Nav
             //ArrayList<Titulo> titulos = servicoTitulo.getMeuHamba();
             //FiltroTitulo.instance.setTitulosList(titulos);
             AnunciosOutroFragment frag = new AnunciosOutroFragment();
+            //AnunciosFragment frag = new AnunciosFragment();
             frag.setArguments(getIntent().getExtras());
             getSupportFragmentManager().beginTransaction().add(R.id.container, frag).commit();
             //getSupportFragmentManager().beginTransaction().replace(R.id.container, frag).commit();

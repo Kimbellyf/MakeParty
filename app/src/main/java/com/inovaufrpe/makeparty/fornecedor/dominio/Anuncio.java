@@ -3,6 +3,10 @@ package com.inovaufrpe.makeparty.fornecedor.dominio;
 import com.inovaufrpe.makeparty.fornecedor.dominio.PessoaJuridica;
 import com.inovaufrpe.makeparty.usuario.dominio.Endereco;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Anuncio {
@@ -15,10 +19,10 @@ public class Anuncio {
     private Endereco address;
     private String phone;
     private String type;
-    private String tags;
+    private ArrayList tags;
     private PessoaJuridica socialname;
     private PessoaJuridica owner;
-    private String photo;
+    private ArrayList photo;
     //private ArrayList<> photos;                  ARRAYLIST<OBJETO???>
 
     // Flag para a action bar de contexto
@@ -84,14 +88,13 @@ public class Anuncio {
         this.type = type;
     }
 
-    public String getTags() {
+    public ArrayList getTags() {
         return tags;
     }
 
-    public void setTags(String tags) {
+    public void setTags(ArrayList tags) {
         this.tags = tags;
     }
-
     public PessoaJuridica getSocialname() {
         return socialname;
     }
@@ -108,21 +111,28 @@ public class Anuncio {
         this.owner = owner;
     }
 
-    public String getPhoto() {
+    public ArrayList getPhoto() {
         return photo;
     }
 
-    public void setPhoto(String photo) {
+    public void setPhoto(ArrayList photo) {
         this.photo = photo;
     }
-
-    //public ArrayList getFotos() {
-        //return fotos;
-    //}
-
-    //public void setFotos(ArrayList fotos) {
-        //this.fotos = fotos;
-    //}
+   /* @Override
+   public String toString() {
+        return "Anuncio{" + "nome='" + nome + '\'' + ", desc='" + desc + '\'' + '}';
+    }*/
+    @Override
+    public String toString() {
+        try {
+            JSONObject o = new JSONObject().put("id", id).put("title", title).put("price", price).put("description", description)
+                    .put("type", type).put("photo", photo);
+            return o.toString();
+        } catch (JSONException e) {
+            System.out.println("Erro no toString do Filme JSON: "+ e.getMessage());
+        }
+        return null;
+    }
 
 
 }

@@ -16,7 +16,9 @@ import com.inovaufrpe.makeparty.usuario.servico.ResponseWithURL;
 import com.inovaufrpe.makeparty.utils.bibliotecalivroandroid.utils.FileUtils;
 import com.inovaufrpe.makeparty.utils.bibliotecalivroandroid.utils.IOUtils;
 
+import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -75,7 +77,8 @@ public class AnuncioService {
         return anuncios;
     }
 
-    public static List<Anuncio> getAnunciosByTipo(String tipo) throws IOException {
+    /*public static List<Anuncio> getAnunciosByTipo(String tipo) throws IOException {
+        //String url = "http://www.livroandroid.com.br/livro/carros/carros_esportivos.json";
         String url = URL_LISTAR_ANUNCIOS_PELO_TIPO.replace(":type", "Festa");
 
         // Request HTTP GET
@@ -88,6 +91,41 @@ public class AnuncioService {
         Type listType = new TypeToken<ArrayList<Anuncio>>() {}.getType();
         List<Anuncio> anuncios = new Gson().fromJson(json, listType);
         return anuncios;
+    }*/
+    public static List<Anuncio> getAnunciosByTipo(String tipo) throws IOException {
+        String url = URL_LISTAR_ANUNCIOS_PELO_TIPO.replace(":type", "Festa");
+
+        // Request HTTP GET
+        HttpHelper http = new HttpHelper();
+        http.LOG_ON = true;
+        String json = http.doGet(url);
+        Log.d("um json ai", json);
+
+        List<Anuncio> anuncios = new ArrayList<Anuncio>();
+        try {
+            //Lê o array de anuncios do Json
+            JSONArray jsonAnuncios = new JSONArray(json);
+            for (int i=0;i<jsonAnuncios.length();i++) {
+                JSONObject jsonAnuncio = jsonAnuncios.getJSONObject(i);
+                Anuncio c = new Anuncio();
+                //Lê as info de cada anuncio
+                c.setDescription(jsonAnuncio.optString("description"));
+                c.setTitle(jsonAnuncio.optString("title"));
+                //c.setPrice(jsonAnuncio.optString("price").toString());
+                if (LOG_ON) {
+                    Log.d(TAG, "Anuncio" + c.getDescription() + ">");
+
+                }
+                anuncios.add(c);
+            }
+            if (LOG_ON){
+                Log.d(TAG,anuncios.size()+"encontrados");
+            }
+        }catch (JSONException e){
+            throw new IOException(e.getMessage(),e);
+        }
+        return anuncios;
+
     }
     public static List<Anuncio> searchByNome(String nome) throws IOException {
         String url = URL_BASE + "/nome/" + nome; // << essa url ta errada, eu n sei qual url da p pesquisar pelo nome la na API
