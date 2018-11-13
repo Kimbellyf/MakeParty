@@ -2,11 +2,8 @@ package com.inovaufrpe.makeparty.usuario.gui;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -19,10 +16,8 @@ import com.inovaufrpe.makeparty.R;
 import com.inovaufrpe.makeparty.cliente.dominio.PessoaFisica;
 import com.inovaufrpe.makeparty.fornecedor.dominio.PessoaJuridica;
 import com.inovaufrpe.makeparty.usuario.dominio.Usuario;
-import com.inovaufrpe.makeparty.usuario.servico.ConexaoServidor;
-import com.inovaufrpe.makeparty.cliente.servico.ClienteService;
+import com.inovaufrpe.makeparty.usuario.servico.ConectarServidor;
 import com.inovaufrpe.makeparty.usuario.servico.ValidacaoGuiRapida;
-import com.inovaufrpe.makeparty.usuario.servico.HttpConnection;
 import com.inovaufrpe.makeparty.utils.Mask;
 
 import java.io.IOException;
@@ -32,8 +27,6 @@ public class CadastroActivity extends AppCompatActivity {
     private Spinner spUsuario;
     private ValidacaoGuiRapida validacaoGuiRapida = new ValidacaoGuiRapida();
     private String tipoDeUserParaCadastro;
-    ConexaoServidor conexaoServidor;
-    ClienteService clienteService = new ClienteService();
     private ProgressDialog mprogressDialog;
     private String validar = "";
     private boolean isValido = false;
@@ -152,25 +145,31 @@ public class CadastroActivity extends AppCompatActivity {
         String confSenha = edtConfSenha.getText().toString().trim();
         String telefone = edtTelefone.getText().toString().trim();
 
+        Boolean CamposOk = true;
         if (!validacaoGuiRapida.isCampoAceitavel(nome)) {
             this.edtNome.setError("Digite seu nome");
+            this.edtNome.requestFocus();
             return false;
         } else if (!validacaoGuiRapida.isEmailValido(email)) {
             this.edtEmail.setError("Formato inválido");
+            this.edtEmail.requestFocus();
             return false;
         } else if (!confEmail.equals(email)) {
             this.edtConfEmail.setError("Confirmação de email diferente");
             return false;
         } else if (!validacaoGuiRapida.isSenhaValida(senha)) {
             this.edtSenha.setError("Senha inválida, coloque no min 6 caracteres");
+            this.edtSenha.requestFocus();
             return false;
 
         } else if (!validacaoGuiRapida.isSenhaIgual(senha, confSenha)) {
             this.edtConfSenha.setError("A senha e a sua confirmação devem corresponder");
+            this.edtConfSenha.requestFocus();
             return false;
 
         } else if (!validacaoGuiRapida.isTelefoneValido(telefone)) {
             this.edtTelefone.setError("Telefone inválido");
+            this.edtTelefone.requestFocus();
             return false;
         } else {
             return true;
@@ -238,20 +237,14 @@ public class CadastroActivity extends AppCompatActivity {
 
         Usuario usuario = new Usuario(email, senha);
         PessoaFisica pessoaFisica = new PessoaFisica(usuario,nome,cpf,validacaoGuiRapida.dataFormatoBanco(dataNasc),telefone);
-        //ClienteService cliente = new ClienteService();
-        //cliente.criarCliente(pessoaFisica);
+
         Gson gson = new Gson();
         String pf = gson.toJson(pessoaFisica);
         return pf;
     }
-    private void connectToServer(){
-        conexaoServidor = new ConexaoServidor();
-       // conexaoServidor.delegate = this;
-    }
     private void cadastrar(String json) throws InterruptedException{
         callServer("POST",json);
     }
-
 
     private void callServer(final String method, final String data)  throws InterruptedException{
         Thread thread = new Thread(new Runnable() {
@@ -261,8 +254,7 @@ public class CadastroActivity extends AppCompatActivity {
                 //no Onclick no caso, e nesse chamar outro metodo p printar a resposta , se foi cadastrado ou n
                 if (tipoDeUserParaCadastro.equals("Cliente")){
                     //esses 2 metodos aq, ambos guardam a resp do servidor/API, mas o primeiro q tenta fazer o post realmente
-                    validar = HttpConnection.post("https://makepartyserver.herokuapp.com/users/signup/customer",data);
-                    String answer = HttpConnection.getSetDataWeb("https://makepartyserver.herokuapp.com/users/signup/customer", method, data);
+                    validar = ConectarServidor.post("https://makepartyserver.herokuapp.com/users/signup/customer",data);
                     if (validar.substring(2,5).equals("err")){
                         validar ="Já existe um usuário com este e-mail ou cpf";
 
@@ -270,12 +262,8 @@ public class CadastroActivity extends AppCompatActivity {
                         validar = "Cadastro efetivado como cliente com sucesso";
                         isValido = true;
                     }
-                    //Log
-                    Log.d("errorAi","ANCHO"+validar);
-                    Log.i("Script", "ANSWER: "+ answer);
-                    Log.i("Script1","opa" + answer.substring(2,5));
                 }else{
-                    validar = HttpConnection.post("https://makepartyserver.herokuapp.com/users/signup/advertiser",data);
+                    validar = ConectarServidor.post("https://makepartyserver.herokuapp.com/users/signup/advertiser",data);
                     if (validar.substring(2,5).equals("err")){
                         validar ="Já existe um usuário com este e-mail ou cnpj";
                     }else{
@@ -283,7 +271,6 @@ public class CadastroActivity extends AppCompatActivity {
                         isValido = true;
                     }
                 }
-//
             }
         });
         thread.start();

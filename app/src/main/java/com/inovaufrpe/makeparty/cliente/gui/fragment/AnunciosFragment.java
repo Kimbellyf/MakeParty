@@ -4,9 +4,6 @@ package com.inovaufrpe.makeparty.cliente.gui.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.ActivityOptionsCompat;
-import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.view.ActionMode;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -21,14 +18,13 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import com.inovaufrpe.makeparty.R;
 import com.inovaufrpe.makeparty.fornecedor.dominio.Anuncio;
 import com.inovaufrpe.makeparty.cliente.gui.DetalhesAnuncioActivity;
 import com.inovaufrpe.makeparty.cliente.gui.adapter.AnuncioAdapter;
+import com.inovaufrpe.makeparty.infra.SessaoApplication;
 import com.inovaufrpe.makeparty.usuario.gui.event.BusEvent;
-import com.inovaufrpe.makeparty.infra.MakePartyApplication;
 import com.inovaufrpe.makeparty.usuario.servico.AnuncioService;
 import com.inovaufrpe.makeparty.utils.bibliotecalivroandroid.fragment.BaseFragment;
 import com.inovaufrpe.makeparty.utils.bibliotecalivroandroid.task.TaskListener;
@@ -71,7 +67,7 @@ public class AnunciosFragment extends BaseFragment {
         //setHasOptionsMenu(true);
 
         // Registra a classe para receber eventos.
-        MakePartyApplication.getInstance().getBus().register(this);
+        SessaoApplication.getInstance().getBus().register(this);
     }
 
 
@@ -365,6 +361,6 @@ public class AnunciosFragment extends BaseFragment {
     public void onDestroy() {
         super.onDestroy();
         // Cancela o recebimento de eventos.
-        MakePartyApplication.getInstance().getBus().unregister(this);
+        SessaoApplication.getInstance().getBus().unregister(this);
     }
 }

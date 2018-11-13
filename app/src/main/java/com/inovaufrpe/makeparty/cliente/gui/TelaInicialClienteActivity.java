@@ -17,9 +17,7 @@ import android.view.MenuItem;
 
 import com.inovaufrpe.makeparty.R;
 //import com.inovaufrpe.makeparty.cliente.gui.fragment.AnunciosFragment;
-import com.inovaufrpe.makeparty.cliente.gui.fragment.AnunciosFragment;
 import com.inovaufrpe.makeparty.cliente.gui.fragment.AnunciosOutroFragment;
-import com.inovaufrpe.makeparty.infra.MakePartyApplication;
 
 public class TelaInicialClienteActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private BottomNavigationView bottomNavigationView;

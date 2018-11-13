@@ -5,19 +5,25 @@ import android.util.Log;
 
 import com.squareup.otto.Bus;
 
-public class MakePartyApplication extends Application {
-    private static final String TAG = " MakePartyApplication";
-    private static MakePartyApplication instance = null;
+import java.util.HashMap;
+import java.util.Map;
+
+public class SessaoApplication extends Application {
+
+    private static final String TAG = " SessaoApplication";
+    private static SessaoApplication instance = null;
+    private final Map<String, Object> values = new HashMap<>();
     private Bus bus = new Bus();
 
-    public static MakePartyApplication getInstance() {
+    public static SessaoApplication getInstance() {
         return instance; // Singleton
     }
+
 
     @Override
     public void onCreate() {
         super.onCreate();
-        Log.d(TAG, " MakePartyApplication.onCreate()");
+        Log.d(TAG, " SessaoApplication.onCreate()");
         // Salva a instância para termos acesso como Singleton
         instance = this;
     }
@@ -25,7 +31,7 @@ public class MakePartyApplication extends Application {
     @Override
     public void onTerminate() {
         super.onTerminate();
-        Log.d(TAG, " MakePartyApplication.onTerminate()");
+        Log.d(TAG, " SessaoApplication.onTerminate()");
     }
 
     public Bus getBus() {

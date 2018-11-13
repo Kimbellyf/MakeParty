@@ -20,16 +20,13 @@ import com.inovaufrpe.makeparty.R;
 import com.inovaufrpe.makeparty.cliente.gui.DetalhesAnuncioActivity;
 import com.inovaufrpe.makeparty.cliente.gui.adapter.AnuncioAdapter;
 import com.inovaufrpe.makeparty.fornecedor.dominio.Anuncio;
-import com.inovaufrpe.makeparty.infra.MakePartyApplication;
+import com.inovaufrpe.makeparty.infra.SessaoApplication;
 import com.inovaufrpe.makeparty.usuario.servico.AnuncioService;
 import com.inovaufrpe.makeparty.utils.bibliotecalivroandroid.fragment.BaseFragment;
 import com.inovaufrpe.makeparty.utils.bibliotecalivroandroid.task.TaskListener;
 import com.inovaufrpe.makeparty.utils.bibliotecalivroandroid.utils.AndroidUtils;
-import com.inovaufrpe.makeparty.utils.bibliotecalivroandroid.utils.IOUtils;
-import com.inovaufrpe.makeparty.utils.bibliotecalivroandroid.utils.SDCardUtils;
 import com.squareup.otto.Subscribe;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -59,7 +56,7 @@ public class AnunciosOutroFragment extends BaseFragment {
         }
 
         // Registra a classe para receber eventos.
-        MakePartyApplication.getInstance().getBus().register(this);
+        SessaoApplication.getInstance().getBus().register(this);
     }
 
     @Override
@@ -67,7 +64,7 @@ public class AnunciosOutroFragment extends BaseFragment {
         super.onDestroy();
 
         // Cancela o recebimento de eventos.
-        MakePartyApplication.getInstance().getBus().unregister(this);
+        SessaoApplication.getInstance().getBus().unregister(this);
     }
 
     @Subscribe
