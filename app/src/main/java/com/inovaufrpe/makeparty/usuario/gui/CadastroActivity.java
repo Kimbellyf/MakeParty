@@ -130,7 +130,7 @@ public class CadastroActivity extends AppCompatActivity {
         }mprogressDialog.dismiss();
         exibirMensagemSeValidouCadastro();
         if (isValido){
-            startActivity(new Intent(CadastroActivity.this,EntrarOuCadastrarActivity.class));
+            this.mudarTela(EntrarOuCadastrarActivity.class);
         }
 
 
@@ -278,6 +278,16 @@ public class CadastroActivity extends AppCompatActivity {
     }
     private void exibirMensagemSeValidouCadastro() {
         Toast.makeText(getApplicationContext(), validar, Toast.LENGTH_SHORT).show();
+
+    }
+    private void mudarTela(Class proximaTela){
+        Intent intent = new Intent( CadastroActivity.this, proximaTela);
+        startActivity(intent);
+        finish();
+    }
+    @Override
+    public void onBackPressed(){
+        this.mudarTela(EntrarOuCadastrarActivity.class);
 
     }
 

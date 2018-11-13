@@ -165,5 +165,9 @@ public class LoginActivity extends AppCompatActivity{
     public void irParaTelaInicialFornecedor(){
         this.mudarTela(TelaInicialFornecedorActivity.class);
     }
+    @Override
+    public void onBackPressed(){
+        this.mudarTela(EntrarOuCadastrarActivity.class);
 
+    }
 }

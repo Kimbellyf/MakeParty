@@ -282,7 +282,6 @@ public class AnuncioService {
 
     }
 
-    //método que usa a requisição http implementada em conexaoServidor para criar usuário
     public void criarAnuncio(Object objeto) throws IOException {
         String novoJson = criarJson(objeto);
     }
