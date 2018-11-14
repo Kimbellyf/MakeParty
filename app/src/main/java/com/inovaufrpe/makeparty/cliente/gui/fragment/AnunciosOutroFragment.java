@@ -20,16 +20,13 @@ import com.inovaufrpe.makeparty.R;
 import com.inovaufrpe.makeparty.cliente.gui.DetalhesAnuncioActivity;
 import com.inovaufrpe.makeparty.cliente.gui.adapter.AnuncioAdapter;
 import com.inovaufrpe.makeparty.fornecedor.dominio.Anuncio;
-import com.inovaufrpe.makeparty.infra.MakePartyApplication;
+import com.inovaufrpe.makeparty.infra.SessaoApplication;
 import com.inovaufrpe.makeparty.usuario.servico.AnuncioService;
 import com.inovaufrpe.makeparty.utils.bibliotecalivroandroid.fragment.BaseFragment;
 import com.inovaufrpe.makeparty.utils.bibliotecalivroandroid.task.TaskListener;
 import com.inovaufrpe.makeparty.utils.bibliotecalivroandroid.utils.AndroidUtils;
-import com.inovaufrpe.makeparty.utils.bibliotecalivroandroid.utils.IOUtils;
-import com.inovaufrpe.makeparty.utils.bibliotecalivroandroid.utils.SDCardUtils;
 import com.squareup.otto.Subscribe;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -59,7 +56,7 @@ public class AnunciosOutroFragment extends BaseFragment {
         }
 
         // Registra a classe para receber eventos.
-        MakePartyApplication.getInstance().getBus().register(this);
+        SessaoApplication.getInstance().getBus().register(this);
     }
 
     @Override
@@ -67,7 +64,7 @@ public class AnunciosOutroFragment extends BaseFragment {
         super.onDestroy();
 
         // Cancela o recebimento de eventos.
-        MakePartyApplication.getInstance().getBus().unregister(this);
+        SessaoApplication.getInstance().getBus().unregister(this);
     }
 
     @Subscribe
@@ -163,23 +160,23 @@ public class AnunciosOutroFragment extends BaseFragment {
     // Atualiza o título da action bar (CAB)
     private void updateActionModeTitle() {
         if (actionMode != null) {
-            actionMode.setTitle("Selecione os carros.");
+            actionMode.setTitle("Selecione os anuncios.");
             actionMode.setSubtitle(null);
             List<Anuncio> selectedAnuncios = getSelectedAnuncios();
             if (selectedAnuncios.size() == 1) {
-                actionMode.setSubtitle("1 carro selecionado");
+                actionMode.setSubtitle("1 anuncio selecionado");
             } else if (selectedAnuncios.size() > 1) {
-                actionMode.setSubtitle(selectedAnuncios.size() + " carros selecionados");
+                actionMode.setSubtitle(selectedAnuncios.size() + "anuncios selecionados");
             }
             updateShareIntent(selectedAnuncios);
         }
     }
 
-    // Atualiza a share intent com os carros selecionados
+    // Atualiza a share intent com os anuncios selecionados
     private void updateShareIntent(List<Anuncio> selectedAnuncios) {
         if (shareIntent != null) {
-            // Texto com os carros
-            shareIntent.putExtra(Intent.EXTRA_TEXT, "Carros: " + selectedAnuncios);
+            // Texto com os anúncios
+            shareIntent.putExtra(Intent.EXTRA_TEXT, "Anúncios: " + selectedAnuncios);
         }
     }
 
@@ -254,7 +251,7 @@ public class AnunciosOutroFragment extends BaseFragment {
         };
     }
 
-    // Task para buscar os carros
+    // Task para buscar os anuncios
     private class GetAnunciosTask implements TaskListener<List<Anuncio>> {
         private boolean refresh;
 
@@ -328,7 +325,7 @@ public class AnunciosOutroFragment extends BaseFragment {
             shareIntent.putParcelableArrayListExtra(Intent.EXTRA_STREAM, imageUris);
             shareIntent.setType("image/*");
             // Cria o Intent Chooser com as opções
-            startActivity(Intent.createChooser(shareIntent, "Enviar Carros"));
+            startActivity(Intent.createChooser(shareIntent, "Enviar anúncios"));
         }
 
         @Override

@@ -19,6 +19,7 @@ public class EntrarOuCadastrarActivity extends AppCompatActivity {
     private void mudarTela(Class proximaTela){
         Intent intent = new Intent( EntrarOuCadastrarActivity.this, proximaTela);
         startActivity(intent);
+        finish();
     }
 
     public void irParaTelaEntrar(View view) {

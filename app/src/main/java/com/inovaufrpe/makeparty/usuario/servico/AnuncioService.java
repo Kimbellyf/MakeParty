@@ -3,20 +3,17 @@ package com.inovaufrpe.makeparty.usuario.servico;
 import android.content.Context;
 import android.util.Base64;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.inovaufrpe.makeparty.R;
 import com.inovaufrpe.makeparty.fornecedor.dominio.Anuncio;
-import com.inovaufrpe.makeparty.usuario.servico.ConexaoServidor;
-import com.inovaufrpe.makeparty.usuario.servico.HttpHelper;
-import com.inovaufrpe.makeparty.usuario.servico.Response;
-import com.inovaufrpe.makeparty.usuario.servico.ResponseWithURL;
 import com.inovaufrpe.makeparty.utils.bibliotecalivroandroid.utils.FileUtils;
 import com.inovaufrpe.makeparty.utils.bibliotecalivroandroid.utils.IOUtils;
 
+import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -42,7 +39,7 @@ public class AnuncioService {
     private static final String URL_LISTAR_PJS = URL_BASE + "advertisers";
     private Gson gson = new Gson();
     private String respostaServidor;
-    private ConexaoServidor conexaoServidor = new ConexaoServidor();
+
 
     public AnuncioService() {
     } //CONSTRUTOR
@@ -61,11 +58,12 @@ public class AnuncioService {
         }
         return "";
     }
+
     public static List<Anuncio> getTodosAnuncios(Context context) throws IOException {
         String url = URL_LISTAR_ANUNCIOS;
 
         // Request HTTP GET
-        HttpHelper http = new HttpHelper();
+        ConectarServidor http = new ConectarServidor();
         http.LOG_ON = true;
         String json = http.doGet(url);
 
@@ -79,24 +77,47 @@ public class AnuncioService {
         String url = URL_LISTAR_ANUNCIOS_PELO_TIPO.replace(":type", "Festa");
 
         // Request HTTP GET
-        HttpHelper http = new HttpHelper();
+        ConectarServidor http = new ConectarServidor();
         http.LOG_ON = true;
         String json = http.doGet(url);
-        Log.d("um json ai",json);
+        Log.d("um json ai", json);
 
-        // Parser JSON
-        Type listType = new TypeToken<ArrayList<Anuncio>>() {}.getType();
-        List<Anuncio> anuncios = new Gson().fromJson(json, listType);
+        List<Anuncio> anuncios = new ArrayList<Anuncio>();
+        try {
+            //Lê o array de anuncios do Json
+            JSONArray jsonAnuncios = new JSONArray(json);
+            for (int i=0;i<jsonAnuncios.length();i++) {
+                JSONObject jsonAnuncio = jsonAnuncios.getJSONObject(i);
+                Anuncio c = new Anuncio();
+                //Lê as info de cada anuncio
+                c.setDescription(jsonAnuncio.optString("description"));
+                c.setTitle(jsonAnuncio.optString("title"));
+                //c.setPrice(jsonAnuncio.optString("price").toString());
+                if (LOG_ON) {
+                    Log.d(TAG, "Anuncio" + c.getDescription() + ">");
+
+                }
+                anuncios.add(c);
+            }
+            if (LOG_ON){
+                Log.d(TAG,anuncios.size()+"encontrados");
+            }
+        }catch (JSONException e){
+            throw new IOException(e.getMessage(),e);
+        }
         return anuncios;
+
     }
+
     public static List<Anuncio> searchByNome(String nome) throws IOException {
         String url = URL_BASE + "/nome/" + nome; // << essa url ta errada, eu n sei qual url da p pesquisar pelo nome la na API
-        HttpHelper http = new HttpHelper();
+        ConectarServidor http = new ConectarServidor();
         String json = http.doGet(url);
         Type listType = new TypeToken<ArrayList<Anuncio>>() {}.getType();
         List<Anuncio> anuncios = new Gson().fromJson(json, listType);
         return anuncios;
     }
+
     public static ResponseWithURL postFotoBase64(File file) throws IOException {
         String url = URL_BASE + "/postFotoBase64";
 
@@ -115,7 +136,7 @@ public class AnuncioService {
         params.put("base64", base64);
 
         Log.d(TAG, ">> postFotoBase64: " + params);
-        HttpHelper http = new HttpHelper();
+        ConectarServidor http = new ConectarServidor();
         http.setContentType("application/x-www-form-urlencoded");
         http.setCharsetToEncode("UTF-8");
         String json = http.doPost(url, params, "UTF-8");
@@ -139,7 +160,7 @@ public class AnuncioService {
         params.put("base64", base64);
 
         Log.d(TAG, ">> postFotoBase64: " + params);
-        HttpHelper http = new HttpHelper();
+        ConectarServidor http = new ConectarServidor();
         http.setContentType("application/x-www-form-urlencoded");
         http.setCharsetToEncode("UTF-8");
         String json = http.doPost(url, params, "UTF-8");
@@ -157,7 +178,7 @@ public class AnuncioService {
 
         String jsonAnuncio = new Gson().toJson(anuncio);
         Log.d(TAG, ">> saveAnuncio: " + jsonAnuncio);
-        HttpHelper http = new HttpHelper();
+        ConectarServidor http = new ConectarServidor();
         http.setContentType("application/json; charset=utf-8");
 
         // Envia o JSON do Carro no corpo do POST
@@ -176,7 +197,7 @@ public class AnuncioService {
      * }
      */
     public static boolean delete(List<Anuncio> selectedAnuncios) throws IOException, JSONException {
-        HttpHelper http = new HttpHelper();
+        ConectarServidor http = new ConectarServidor();
         http.setContentType("application/json; charset=utf-8");
         for (Anuncio c : selectedAnuncios) {
             // URL para excluir o carro
@@ -196,17 +217,12 @@ public class AnuncioService {
         return true;
     }
 
-
-
-
-
-
     // Faz a requisição HTTP, cria a lista de anuncios e salva o JSON em arquivo
     public static List<Anuncio> getAnunciosFromWebService(Context context, int tipo) throws IOException {
         String tipoString = getTipo(tipo);
         String url = URL_LISTAR_ANUNCIOS_PELO_TIPO.replace(":type", tipoString);
         Log.d(TAG, "URL: " + url);
-        HttpHelper http = new HttpHelper();
+        ConectarServidor http = new ConectarServidor();
         String json = http.doGet(url);
         List<Anuncio> anuncios = parserJSON(context, json);
         salvaArquivoNaMemoriaInterna(context, url, json);
@@ -223,7 +239,6 @@ public class AnuncioService {
 
         return anuncios;
     }
-
 
     private static void salvaArquivoNaMemoriaInterna(Context context, String url, String json) {
         String fileName = url.substring(url.lastIndexOf("/") + 1);
@@ -267,9 +282,7 @@ public class AnuncioService {
 
     }
 
-    //método que usa a requisição http implementada em conexaoServidor para criar usuário
     public void criarAnuncio(Object objeto) throws IOException {
         String novoJson = criarJson(objeto);
-        conexaoServidor.postHttp(novoJson, URL_COLOCAR_ANUNCIO);
     }
 }

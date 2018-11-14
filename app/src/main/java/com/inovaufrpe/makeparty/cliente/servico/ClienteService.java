@@ -2,7 +2,6 @@ package com.inovaufrpe.makeparty.cliente.servico;
 
 import com.google.gson.Gson;
 import com.inovaufrpe.makeparty.cliente.dominio.PessoaFisica;
-import com.inovaufrpe.makeparty.usuario.servico.ConexaoServidor;
 
 import java.io.IOException;
 import java.util.Map;
@@ -20,8 +19,6 @@ public class ClienteService{
     private static final String URL_LISTAR_USUARIOS = URL_BASE + "users";
     private Gson gson = new Gson();
     private String respostaServidor;
-    private ConexaoServidor conexaoServidor = new ConexaoServidor();
-
 
     public ClienteService() {
     } //CONSTRUTOR
@@ -39,7 +36,6 @@ public class ClienteService{
 
     public void criarCliente(Object objeto) throws IOException {
         String novoJson = criarJson(objeto);
-        conexaoServidor.postHttp(novoJson, URL_CADASTRAR_PF);
 
     }
 
@@ -60,13 +56,6 @@ public class ClienteService{
         this.gson = gson;
     }
 
-    public ConexaoServidor getConexaoServidor() {
-        return conexaoServidor;
-    }
-
-    public void setConexaoServidor(ConexaoServidor conexaoServidor) {
-        this.conexaoServidor = conexaoServidor;
-    }
 
     public String getRespostaServidor() {
         return respostaServidor;

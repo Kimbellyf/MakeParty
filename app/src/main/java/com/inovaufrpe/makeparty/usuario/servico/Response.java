@@ -3,6 +3,7 @@ package com.inovaufrpe.makeparty.usuario.servico;
 public class Response {
     private String status;
     private String msg;
+    private String url;
 
     public Response() {
     }

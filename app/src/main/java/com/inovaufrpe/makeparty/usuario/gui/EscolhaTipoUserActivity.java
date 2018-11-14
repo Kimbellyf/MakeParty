@@ -20,7 +20,15 @@ public class EscolhaTipoUserActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
-    public void irParaEscolhaEntrarOuCadastrar(View view){this.mudarTela(EntrarOuCadastrarActivity.class);}
-    public void irParaTelaCliente(View view){this.mudarTela(TelaInicialClienteActivity.class);}
+    public void irParaEscolhaEntrarOuCadastrar(View view) {
+        this.mudarTela(EntrarOuCadastrarActivity.class);
+    }
+    public void irParaTelaCliente(View view){
+        this.mudarTela(TelaInicialClienteActivity.class);
+    }
+    @Override
+    public void onBackPressed() {
+        finish();
+    }
 
 }

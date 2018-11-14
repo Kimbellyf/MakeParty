@@ -6,6 +6,13 @@ import android.util.Log;
 
 import com.inovaufrpe.makeparty.utils.bibliotecalivroandroid.utils.IOUtils;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.util.EntityUtils;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -14,7 +21,7 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.Map;
 
-public class HttpHelper {
+public class ConectarServidor {
     private final String TAG = "Http";
     public final int TIMEOUT_MILLIS = 15000;
     public boolean LOG_ON = false;
@@ -113,6 +120,25 @@ public class HttpHelper {
         }
 
         return s;
+    }
+    //METODO POST ABAIXO DOS MENINOS - BRUNO, ITALO, ETC - USA APACHE E THREAD
+    public static String post(String completeUrl, String body) {
+        HttpClient httpClient = new DefaultHttpClient();
+        String answer;
+        HttpPost httpPost = new HttpPost(completeUrl);
+        httpPost.setHeader("Content-type", "application/json");
+        try {
+            StringEntity stringEntity = new StringEntity(body);
+            httpPost.getRequestLine();
+            httpPost.setEntity(stringEntity);
+
+            HttpResponse resposta = httpClient.execute(httpPost);
+            answer = EntityUtils.toString(resposta.getEntity());
+            Log.i("Script", "ANSWER: "+ answer);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        return answer;
     }
 
     public String doPost(String url, Map<String, String> params, String charset) throws IOException {

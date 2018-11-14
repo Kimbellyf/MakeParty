@@ -2,7 +2,6 @@ package com.inovaufrpe.makeparty.fornecedor.servico;
 
 import com.google.gson.Gson;
 import com.inovaufrpe.makeparty.fornecedor.dominio.PessoaJuridica;
-import com.inovaufrpe.makeparty.usuario.servico.ConexaoServidor;
 
 import java.io.IOException;
 import java.util.Map;
@@ -21,7 +20,7 @@ public class FornecedorService {
     private static final String URL_LISTAR_USUARIOS = URL_BASE +"users";
     private Gson gson = new Gson();
     private String respostaServidor;
-    private ConexaoServidor conexaoServidor = new ConexaoServidor();
+
 
     public FornecedorService() {
     } //CONSTRUTOR
@@ -39,7 +38,7 @@ public class FornecedorService {
     //método que usa a requisição http implementada em conexaoServidor para criar usuário
     public void criarFornecedor(Object objeto) throws IOException {
         String novoJson = criarJson(objeto);
-        conexaoServidor.postHttp(novoJson,URL_CADASTRO_PJ);
+
     }
 
     //Metodo que quebra o json e pega a 2 }== token que é preciso para identificar o user nas requisicoes para n ter q ficar pedindo direto o id/token que o identifica
@@ -56,14 +55,6 @@ public class FornecedorService {
 
     public void setGson(Gson gson) {
         this.gson = gson;
-    }
-
-    public ConexaoServidor getConexaoServidor() {
-        return conexaoServidor;
-    }
-
-    public void setConexaoServidor(ConexaoServidor conexaoServidor) {
-        this.conexaoServidor = conexaoServidor;
     }
 
     public String getRespostaServidor() {
