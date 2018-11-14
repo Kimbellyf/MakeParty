@@ -52,7 +52,6 @@ public class LoginActivity extends AppCompatActivity{
             e.printStackTrace();
         }
 
-
     }
     private void login() throws InterruptedException {
         if (this.verificarCampos()) {
