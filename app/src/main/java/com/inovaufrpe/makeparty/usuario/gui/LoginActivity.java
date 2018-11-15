@@ -2,13 +2,10 @@ package com.inovaufrpe.makeparty.usuario.gui;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -19,7 +16,7 @@ import com.inovaufrpe.makeparty.fornecedor.gui.TelaInicialFornecedorActivity;
 import com.inovaufrpe.makeparty.infra.Sessao;
 import com.inovaufrpe.makeparty.infra.SessionApi;
 import com.inovaufrpe.makeparty.usuario.dominio.Usuario;
-import com.inovaufrpe.makeparty.usuario.servico.HttpConnection;
+import com.inovaufrpe.makeparty.usuario.servico.ConectarServidor;
 import com.inovaufrpe.makeparty.usuario.servico.ServicoDownload;
 import com.inovaufrpe.makeparty.usuario.servico.ValidacaoGuiRapida;
 
@@ -115,7 +112,7 @@ public class LoginActivity extends AppCompatActivity{
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
-                Sessao.instance.setResposta(HttpConnection.post("https://makepartyserver.herokuapp.com/users/authenticate", data));
+                Sessao.instance.setResposta(ConectarServidor.post("https://makepartyserver.herokuapp.com/users/authenticate", data));
                 Log.i("Script", "OLHAAA: "+ Sessao.instance
                         .getResposta());
             }
@@ -167,5 +164,9 @@ public class LoginActivity extends AppCompatActivity{
     public void irParaTelaInicialFornecedor(){
         this.mudarTela(TelaInicialFornecedorActivity.class);
     }
+    @Override
+    public void onBackPressed(){
+        this.mudarTela(EntrarOuCadastrarActivity.class);
 
+    }
 }
