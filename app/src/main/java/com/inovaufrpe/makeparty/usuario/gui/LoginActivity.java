@@ -2,13 +2,10 @@ package com.inovaufrpe.makeparty.usuario.gui;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -167,5 +164,9 @@ public class LoginActivity extends AppCompatActivity{
     public void irParaTelaInicialFornecedor(){
         this.mudarTela(TelaInicialFornecedorActivity.class);
     }
+    @Override
+    public void onBackPressed(){
+        this.mudarTela(EntrarOuCadastrarActivity.class);
 
+    }
 }
