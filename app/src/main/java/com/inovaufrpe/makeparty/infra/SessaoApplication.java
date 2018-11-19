@@ -6,6 +6,7 @@ import android.util.Log;
 import com.inovaufrpe.makeparty.usuario.dominio.Usuario;
 import com.squareup.otto.Bus;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -15,9 +16,11 @@ public class SessaoApplication extends Application {
     public static SessaoApplication instance = null;
     private final Map<String, Object> values = new HashMap<>();
     private Bus bus = new Bus();
+    private String tipoDeUserLogado;
     private String token;
     private String _id;
     private Usuario user;
+    private Date horaRecebidoToken;
 
     public static SessaoApplication getInstance() {
         return instance; // Singleton
@@ -44,6 +47,13 @@ public class SessaoApplication extends Application {
         return (String) values.get("sessao.resposta");
     }
 
+    public String getTipoDeUserLogado(){
+        return tipoDeUserLogado;
+    }
+    public void setTipoDeUserLogado(String tipoDeUserLogado) {
+        this.tipoDeUserLogado = tipoDeUserLogado;
+    }
+
     public String get_id_user() {
         return _id;
     }
@@ -68,7 +78,12 @@ public class SessaoApplication extends Application {
         this.token = token;
     }
 
-
+    public void setHoraRecebidoToken(Date horaRecebidoToken){
+        this.horaRecebidoToken = horaRecebidoToken;
+    }
+    public Date getHoraRecebidoToken() {
+        return horaRecebidoToken;
+    }
     @Override
     public void onTerminate() {
         super.onTerminate();
@@ -78,4 +93,6 @@ public class SessaoApplication extends Application {
     public Bus getBus() {
         return bus;
     }
+
+
 }

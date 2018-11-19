@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".usuario.gui.TesteActivity">
+    tools:context=".cliente.gui.TesteActivity">
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/tab_bar_opcoes_embaixo"

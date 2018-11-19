@@ -1,4 +1,4 @@
-package com.inovaufrpe.makeparty.usuario.gui;
+package com.inovaufrpe.makeparty.cliente.gui;
 
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;

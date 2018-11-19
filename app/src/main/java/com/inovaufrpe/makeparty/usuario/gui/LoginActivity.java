@@ -62,8 +62,10 @@ public class LoginActivity extends AppCompatActivity{
                     //getSessaoApi();
                     dialog.dismiss();
                     String[] parts = SessaoApplication.instance.getResposta().split(",");
-                    String token = parts[0].substring(9,parts[0].length()); //FALTA GUARDALO AINDA e setar o usuario
+                    String token = parts[0].substring(9,parts[0].length()); //FALTA  setar o usuario logado
                     tipoUserLogou = parts[1].substring(8,parts[1].length()-2);
+                    SessaoApplication.instance.setTokenUser(token);
+                    SessaoApplication.instance.setTipoDeUserLogado(tipoUserLogou);
                     //Toast.makeText(this, tipoUserLogou, Toast.LENGTH_SHORT).show();
 
                     Toast.makeText(this, "Logado", Toast.LENGTH_SHORT).show();
