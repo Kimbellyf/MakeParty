@@ -13,11 +13,10 @@ import com.google.gson.Gson;
 import com.inovaufrpe.makeparty.R;
 import com.inovaufrpe.makeparty.cliente.gui.TelaInicialClienteActivity;
 import com.inovaufrpe.makeparty.fornecedor.gui.TelaInicialFornecedorActivity;
-import com.inovaufrpe.makeparty.infra.Sessao;
-import com.inovaufrpe.makeparty.infra.SessionApi;
+import com.inovaufrpe.makeparty.infra.SessaoApplication;
 import com.inovaufrpe.makeparty.usuario.dominio.Usuario;
-import com.inovaufrpe.makeparty.usuario.servico.ConectarServidor;
-import com.inovaufrpe.makeparty.usuario.servico.ServicoDownload;
+import com.inovaufrpe.makeparty.infra.ConectarServidor;
+import com.inovaufrpe.makeparty.infra.ServicoDownload;
 import com.inovaufrpe.makeparty.usuario.servico.ValidacaoGuiRapida;
 
 public class LoginActivity extends AppCompatActivity{
@@ -56,13 +55,13 @@ public class LoginActivity extends AppCompatActivity{
                 String usuario = setarUsuario(edtEmail.getText().toString().trim(), edtSenha.getText().toString().trim());
                 logar(usuario);
                 //Toast.makeText(this, Sessao.instance.getResposta(), Toast.LENGTH_SHORT).show();
-                if(Sessao.instance.getResposta().contains("E-mail ou senha incorretos")){
+                if(SessaoApplication.instance.getResposta().contains("E-mail ou senha incorretos")){
                     dialog.dismiss();
                     Toast.makeText(this, "E-mail ou senha incorretos", Toast.LENGTH_SHORT).show();
                 } else {
-                    getSessaoApi();
+                    //getSessaoApi();
                     dialog.dismiss();
-                    String[] parts = Sessao.instance.getResposta().split(",");
+                    String[] parts = SessaoApplication.instance.getResposta().split(",");
                     String token = parts[0].substring(9,parts[0].length()); //FALTA GUARDALO AINDA e setar o usuario
                     tipoUserLogou = parts[1].substring(8,parts[1].length()-2);
                     //Toast.makeText(this, tipoUserLogou, Toast.LENGTH_SHORT).show();
@@ -84,8 +83,8 @@ public class LoginActivity extends AppCompatActivity{
 
     private void getSessaoApi() throws InterruptedException {
         Gson gson = new Gson();
-        SessionApi sessionApi = gson.fromJson(Sessao.instance.getResposta(), SessionApi.class);
-        Sessao.instance.setSession(sessionApi);
+        //SessionApi sessionApi = gson.fromJson(Sessao.instance.getResposta(), SessionApi.class);
+        //Sessao.instance.setSession(sessionApi);
        // setMApi(sessionApi.getUser());
     }
 
@@ -112,8 +111,8 @@ public class LoginActivity extends AppCompatActivity{
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
-                Sessao.instance.setResposta(ConectarServidor.post("https://makepartyserver.herokuapp.com/users/authenticate", data));
-                Log.i("Script", "OLHAAA: "+ Sessao.instance
+                SessaoApplication.instance.setResposta(ConectarServidor.post("https://makepartyserver.herokuapp.com/users/authenticate", data));
+                Log.i("Script", "OLHAAA: "+ SessaoApplication.instance
                         .getResposta());
             }
         });

@@ -78,17 +78,6 @@
                             tools:layout_editor_absoluteX="39dp"
                             tools:layout_editor_absoluteY="308dp" />
 
-                        <EditText
-                            android:id="@+id/editTextNomeCliente"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="16dp"
-                            android:ems="10"
-                            android:inputType="textPersonName"
-                            android:text="Name"
-                            tools:layout_editor_absoluteX="39dp"
-                            tools:layout_editor_absoluteY="360dp" />
-
                         <TextView
                             android:id="@+id/textViewEmailCliente"
                             android:layout_width="wrap_content"
@@ -100,27 +89,6 @@
                             tools:layout_editor_absoluteX="39dp"
                             tools:layout_editor_absoluteY="430dp" />
 
-                        <EditText
-                            android:id="@+id/editTextEmailAntigoCliente"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="16dp"
-                            android:ems="10"
-                            android:inputType="textPersonName"
-                            android:text="Email antigo"
-                            tools:layout_editor_absoluteX="38dp"
-                            tools:layout_editor_absoluteY="474dp" />
-
-                        <EditText
-                            android:id="@+id/editTextEmailNovoCliente"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="16dp"
-                            android:ems="10"
-                            android:inputType="textPersonName"
-                            android:text="Email novo"
-                            tools:layout_editor_absoluteX="38dp"
-                            tools:layout_editor_absoluteY="538dp" />
                         <TextView
                             android:id="@+id/textViewSenha"
                             android:layout_width="519dp"
@@ -132,28 +100,6 @@
                             tools:layout_editor_absoluteX="38dp"
                             tools:layout_editor_absoluteY="610dp" />
 
-
-                        <EditText
-                            android:id="@+id/editTextSenhaAntigaCliente"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="16dp"
-                            android:ems="10"
-                            android:inputType="textPersonName"
-                            android:text="Senha antiga"
-                            tools:layout_editor_absoluteX="39dp"
-                            tools:layout_editor_absoluteY="650dp" />
-
-                        <EditText
-                            android:id="@+id/editTextSenhaNovaCliente"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="16dp"
-                            android:ems="10"
-                            android:inputType="textPersonName"
-                            android:text="Senha nova"
-                            tools:layout_editor_absoluteX="38dp"
-                            tools:layout_editor_absoluteY="713dp" />
 
                         <TextView
                             android:id="@+id/textViewApagarConta"
@@ -177,18 +123,6 @@
                             android:textSize="20sp"
                             tools:layout_editor_absoluteX="38dp"
                             tools:layout_editor_absoluteY="816dp" />
-
-                        <Button
-                            android:id="@+id/textViewButtonModificar"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="16dp"
-                            android:background="@color/colorButoes"
-                            android:text="Modificar   "
-                            android:textColor="@color/colorWhite"
-                            android:textSize="20sp"
-                            tools:layout_editor_absoluteX="23dp"
-                            tools:layout_editor_absoluteY="891dp" />
 
 
                 </LinearLayout>

@@ -8,8 +8,11 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.inovaufrpe.makeparty.R;
 import com.inovaufrpe.makeparty.fornecedor.dominio.Anuncio;
-import com.inovaufrpe.makeparty.utils.bibliotecalivroandroid.utils.FileUtils;
-import com.inovaufrpe.makeparty.utils.bibliotecalivroandroid.utils.IOUtils;
+import com.inovaufrpe.makeparty.infra.ConectarServidor;
+import com.inovaufrpe.makeparty.infra.Response;
+import com.inovaufrpe.makeparty.infra.ResponseWithURL;
+import com.inovaufrpe.makeparty.infra.utils.bibliotecalivroandroid.utils.FileUtils;
+import com.inovaufrpe.makeparty.infra.utils.bibliotecalivroandroid.utils.IOUtils;
 
 import org.json.JSONArray;
 import org.json.JSONException;

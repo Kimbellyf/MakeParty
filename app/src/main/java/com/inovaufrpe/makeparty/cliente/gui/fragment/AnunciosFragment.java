@@ -26,9 +26,9 @@ import com.inovaufrpe.makeparty.cliente.gui.adapter.AnuncioAdapter;
 import com.inovaufrpe.makeparty.infra.SessaoApplication;
 import com.inovaufrpe.makeparty.usuario.gui.event.BusEvent;
 import com.inovaufrpe.makeparty.usuario.servico.AnuncioService;
-import com.inovaufrpe.makeparty.utils.bibliotecalivroandroid.fragment.BaseFragment;
-import com.inovaufrpe.makeparty.utils.bibliotecalivroandroid.task.TaskListener;
-import com.inovaufrpe.makeparty.utils.bibliotecalivroandroid.utils.AndroidUtils;
+import com.inovaufrpe.makeparty.infra.utils.bibliotecalivroandroid.fragment.BaseFragment;
+import com.inovaufrpe.makeparty.infra.utils.bibliotecalivroandroid.task.TaskListener;
+import com.inovaufrpe.makeparty.infra.utils.bibliotecalivroandroid.utils.AndroidUtils;
 import com.squareup.otto.Subscribe;
 
 import java.net.SocketTimeoutException;

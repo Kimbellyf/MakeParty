@@ -16,9 +16,9 @@ import com.inovaufrpe.makeparty.R;
 import com.inovaufrpe.makeparty.cliente.dominio.PessoaFisica;
 import com.inovaufrpe.makeparty.fornecedor.dominio.PessoaJuridica;
 import com.inovaufrpe.makeparty.usuario.dominio.Usuario;
-import com.inovaufrpe.makeparty.usuario.servico.ConectarServidor;
+import com.inovaufrpe.makeparty.infra.ConectarServidor;
 import com.inovaufrpe.makeparty.usuario.servico.ValidacaoGuiRapida;
-import com.inovaufrpe.makeparty.utils.Mask;
+import com.inovaufrpe.makeparty.infra.utils.Mask;
 
 import java.io.IOException;
 
