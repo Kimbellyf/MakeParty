@@ -1,65 +1,198 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".cliente.gui.AtualizarPerfilClienteActivity">
+    tools:context=".cliente.gui.AtualizarPerfilClienteActivity"
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textViewNomeCliente"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="160dp" />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                        <android.support.design.widget.AppBarLayout
+                            android:id="@+id/materialup.appbar"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-    <EditText
-        android:id="@+id/editTextNomeCliente"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="180dp" />
+                                <android.support.v7.widget.Toolbar
+                                    android:id="@+id/materialup.toolbar"
+                                    style="@style/ToolBarWithNavigationBack"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:minHeight="?attr/actionBarSize"
+                                    app:layout_scrollFlags="scroll|enterAlways|snap"
+                                    app:theme="@style/ThemeOverlay.AppCompat.Light"
+                                    app:title="@string/label_configuracao"
+                                    app:titleTextColor="@color/colorFundo" />
+                        </android.support.design.widget.AppBarLayout>
 
-    <TextView
-        android:id="@+id/textViewEmailCliente"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="234dp" />
+                        <TextView
+                            android:id="@+id/textViewModificar"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_gravity="center"
+                            android:text="Modificar:"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="19sp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.498"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/materialup.appbar" />
 
-    <EditText
-        android:id="@+id/editTextEmailCliente"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="260dp" />
-
-    <TextView
-        android:id="@+id/textViewSenhaCliente"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="94dp" />
-
-    <EditText
-        android:id="@+id/editTextSenhaCliente"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="120dp" />
+                        <ImageButton
+                            android:id="@+id/icAtualizarPerfil"
+                            android:layout_width="185dp"
+                            android:layout_height="147dp"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_gravity="center"
+                            android:background="@null"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textViewModificar"
+                            app:srcCompat="@drawable/user_avatar"
+                            tools:srcCompat="@tools:sample/avatars" />
 
 
+                        <TextView
+                            android:id="@+id/textViewNomeCliente"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="16dp"
+                            android:text="Nome   >"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="23sp"
+                            tools:layout_editor_absoluteX="39dp"
+                            tools:layout_editor_absoluteY="308dp" />
 
-</android.support.constraint.ConstraintLayout>
+                        <EditText
+                            android:id="@+id/editTextNomeCliente"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="16dp"
+                            android:ems="10"
+                            android:inputType="textPersonName"
+                            android:text="Name"
+                            tools:layout_editor_absoluteX="39dp"
+                            tools:layout_editor_absoluteY="360dp" />
+
+                        <TextView
+                            android:id="@+id/textViewEmailCliente"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="16dp"
+                            android:text="Email   >"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="20sp"
+                            tools:layout_editor_absoluteX="39dp"
+                            tools:layout_editor_absoluteY="430dp" />
+
+                        <EditText
+                            android:id="@+id/editTextEmailAntigoCliente"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="16dp"
+                            android:ems="10"
+                            android:inputType="textPersonName"
+                            android:text="Email antigo"
+                            tools:layout_editor_absoluteX="38dp"
+                            tools:layout_editor_absoluteY="474dp" />
+
+                        <EditText
+                            android:id="@+id/editTextEmailNovoCliente"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="16dp"
+                            android:ems="10"
+                            android:inputType="textPersonName"
+                            android:text="Email novo"
+                            tools:layout_editor_absoluteX="38dp"
+                            tools:layout_editor_absoluteY="538dp" />
+                        <TextView
+                            android:id="@+id/textViewSenha"
+                            android:layout_width="519dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="16dp"
+                            android:text="Senha   >"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="20sp"
+                            tools:layout_editor_absoluteX="38dp"
+                            tools:layout_editor_absoluteY="610dp" />
+
+
+                        <EditText
+                            android:id="@+id/editTextSenhaAntigaCliente"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="16dp"
+                            android:ems="10"
+                            android:inputType="textPersonName"
+                            android:text="Senha antiga"
+                            tools:layout_editor_absoluteX="39dp"
+                            tools:layout_editor_absoluteY="650dp" />
+
+                        <EditText
+                            android:id="@+id/editTextSenhaNovaCliente"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="16dp"
+                            android:ems="10"
+                            android:inputType="textPersonName"
+                            android:text="Senha nova"
+                            tools:layout_editor_absoluteX="38dp"
+                            tools:layout_editor_absoluteY="713dp" />
+
+                        <TextView
+                            android:id="@+id/textViewApagarConta"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="16dp"
+                            android:text="Apagar conta   >"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="20sp"
+                            tools:layout_editor_absoluteX="38dp"
+                            tools:layout_editor_absoluteY="771dp" />
+
+
+                        <TextView
+                            android:id="@+id/textViewSair"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="16dp"
+                            android:text="Sair   >"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="20sp"
+                            tools:layout_editor_absoluteX="38dp"
+                            tools:layout_editor_absoluteY="816dp" />
+
+                        <Button
+                            android:id="@+id/textViewButtonModificar"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="16dp"
+                            android:background="@color/colorButoes"
+                            android:text="Modificar   "
+                            android:textColor="@color/colorWhite"
+                            android:textSize="20sp"
+                            tools:layout_editor_absoluteX="23dp"
+                            tools:layout_editor_absoluteY="891dp" />
+
+
+                </LinearLayout>
+        </ScrollView>
+
+
+</LinearLayout>

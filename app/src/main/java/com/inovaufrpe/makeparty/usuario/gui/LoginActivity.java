@@ -19,7 +19,7 @@ import com.inovaufrpe.makeparty.fornecedor.gui.TelaInicialFornecedorActivity;
 import com.inovaufrpe.makeparty.infra.Sessao;
 import com.inovaufrpe.makeparty.infra.SessionApi;
 import com.inovaufrpe.makeparty.usuario.dominio.Usuario;
-import com.inovaufrpe.makeparty.usuario.servico.HttpConnection;
+import com.inovaufrpe.makeparty.usuario.servico.ConectarServidor;
 import com.inovaufrpe.makeparty.usuario.servico.ServicoDownload;
 import com.inovaufrpe.makeparty.usuario.servico.ValidacaoGuiRapida;
 
@@ -115,7 +115,7 @@ public class LoginActivity extends AppCompatActivity{
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
-                Sessao.instance.setResposta(HttpConnection.post("https://makepartyserver.herokuapp.com/users/authenticate", data));
+                Sessao.instance.setResposta(ConectarServidor.post("https://makepartyserver.herokuapp.com/users/authenticate", data));
                 Log.i("Script", "OLHAAA: "+ Sessao.instance
                         .getResposta());
             }

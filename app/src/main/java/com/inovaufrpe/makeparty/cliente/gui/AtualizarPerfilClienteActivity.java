@@ -12,4 +12,7 @@ public class AtualizarPerfilClienteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_atualizar_perfil_cliente);
     }
+    private void procurandoViews(){
+
+    }
 }

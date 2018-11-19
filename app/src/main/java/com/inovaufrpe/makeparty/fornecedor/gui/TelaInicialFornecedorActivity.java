@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import com.inovaufrpe.makeparty.R;
-import com.inovaufrpe.makeparty.cliente.gui.TelaInicialClienteActivity;
+
 
 public class TelaInicialFornecedorActivity extends AppCompatActivity {
     private ImageView notificacoes;
@@ -18,7 +18,7 @@ public class TelaInicialFornecedorActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_inicial_fornecedor);
-        setView();
+        procurandoViews();
         notificacoes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -43,12 +43,14 @@ public class TelaInicialFornecedorActivity extends AppCompatActivity {
                 startActivity(new Intent(TelaInicialFornecedorActivity.this, AnunciosFornecedorActivity.class));
             }
         });
+
     }
-    private void setView() {
+    private void procurandoViews() {
         notificacoes = findViewById(R.id.notificacoesId);
         calendar = findViewById(R.id.calendarId);
         configuracoes = findViewById(R.id.configuracoesId);
         anuncios = findViewById(R.id.anunciosId);
+
     }
     private void mudarTela(Class tela){
         Intent intent=new Intent(this, tela);
@@ -56,7 +58,7 @@ public class TelaInicialFornecedorActivity extends AppCompatActivity {
         finish();
     }
 
-    @Override // por enq dando o back e só fechando
+   @Override // por enq dando o back e só fechando
     public void onBackPressed() {
         finish();
         //super.onBackPressed();

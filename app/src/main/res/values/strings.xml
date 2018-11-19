@@ -88,6 +88,8 @@
     <string name="img_view_fazer_anuncio">Fazer anúncio</string>
     <string name="img_view_config">Configurações</string>
     <string name="label_calendario">Calendário</string>
+    <string name="label_configuracao">Configuração</string>
+    <string name="label_dia_selecionado_fornecedor">Dia selecionado do calendário</string>
 
 
 </resources>

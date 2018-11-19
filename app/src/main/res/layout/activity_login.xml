@@ -8,7 +8,7 @@
 
     <Button
         android:id="@+id/button_entrar"
-        android:layout_width="247dp"
+        android:layout_width="257dp"
         android:layout_height="39dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
@@ -26,7 +26,7 @@
     <EditText
         android:id="@+id/editTextSenha"
 
-        android:layout_width="253dp"
+        android:layout_width="264dp"
         android:layout_height="39dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
@@ -57,11 +57,11 @@
 
     <EditText
         android:id="@+id/editTextEmail"
-        android:layout_width="252dp"
+        android:layout_width="262dp"
         android:layout_height="39dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:ems="10"
@@ -73,8 +73,8 @@
 
     <ImageView
         android:id="@+id/imageViewLogoAg"
-        android:layout_width="207dp"
-        android:layout_height="109dp"
+        android:layout_width="285dp"
+        android:layout_height="226dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="16dp"

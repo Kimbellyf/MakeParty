@@ -1,6 +1,7 @@
 package com.inovaufrpe.makeparty.cliente.gui;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.CoordinatorLayout;
@@ -18,6 +19,7 @@ import android.view.MenuItem;
 import com.inovaufrpe.makeparty.R;
 //import com.inovaufrpe.makeparty.cliente.gui.fragment.AnunciosFragment;
 import com.inovaufrpe.makeparty.cliente.gui.fragment.AnunciosOutroFragment;
+import com.inovaufrpe.makeparty.fornecedor.gui.TelaInicialFornecedorActivity;
 
 public class TelaInicialClienteActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private BottomNavigationView bottomNavigationView;
@@ -102,9 +104,9 @@ public class TelaInicialClienteActivity extends AppCompatActivity implements Nav
         int id = item.getItemId();
         if (id == R.id.nav_camera) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
         } else if (id == R.id.nav_slideshow) {
         } else if (id == R.id.nav_manage) {
+            irParaTelaConfiguracoesCliente();
         } else if (id == R.id.nav_share) {
         } else if (id == R.id.nav_send) {
         }
@@ -136,6 +138,14 @@ public class TelaInicialClienteActivity extends AppCompatActivity implements Nav
             }
         });
 
+    }
+    private void mudarTela(Class tela){
+        Intent intent=new Intent(this, tela);
+        startActivity(intent);
+        finish();
+    }
+    public void irParaTelaConfiguracoesCliente(){
+        this.mudarTela(AtualizarPerfilClienteActivity.class);
     }
 
 
