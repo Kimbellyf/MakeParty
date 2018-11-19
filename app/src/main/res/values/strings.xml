@@ -59,6 +59,15 @@
     <string name="text_view_title_anuncio">Titulo do anuncio</string>
     <string name="text_view_razao_social_fornecedor">Nome do fornecedor</string>
     <string name="text_view_preco_anuncio">R$0,00</string>
+    <string name="text_view_modificar">Titulo "Modificar"</string>
+    <string name="text_view_modificar_nome">Editar nome de fornecedor</string>
+    <string name="text_view_modificar_email">Editar email de fornecedor</string>
+    <string name="text_view_modificar_senha">Editar senha do fornencedor</string>
+    <string name="text_view_modificar_cnpj">Editar imei/cnpj do fornencedor</string>
+    <string name="text_view_modificar_mandarMensagem">Mande mensagem para o número xxx</string>
+    <string name="text_view_modificar_apagarConta">Apague sua conta de fornencedor</string>
+    <string name="text_view_modificar_sair">Sair da configuração do fornencedor</string>
+
     <string name="img_view_foto_anuncio">Foto do anúncio</string>
     <string name="ic_avaliar_anuncio_fornecedor">Avaliar fornecedor pelo anúncio</string>
     <string name="ic_adicionar_anuncio_a_lista_desejos">Adicionar anúncio a lista de desejos</string>
@@ -87,9 +96,18 @@
     <string name="img_view_calendario">Calendário</string>
     <string name="img_view_fazer_anuncio">Fazer anúncio</string>
     <string name="img_view_config">Configurações</string>
+    <string name="img_view_user_avatar">Avatar de usuário </string>
     <string name="label_calendario">Calendário</string>
     <string name="label_configuracao">Configuração</string>
     <string name="label_dia_selecionado_fornecedor">Dia selecionado do calendário</string>
+    <string name="nome"><![CDATA[Nome >]]></string>
+    <string name="modificar">Modificar</string>
+    <string name="sair"><![CDATA[Sair >]]></string>
+    <string name="apagar_conta"><![CDATA[Apagar conta >]]></string>
+    <string name="mandar_mensagem"><![CDATA[Mandar mensagem >]]></string>
+    <string name="imei_cnpj"><![CDATA[IMEI/CNPJ >]]></string>
+    <string name="senha"><![CDATA[Senha >]]></string>
+    <string name="e_mail"><![CDATA[E-mail >]]></string>
 
 
 </resources>
