@@ -53,7 +53,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".usuario.gui.EscolhaTipoUserActivity"></activity>
+        <activity android:name=".usuario.gui.EscolhaTipoUserActivity" />
         <activity
             android:name=".usuario.gui.CadastroActivity"
             android:label="@string/label_cadastro"
@@ -90,7 +90,8 @@
         <activity android:name=".fornecedor.gui.NotificacoesActivity" />
         <activity android:name=".fornecedor.gui.ConfiguracoesFornecedorActivity" />
         <activity android:name=".fornecedor.gui.AnunciosFornecedorActivity" />
-        <activity android:name=".fornecedor.gui.CapturaDadosCalendarActivity"></activity>
+        <activity android:name=".fornecedor.gui.CapturaDadosCalendarActivity" />
+        <activity android:name=".fornecedor.gui.CriarAnuncio"></activity>
     </application>
 
 </manifest>
