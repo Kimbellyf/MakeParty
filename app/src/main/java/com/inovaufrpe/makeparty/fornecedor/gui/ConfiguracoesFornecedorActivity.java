@@ -127,7 +127,7 @@ public class ConfiguracoesFornecedorActivity extends AppCompatActivity {
     }
 
     public void telaSairFornecedor(View view) {
-        //this.mudarTela();
+        this.onBackPressed();
     }
 
     public void callDialog(String message,String tipo){

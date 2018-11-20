@@ -15,17 +15,21 @@ public class EscolhaTipoUserActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_escolha_tipo_user);
     }
+
     private void mudarTela(Class proximaTela){
         Intent intent = new Intent( EscolhaTipoUserActivity.this, proximaTela);
         startActivity(intent);
         finish();
     }
+
     public void irParaEscolhaEntrarOuCadastrar(View view) {
         this.mudarTela(EntrarOuCadastrarActivity.class);
     }
+
     public void irParaTelaCliente(View view){
         this.mudarTela(TelaInicialClienteActivity.class);
     }
+
     @Override
     public void onBackPressed() {
         finish();
