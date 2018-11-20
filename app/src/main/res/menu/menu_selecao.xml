@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+
+    <item
+        android:id="@+id/action_add_lista_desejo_finalm"
+        android:icon="@drawable/ic_favorite_24dp"
+        android:orderInCategory="301"
+        android:title="@string/action_add_lista_desejo"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_share"
+        android:icon="@drawable/ic_menu_share"
+        android:title="Compartilhar"
+        android:visible="false"/>
+    <item
+        android:id="@+id/action_send_selec"
+        android:icon="@drawable/ic_menu_send"
+        android:orderInCategory="308"
+        android:iconTint="@color/colorWhite"
+        android:title="Send" />
+
+</menu>

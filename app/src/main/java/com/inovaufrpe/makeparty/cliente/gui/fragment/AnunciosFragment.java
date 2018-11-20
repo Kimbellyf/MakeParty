@@ -265,7 +265,7 @@ public class AnunciosFragment extends BaseFragment {
             public boolean onCreateActionMode(ActionMode mode, Menu menu) {
                 // Inflate a menu resource providing context menu items
                 MenuInflater inflater = getActivity().getMenuInflater();
-                inflater.inflate(R.menu.menu_main, menu);
+                inflater.inflate(R.menu.menu_selecao, menu);
                 return true;
             }
 

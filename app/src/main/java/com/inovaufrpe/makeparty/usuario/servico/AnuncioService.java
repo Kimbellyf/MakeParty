@@ -40,6 +40,9 @@ public class AnuncioService {
     private static final String URL_LISTAR_ANUNCIOS_PELO_TIPO = URL_BASE + "ads/types/:type";
     private static final String URL_PESQUISAR_PJ_PELO_ID = URL_BASE + "advertisers/:id";
     private static final String URL_LISTAR_PJS = URL_BASE + "advertisers";
+    private static final String URL_CRIAR_LISTA_DESEJOS = URL_BASE + "wishlists";
+    private static final String URL_LISTA_DESEJOS = URL_BASE + "wishlists";
+
     private Gson gson = new Gson();
     private String respostaServidor;
 
@@ -95,6 +98,13 @@ public class AnuncioService {
                 //Lê as info de cada anuncio
                 c.setDescription(jsonAnuncio.optString("description"));
                 c.setTitle(jsonAnuncio.optString("title"));
+                c.setPrice(jsonAnuncio.optDouble("price"));
+                c.setPhone(jsonAnuncio.optString("phone"));
+                //c.setSocialname(jsonAnuncio.opt);
+                //c.setAddress(jsonAnuncio.optS);
+                //c.setOwner(jsonAnuncio.optJSONObject("owner"));
+                //c.setOwner(jsonAnuncio.optString("owner"));
+
                 //c.setPrice(jsonAnuncio.optString("price").toString());
                 if (LOG_ON) {
                     Log.d(TAG, "Anuncio" + c.getDescription() + ">");

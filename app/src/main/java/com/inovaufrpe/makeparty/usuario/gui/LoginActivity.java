@@ -72,6 +72,7 @@ public class LoginActivity extends AppCompatActivity{
                     if (tipoUserLogou.equals("customer")){
                         irParaTelaInicialCliente();
                     }else{
+
                         irParaTelaInicialFornecedor();
                     }
                 }

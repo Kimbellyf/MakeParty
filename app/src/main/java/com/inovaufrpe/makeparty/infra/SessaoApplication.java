@@ -16,7 +16,7 @@ public class SessaoApplication extends Application {
     public static SessaoApplication instance = null;
     private final Map<String, Object> values = new HashMap<>();
     private Bus bus = new Bus();
-    private String tipoDeUserLogado;
+    private String tipoDeUserLogado = "null";
     private String token;
     private String _id;
     private Usuario user;

@@ -108,6 +108,8 @@
     <string name="imei_cnpj"><![CDATA[IMEI/CNPJ >]]></string>
     <string name="senha"><![CDATA[Senha >]]></string>
     <string name="e_mail"><![CDATA[E-mail >]]></string>
+    <string name="text_view_mudar_plano">Mudar plano      ></string>
+    <string name="ic_mudar_foto_perfil">Mudar foto do perfil</string>
 
 
 </resources>

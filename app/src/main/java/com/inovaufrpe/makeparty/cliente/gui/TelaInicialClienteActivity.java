@@ -15,11 +15,13 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.inovaufrpe.makeparty.R;
 //import com.inovaufrpe.makeparty.cliente.gui.fragment.AnunciosFragment;
 import com.inovaufrpe.makeparty.cliente.gui.fragment.AnunciosOutroFragment;
 import com.inovaufrpe.makeparty.fornecedor.gui.TelaInicialFornecedorActivity;
+import com.inovaufrpe.makeparty.infra.SessaoApplication;
 
 public class TelaInicialClienteActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private BottomNavigationView bottomNavigationView;
@@ -54,14 +56,11 @@ public class TelaInicialClienteActivity extends AppCompatActivity implements Nav
     private void criarFragment(Bundle savedInstanceState) {
         //getSupportActionBar().setTitle(getString(getIntent().getIntExtra("tipo",6)));
         if (savedInstanceState == null) {
-            //ServicoTitulo servicoTitulo = new ServicoTitulo();
-            //ArrayList<Titulo> titulos = servicoTitulo.getMeuHamba();
-            //FiltroTitulo.instance.setTitulosList(titulos);
             AnunciosOutroFragment frag = new AnunciosOutroFragment();
             //AnunciosFragment frag = new AnunciosFragment();
             frag.setArguments(getIntent().getExtras());
-            getSupportFragmentManager().beginTransaction().add(R.id.container, frag).commit();
-            //getSupportFragmentManager().beginTransaction().replace(R.id.container, frag).commit();
+            //getSupportFragmentManager().beginTransaction().add(R.id.container, frag).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.container, frag).commit();
         }
     }
     @Override
@@ -75,11 +74,14 @@ public class TelaInicialClienteActivity extends AppCompatActivity implements Nav
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        //TextView nomeUsuario, email;
-        //nomeUsuario = findViewById(R.id.nomeView);
-        //email = findViewById(R.id.emailView);
-        //nomeUsuario.setText(Sessao.instance.getPessoa().getNome());
-        //email.setText(Sessao.instance.getPessoa().getUsuario().getEmail());
+        if (!SessaoApplication.instance.getTipoDeUserLogado().equals("null"));{
+            //TextView nomeUsuario, email;
+            //nomeUsuario = findViewById(R.id.nomeView);
+            //email = findViewById(R.id.emailView);
+            //nomeUsuario.setText(SessaoApplication.instance.getPessoa().getNome());
+            //email.setText(SessaoApplication.instance.getPessoa().getUsuario().getEmail());
+        }
+
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }

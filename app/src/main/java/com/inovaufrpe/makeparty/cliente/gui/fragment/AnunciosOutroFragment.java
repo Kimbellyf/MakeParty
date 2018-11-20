@@ -3,6 +3,7 @@ package com.inovaufrpe.makeparty.cliente.gui.fragment;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.view.ActionMode;
@@ -126,7 +127,7 @@ public class AnunciosOutroFragment extends BaseFragment {
                 Anuncio c = anuncios.get(indexAnuncio);
                 if (actionMode == null) {
                     Intent intent = new Intent(getContext(), DetalhesAnuncioActivity.class);
-                    //intent.putExtra("anuncio", c);
+                    //intent.putExtra("anuncio", (Parcelable) c);
                     startActivity(intent);
                 } else { // Se a CAB está ativada
                     // Seleciona o carro
@@ -166,7 +167,7 @@ public class AnunciosOutroFragment extends BaseFragment {
             if (selectedAnuncios.size() == 1) {
                 actionMode.setSubtitle("1 anuncio selecionado");
             } else if (selectedAnuncios.size() > 1) {
-                actionMode.setSubtitle(selectedAnuncios.size() + "anuncios selecionados");
+                actionMode.setSubtitle(selectedAnuncios.size() + " anuncios selecionados");
             }
             updateShareIntent(selectedAnuncios);
         }
@@ -180,7 +181,7 @@ public class AnunciosOutroFragment extends BaseFragment {
         }
     }
 
-    // Retorna a lista de carros selecionados
+    // Retorna a lista de anuncios selecionados
     private List<Anuncio> getSelectedAnuncios() {
         List<Anuncio> list = new ArrayList<Anuncio>();
         for (Anuncio c : anuncios) {
@@ -197,7 +198,7 @@ public class AnunciosOutroFragment extends BaseFragment {
             public boolean onCreateActionMode(ActionMode mode, Menu menu) {
                 // Infla o menu específico da action bar de contexto (CAB)
                 MenuInflater inflater = getActivity().getMenuInflater();
-                inflater.inflate(R.menu.menu_main, menu);
+                inflater.inflate(R.menu.menu_selecao, menu);
                // MenuItem shareItem = menu.findItem(R.id.action_share);
 //                ShareActionProvider share = (ShareActionProvider) MenuItemCompat.getActionProvider(shareItem);
 //                shareIntent = new Intent(Intent.ACTION_SEND);

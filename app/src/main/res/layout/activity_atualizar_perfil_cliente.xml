@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".cliente.gui.AtualizarPerfilClienteActivity"
     android:orientation="vertical">
-
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-                <LinearLayout
+                <android.support.constraint.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:layout_height="match_parent">
+
                         <android.support.design.widget.AppBarLayout
                             android:id="@+id/materialup.appbar"
                             android:layout_width="match_parent"
@@ -28,105 +27,157 @@
                                     android:minHeight="?attr/actionBarSize"
                                     app:layout_scrollFlags="scroll|enterAlways|snap"
                                     app:theme="@style/ThemeOverlay.AppCompat.Light"
-                                    app:title="@string/label_configuracao"
+                                    app:title="@string/label_configuracoes"
                                     app:titleTextColor="@color/colorFundo" />
                         </android.support.design.widget.AppBarLayout>
-
-                        <TextView
-                            android:id="@+id/textViewModificar"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                        <ImageView
+                            android:id="@+id/ImageViewAvatarCliente"
+                            android:layout_width="186dp"
+                            android:layout_height="119dp"
                             android:layout_marginStart="8dp"
                             android:layout_marginLeft="8dp"
-                            android:layout_marginTop="20dp"
+                            android:layout_marginTop="16dp"
                             android:layout_marginEnd="8dp"
                             android:layout_marginRight="8dp"
-                            android:layout_gravity="center"
-                            android:text="Modificar:"
+                            android:contentDescription="@string/img_view_user_avatar"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView_modificar"
+                            app:srcCompat="@drawable/ic_avatar" />
+
+                        <android.support.design.widget.FloatingActionButton
+                            android:id="@+id/floatingMudarFotoPerfilCliente"
+                            android:layout_width="52dp"
+                            android:layout_height="50dp"
+                            android:layout_marginTop="76dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginRight="8dp"
+                            android:contentDescription="@string/ic_mudar_foto_perfil"
+                            android:src="@drawable/ic_camera_24dp"
+                            app:layout_anchorGravity="bottom|right|end"
+                            app:layout_constraintEnd_toStartOf="@+id/ImageViewAvatarCliente"
+                            app:layout_constraintHorizontal_bias="0.192"
+                            app:layout_constraintStart_toEndOf="@+id/ImageViewAvatarCliente"
+                            app:layout_constraintTop_toTopOf="@+id/ImageViewAvatarCliente" />
+
+                        <TextView
+                            android:id="@+id/textView_modificar"
+                            android:layout_width="260dp"
+                            android:layout_height="52dp"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="24dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginRight="8dp"
+                            android:contentDescription="@string/text_view_modificar"
+                            android:gravity="center"
+                            android:text="@string/modificar"
+                            android:textAllCaps="false"
                             android:textColor="@color/colorBlack"
-                            android:textSize="19sp"
-                            android:textStyle="bold"
+                            android:textSize="36sp"
+                            android:textStyle="normal"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.498"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/materialup.appbar" />
 
-                        <ImageButton
-                            android:id="@+id/icAtualizarPerfil"
-                            android:layout_width="185dp"
-                            android:layout_height="147dp"
-                            android:layout_marginStart="8dp"
+                        <Button
+                            android:id="@+id/button_modificar_nome_cliente"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
                             android:layout_marginTop="16dp"
-                            android:layout_marginEnd="8dp"
-                            android:layout_gravity="center"
-                            android:background="@null"
+                            android:layout_marginLeft="60dp"
+                            android:layout_marginRight="60dp"
+                            android:contentDescription="@string/text_view_modificar_nome"
+                            android:text="@string/nome"
+                            android:textSize="16sp"
+                            android:background="@color/colorWhite"
+                            android:textColor="@color/colorPrimary"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/textViewModificar"
-                            app:srcCompat="@drawable/user_avatar"
-                            tools:srcCompat="@tools:sample/avatars" />
+                            app:layout_constraintTop_toBottomOf="@+id/ImageViewAvatarCliente"
+                            tools:text="Nome                                      >"
+                            tools:textSize="30sp"
+                            />
 
+                        <Button
+                            android:id="@+id/button_modificar_email_cliente"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginLeft="60dp"
+                            android:layout_marginRight="60dp"
+                            android:contentDescription="@string/text_view_modificar_email"
+                            android:text="@string/e_mail"
+                            android:textSize="16sp"
+                            android:textColor="@color/colorPrimary"
+                            android:background="@color/colorWhite"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.503"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/button_modificar_nome_cliente"
+                            tools:text="E-mail                                      >"
+                            tools:textSize="30sp" />
 
-                        <TextView
-                            android:id="@+id/textViewNomeCliente"
+                        <Button
+                            android:id="@+id/button_modificar_senha_cliente"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="60dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginRight="60dp"
+                            android:background="@color/colorWhite"
+                            android:contentDescription="@string/text_view_modificar_senha"
+                            android:text="@string/senha"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="16sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/button_modificar_email_cliente"
+                            tools:text="Senha                                      >"
+                            tools:textSize="30sp" />
+
+                        <Button
+                            android:id="@+id/button_modificar_apagar_conta_cliente"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="60dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginRight="60dp"
+                            android:background="@color/colorWhite"
+                            android:contentDescription="@string/text_view_modificar_apagarConta"
+                            android:text="@string/apagar_conta"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="16sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="1.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/button_modificar_senha_cliente"
+                            tools:text="Apagar conta                         >"
+                            tools:textSize="30sp" />
+
+                        <Button
+                            android:id="@+id/button_modificar_sair_cliente"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="16dp"
-                            android:text="Nome   >"
-                            android:textColor="@color/colorBlack"
-                            android:textSize="23sp"
-                            tools:layout_editor_absoluteX="39dp"
-                            tools:layout_editor_absoluteY="308dp" />
+                            android:contentDescription="@string/text_view_modificar_sair"
+                            android:text="@string/sair"
+                            android:textSize="16sp"
+                            android:textStyle="normal"
+                            android:textColor="@color/colorWhite"
+                            android:background="@color/colorPrimary"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.504"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/button_modificar_apagar_conta_cliente"
+                            tools:textSize="30sp" />
+                </android.support.constraint.ConstraintLayout>
 
-                        <TextView
-                            android:id="@+id/textViewEmailCliente"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="16dp"
-                            android:text="Email   >"
-                            android:textColor="@color/colorBlack"
-                            android:textSize="20sp"
-                            tools:layout_editor_absoluteX="39dp"
-                            tools:layout_editor_absoluteY="430dp" />
-
-                        <TextView
-                            android:id="@+id/textViewSenha"
-                            android:layout_width="519dp"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="16dp"
-                            android:text="Senha   >"
-                            android:textColor="@color/colorBlack"
-                            android:textSize="20sp"
-                            tools:layout_editor_absoluteX="38dp"
-                            tools:layout_editor_absoluteY="610dp" />
-
-
-                        <TextView
-                            android:id="@+id/textViewApagarConta"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="16dp"
-                            android:text="Apagar conta   >"
-                            android:textColor="@color/colorBlack"
-                            android:textSize="20sp"
-                            tools:layout_editor_absoluteX="38dp"
-                            tools:layout_editor_absoluteY="771dp" />
-
-
-                        <TextView
-                            android:id="@+id/textViewSair"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="16dp"
-                            android:text="Sair   >"
-                            android:textColor="@color/colorBlack"
-                            android:textSize="20sp"
-                            tools:layout_editor_absoluteX="38dp"
-                            tools:layout_editor_absoluteY="816dp" />
-
-
-                </LinearLayout>
         </ScrollView>
 
 
-</LinearLayout>
+
+
+
+                </android.support.constraint.ConstraintLayout>
