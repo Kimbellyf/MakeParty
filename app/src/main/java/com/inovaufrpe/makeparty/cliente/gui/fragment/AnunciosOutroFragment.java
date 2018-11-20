@@ -3,7 +3,6 @@ package com.inovaufrpe.makeparty.cliente.gui.fragment;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.view.ActionMode;
@@ -20,6 +19,7 @@ import android.view.ViewGroup;
 import com.inovaufrpe.makeparty.R;
 import com.inovaufrpe.makeparty.cliente.gui.DetalhesAnuncioActivity;
 import com.inovaufrpe.makeparty.cliente.gui.adapter.AnuncioAdapter;
+import com.inovaufrpe.makeparty.cliente.gui.dialog.SimOuNaoDialog;
 import com.inovaufrpe.makeparty.fornecedor.dominio.Anuncio;
 import com.inovaufrpe.makeparty.infra.SessaoApplication;
 import com.inovaufrpe.makeparty.usuario.servico.AnuncioService;
@@ -217,6 +217,14 @@ public class AnunciosOutroFragment extends BaseFragment {
             @Override
             public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
                 List<Anuncio> selectedAnuncios = getSelectedAnuncios();
+                if (item.getItemId()==R.id.action_add_lista_desejo_finalm){
+                    SimOuNaoDialog.show(getFragmentManager(),"Deseja adicionar esses anúncios que foram selecionados a sua lista de desejos?", new SimOuNaoDialog.Callback() {
+                        @Override
+                        public void metodoSimAoDialog() {
+
+                        }
+                    });
+                }
                 /*if (item.getItemId() == R.id.action_remove) {
                     CarroDB db = new CarroDB(getContext());
                     try {

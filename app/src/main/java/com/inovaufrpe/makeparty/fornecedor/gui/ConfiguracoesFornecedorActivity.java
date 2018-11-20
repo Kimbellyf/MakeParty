@@ -1,14 +1,21 @@
 package com.inovaufrpe.makeparty.fornecedor.gui;
 
+import android.Manifest;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.inovaufrpe.makeparty.R;
+import com.inovaufrpe.makeparty.infra.utils.Permissoes;
 import com.inovaufrpe.makeparty.usuario.gui.EscolhaTipoUserActivity;
 import com.inovaufrpe.makeparty.usuario.gui.LoginActivity;
 
@@ -45,11 +52,52 @@ public class ConfiguracoesFornecedorActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
-
+    //Metodos da foto ainda falta setar e enviar para a API, fora retornar a img da API(CASO LOGADO) no icone do user
     public void telaMudarFotoFornecedor(View view) {
         // this.mudarTela();
+        Boolean resultadopermissao =permissoesParaCamera();
+        if (resultadopermissao){
+            Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+            startActivityForResult(i,0);
+        }
     }
+    //Metodo ainda ta dando erros
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+        super.onActivityResult(requestCode,resultCode,data);
+        if (data !=null) {
+            Bundle bundle = data.getExtras();
+            if (bundle != null) {
+                //Recupera o bitmap retornado pela câmera
+                Bitmap bitmap = (Bitmap) bundle.get("data");
+                //Atualiza a imagem na tela
+                fotoAvatarFornecedor.setImageBitmap(bitmap);
+            }
+        }
 
+    }
+    //lista de permissoes para a camera e chamada se a permissao foi ok ou n
+    public boolean permissoesParaCamera(){
+        String permissions[] = new String[]{
+                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                Manifest.permission.READ_EXTERNAL_STORAGE,
+                Manifest.permission.CAMERA,
+        };
+        boolean ok = Permissoes.validate(this, 0, permissions);
+        return ok;
+    }
+    @Override
+    //Mensagem para a caso a lista de permissões seja negada por exemplo
+    public void onRequestPermissionsResult(int requestCode, String permissions[],
+                                           int[] grantResults){
+        for (int result : grantResults) {
+            if (result == PackageManager.PERMISSION_DENIED) {
+                Toast.makeText(this, "É preciso autorizar o uso da camera para tirar a sua foto", Toast.LENGTH_SHORT).show();
+                finish();
+                return;
+            }
+        }
+    }
     public void telaMudarNomeFornecedor(View view) {
         // this.mudarTela();
     }
@@ -80,6 +128,10 @@ public class ConfiguracoesFornecedorActivity extends AppCompatActivity {
 
     public void telaSairFornecedor(View view) {
         //this.mudarTela();
+    }
+
+    public void callDialog(String message,String tipo){
+
     }
 
     @Override // por enq dando o back e só fechando
