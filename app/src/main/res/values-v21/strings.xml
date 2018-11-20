@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="nome"><![CDATA[Nome >]]></string>
+    <string name="nome"><![CDATA[Nome                                      >]]></string>
     <string name="modificar">Modificar</string>
     <string name="sair"><![CDATA[Sair >]]></string>
-    <string name="apagar_conta"><![CDATA[Apagar conta >]]></string>
-    <string name="mandar_mensagem"><![CDATA[Mandar mensagem >]]></string>
-    <string name="imei_cnpj"><![CDATA[IMEI/CNPJ >]]></string>
-    <string name="senha"><![CDATA[Senha >]]></string>
-    <string name="e_mail"><![CDATA[E-mail >]]></string>
+    <string name="apagar_conta"><![CDATA[Apagar conta                        >]]></string>
+    <string name="mandar_mensagem"><![CDATA[Mandar mensagen               >]]></string>
+    <string name="imei_cnpj"><![CDATA[Imei/cnpj                                >]]></string>
+    <string name="senha"><![CDATA[Senha                                      >]]></string>
+    <string name="e_mail"><![CDATA[E-mail                                      >]]></string>
 </resources>

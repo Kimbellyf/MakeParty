@@ -70,10 +70,12 @@
         android:layout_marginRight="8dp"
         android:contentDescription="@string/text_view_modificar_nome"
         android:text="@string/nome"
-        android:textStyle="bold"
+        android:textSize="12sp"
+        android:textStyle="normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ImageViewAvatar"
+        tools:text="Nome                                      >"
         tools:textSize="30sp" />
 
     <TextView
@@ -87,11 +89,13 @@
         android:layout_marginRight="8dp"
         android:contentDescription="@string/text_view_modificar_email"
         android:text="@string/e_mail"
-        android:textStyle="bold"
+        android:textSize="12sp"
+        android:textStyle="normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/texteView_modificar_nome"
+        tools:text="E-mail                                      >"
         tools:textSize="30sp" />
 
     <TextView
@@ -105,11 +109,13 @@
         android:layout_marginRight="8dp"
         android:contentDescription="@string/text_view_modificar_senha"
         android:text="@string/senha"
-        android:textStyle="bold"
+        android:textSize="12sp"
+        android:textStyle="normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/texteView_modificar_email"
+        tools:text="Senha                                      >"
         tools:textSize="30sp" />
 
     <TextView
@@ -123,12 +129,13 @@
         android:layout_marginRight="8dp"
         android:contentDescription="@string/text_view_modificar_cnpj"
         android:text="@string/imei_cnpj"
-        android:textSize="24sp"
-        android:textStyle="bold"
+        android:textSize="12sp"
+        android:textStyle="normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/texteView_modificar_senha"
+        tools:text="Imei/cnpj                                >"
         tools:textSize="30sp" />
 
     <TextView
@@ -142,11 +149,13 @@
         android:layout_marginRight="8dp"
         android:contentDescription="@string/text_view_modificar_mandarMensagem"
         android:text="@string/mandar_mensagem"
-        android:textStyle="bold"
+        android:textSize="12sp"
+        android:textStyle="normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/texteView_modificar_cnpj"
+        tools:text="Mandar mensagen               >"
         tools:textSize="30sp" />
 
     <TextView
@@ -160,11 +169,13 @@
         android:layout_marginRight="8dp"
         android:contentDescription="@string/text_view_modificar_apagarConta"
         android:text="@string/apagar_conta"
-        android:textStyle="bold"
+        android:textSize="12sp"
+        android:textStyle="normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/texteView_modificar_mandarMensagem"
+        tools:text="Apagar conta                        >"
         tools:textSize="30sp" />
 
     <TextView
@@ -178,7 +189,8 @@
         android:layout_marginRight="8dp"
         android:contentDescription="@string/text_view_modificar_sair"
         android:text="@string/sair"
-        android:textStyle="bold"
+        android:textSize="12sp"
+        android:textStyle="normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
