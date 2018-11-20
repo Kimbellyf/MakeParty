@@ -16,6 +16,7 @@ public class EntrarOuCadastrarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_entrar_ou_cadastrar);
     }
+
     private void mudarTela(Class proximaTela){
         Intent intent = new Intent( EntrarOuCadastrarActivity.this, proximaTela);
         startActivity(intent);
