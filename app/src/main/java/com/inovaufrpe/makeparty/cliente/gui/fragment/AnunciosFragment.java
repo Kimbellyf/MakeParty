@@ -20,6 +20,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.inovaufrpe.makeparty.R;
+import com.inovaufrpe.makeparty.cliente.gui.dialog.SimOuNaoDialog;
 import com.inovaufrpe.makeparty.fornecedor.dominio.Anuncio;
 import com.inovaufrpe.makeparty.cliente.gui.DetalhesAnuncioActivity;
 import com.inovaufrpe.makeparty.cliente.gui.adapter.AnuncioAdapter;
@@ -277,6 +278,14 @@ public class AnunciosFragment extends BaseFragment {
             @Override
             public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
                 List<Anuncio> selectedAnuncios = getSelectedAnuncios();
+                if (item.getItemId()==R.id.action_add_lista_desejo_finalm){
+                    SimOuNaoDialog.show(getFragmentManager(),"Deseja adicionar esses anúncios que foram selecionados a sua lista de desejos?", new SimOuNaoDialog.Callback() {
+                        @Override
+                        public void metodoSimAoDialog() {
+
+                        }
+                    });
+                }
                 /* if (item.getItemId() == R.id.action_remove) {
                     deletarAnunciosSelecionados();
                 } else if (item.getItemId() == R.id.action_share) {

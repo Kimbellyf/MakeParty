@@ -21,6 +21,7 @@ import com.inovaufrpe.makeparty.usuario.servico.ValidacaoGuiRapida;
 
 public class LoginActivity extends AppCompatActivity{
     private EditText edtEmail, edtSenha;
+    private ProgressDialog progressDialog;
     private ProgressDialog dialog;
     private ValidacaoGuiRapida validacaoGuiRapida = new ValidacaoGuiRapida();
     private String tipoUserLogou ="";
@@ -40,10 +41,10 @@ public class LoginActivity extends AppCompatActivity{
     public void onClickLogar(View view){
         String email = edtEmail.getText().toString();
         String senha = edtSenha.getText().toString();
-        dialog = new ProgressDialog(LoginActivity.this);
-        dialog.setTitle("Verficando dados...");
+        showProgressDialogWithTitle();
         try {
             login();
+            progressDialog.dismiss();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -56,11 +57,10 @@ public class LoginActivity extends AppCompatActivity{
                 logar(usuario);
                 //Toast.makeText(this, Sessao.instance.getResposta(), Toast.LENGTH_SHORT).show();
                 if(SessaoApplication.instance.getResposta().contains("E-mail ou senha incorretos")){
-                    dialog.dismiss();
                     Toast.makeText(this, "E-mail ou senha incorretos", Toast.LENGTH_SHORT).show();
                 } else {
                     //getSessaoApi();
-                    dialog.dismiss();
+                    progressDialog.dismiss();
                     String[] parts = SessaoApplication.instance.getResposta().split(",");
                     String token = parts[0].substring(9,parts[0].length()); //FALTA  setar o usuario logado
                     tipoUserLogou = parts[1].substring(8,parts[1].length()-2);
@@ -121,16 +121,15 @@ public class LoginActivity extends AppCompatActivity{
         });
         thread.start();
         thread.join();
-        dialog.cancel();
     }
     private boolean verificarCampos() {
         String email = this.edtEmail.getText().toString().trim();
         String senha = this.edtSenha.getText().toString().trim();
         if (!validacaoGuiRapida.isEmailValido(email)) {
-            this.edtEmail.setError("Email Inválido");
+            this.edtEmail.setError("Email ou senha inválidos");
             return false;
-        } else if (validacaoGuiRapida.isCampoVazio(senha)) {
-            this.edtSenha.setError("Senha Inválida");
+        } else if (!validacaoGuiRapida.isSenhaValida(senha)) {
+            this.edtSenha.setError("E-mail ou senha inválidos");
             return false;
         } else {
             return true;
@@ -154,6 +153,14 @@ public class LoginActivity extends AppCompatActivity{
         }else{
             return false;
         }
+    }
+    public void showProgressDialogWithTitle() {
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progressDialog.setCancelable(false);
+        progressDialog.setTitle("Por favor espere..");
+        progressDialog.setMessage("Verificando dados ...");
+        progressDialog.show();
     }
     private void mudarTela(Class tela){
         Intent intent=new Intent(this, tela);

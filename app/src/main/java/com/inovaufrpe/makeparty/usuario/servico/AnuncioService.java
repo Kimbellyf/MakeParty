@@ -8,6 +8,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.inovaufrpe.makeparty.R;
 import com.inovaufrpe.makeparty.fornecedor.dominio.Anuncio;
+import com.inovaufrpe.makeparty.fornecedor.dominio.PessoaJuridica;
 import com.inovaufrpe.makeparty.infra.ConectarServidor;
 import com.inovaufrpe.makeparty.infra.Response;
 import com.inovaufrpe.makeparty.infra.ResponseWithURL;
@@ -100,12 +101,14 @@ public class AnuncioService {
                 c.setTitle(jsonAnuncio.optString("title"));
                 c.setPrice(jsonAnuncio.optDouble("price"));
                 c.setPhone(jsonAnuncio.optString("phone"));
+
                 //c.setSocialname(jsonAnuncio.opt);
                 //c.setAddress(jsonAnuncio.optS);
+               // c.setOwner(jsonAnuncio.toJSONArray("owner"));
+                PessoaJuridica d= new PessoaJuridica();
+                //d.setCnpj(jsonAnuncio.optJSONObject("owner"));
                 //c.setOwner(jsonAnuncio.optJSONObject("owner"));
-                //c.setOwner(jsonAnuncio.optString("owner"));
 
-                //c.setPrice(jsonAnuncio.optString("price").toString());
                 if (LOG_ON) {
                     Log.d(TAG, "Anuncio" + c.getDescription() + ">");
 
