@@ -13,6 +13,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -22,6 +23,7 @@ import com.inovaufrpe.makeparty.R;
 import com.inovaufrpe.makeparty.cliente.gui.fragment.AnunciosOutroFragment;
 import com.inovaufrpe.makeparty.fornecedor.gui.TelaInicialFornecedorActivity;
 import com.inovaufrpe.makeparty.infra.SessaoApplication;
+import com.inovaufrpe.makeparty.usuario.gui.EntrarOuCadastrarActivity;
 
 public class TelaInicialClienteActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private BottomNavigationView bottomNavigationView;
@@ -95,6 +97,7 @@ public class TelaInicialClienteActivity extends AppCompatActivity implements Nav
         } else if (id == R.id.action_filtrar_por_regiao) {
         } else if (id == R.id.action_filtrar_por_preco) {
         }else if (id==R.id.action_sair){
+            SessaoApplication.instance.onTerminate();
             finish();
         }
 
@@ -104,11 +107,22 @@ public class TelaInicialClienteActivity extends AppCompatActivity implements Nav
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         int id = item.getItemId();
+        if (SessaoApplication.instance.getTipoDeUserLogado().equals("null")){
+
+        }
         if (id == R.id.nav_camera) {
             // Handle the camera action
-        } else if (id == R.id.nav_slideshow) {
+            if (!SessaoApplication.instance.getTipoDeUserLogado().equals("null")) {  }else { irParaTelaEntrarOuCadastrar(); }
+        }else if (id==R.id.nav_lista_desejos){
+            if (!SessaoApplication.instance.getTipoDeUserLogado().equals("null")) { irParaTelaListaDeDesejos(); }else { irParaTelaEntrarOuCadastrar(); }
+        }else if (id==R.id.nav_lista_reunioes_tela_cliente){
+            if (!SessaoApplication.instance.getTipoDeUserLogado().equals("null")) { }else {irParaTelaEntrarOuCadastrar(); }
+        }else if (id==R.id.nav_lista_chat){
+            if (!SessaoApplication.instance.getTipoDeUserLogado().equals("null")) { }else {irParaTelaEntrarOuCadastrar(); }
+        }
+        else if (id == R.id.nav_slideshow) {
         } else if (id == R.id.nav_manage) {
-            irParaTelaConfiguracoesCliente();
+            if (!SessaoApplication.instance.getTipoDeUserLogado().equals("null")) { irParaTelaConfiguracoesCliente(); }else { irParaTelaEntrarOuCadastrar(); }
         } else if (id == R.id.nav_share) {
         } else if (id == R.id.nav_send) {
         }
@@ -148,6 +162,13 @@ public class TelaInicialClienteActivity extends AppCompatActivity implements Nav
     }
     public void irParaTelaConfiguracoesCliente(){
         this.mudarTela(AtualizarPerfilClienteActivity.class);
+    }
+    public void irParaTelaListaDeDesejos(){
+        this.mudarTela(ListaDesejosClienteActivity.class);
+    }
+    public void irParaTelaEntrarOuCadastrar(){
+        this.mudarTela(EntrarOuCadastrarActivity.class);
+
     }
 
 

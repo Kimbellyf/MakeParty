@@ -187,9 +187,11 @@ public class CadastroActivity extends AppCompatActivity {
             return false;
         }else if (!validacaoGuiRapida.isCpfValido(cpf)){
             this.edtCpf.setError("Cpf inválido");
+            this.edtCpf.requestFocus();
             return false;
         }else if (!validacaoGuiRapida.isDataValida(dataNasc)){
             this.edtNasc.setError("Data inválida");
+            this.edtNasc.requestFocus();
             return false;
         } else{
             return true;

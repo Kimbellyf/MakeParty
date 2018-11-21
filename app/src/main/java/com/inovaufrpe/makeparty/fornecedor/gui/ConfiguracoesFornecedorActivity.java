@@ -9,12 +9,16 @@ import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.inovaufrpe.makeparty.R;
+import com.inovaufrpe.makeparty.cliente.gui.TelaInicialClienteActivity;
+import com.inovaufrpe.makeparty.cliente.gui.dialog.SimOuNaoDialog;
+import com.inovaufrpe.makeparty.infra.SessaoApplication;
 import com.inovaufrpe.makeparty.infra.utils.Permissoes;
 import com.inovaufrpe.makeparty.usuario.gui.EscolhaTipoUserActivity;
 import com.inovaufrpe.makeparty.usuario.gui.LoginActivity;
@@ -31,6 +35,7 @@ public class ConfiguracoesFornecedorActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_configuracoes_fornecedor);
+        procurandoViews();
     }
 
     private void procurandoViews() {
@@ -123,11 +128,23 @@ public class ConfiguracoesFornecedorActivity extends AppCompatActivity {
     }
 
     public void telaApagarContaFornecedor(View view) {
-        //this.mudarTela();
+        SimOuNaoDialog.show(getSupportFragmentManager(),"Deseja mesmo apagar sua conta?", new SimOuNaoDialog.Callback() {
+            @Override
+            public void metodoSimAoDialog() {
+
+            }
+        });
     }
 
     public void telaSairFornecedor(View view) {
-        this.onBackPressed();
+        SimOuNaoDialog.show(getSupportFragmentManager(),"Deseja mesmo sair da sua conta?", new SimOuNaoDialog.Callback() {
+            @Override
+            public void metodoSimAoDialog() {
+                SessaoApplication.instance.onTerminate();
+                finish();
+
+            }
+        });
     }
 
     public void callDialog(String message,String tipo){
@@ -139,6 +156,7 @@ public class ConfiguracoesFornecedorActivity extends AppCompatActivity {
         this.mudarTela(TelaInicialFornecedorActivity.class);
 
     }
+
 
 
 }

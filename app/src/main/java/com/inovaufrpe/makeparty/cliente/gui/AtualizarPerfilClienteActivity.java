@@ -4,12 +4,15 @@ import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
 import com.inovaufrpe.makeparty.R;
+import com.inovaufrpe.makeparty.cliente.gui.dialog.SimOuNaoDialog;
 import com.inovaufrpe.makeparty.fornecedor.gui.TelaInicialFornecedorActivity;
+import com.inovaufrpe.makeparty.infra.SessaoApplication;
 
 public class AtualizarPerfilClienteActivity extends AppCompatActivity {
 
@@ -22,17 +25,18 @@ public class AtualizarPerfilClienteActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_atualizar_perfil_cliente);
+        procurandoViews();
     }
 
     private void procurandoViews(){
 
-        this.fotoAvatarCliente = findViewById(R.id.ImageViewAvatarCliente);
-        this.mudarFoto = findViewById(R.id.floatingMudarFotoPerfilCliente);
-        this.mudarNome = findViewById(R.id.button_modificar_nome_cliente);
-        this.mudarEmail = findViewById(R.id.button_modificar_email_cliente);
-        this.mudarSenha = findViewById(R.id.button_modificar_senha_cliente);
-        this.apagarConta = findViewById(R.id.button_modificar_apagar_conta_cliente);
-        this.sair = findViewById(R.id.button_modificar_sair_cliente);
+        fotoAvatarCliente = findViewById(R.id.ImageViewAvatarCliente);
+        mudarFoto = findViewById(R.id.floatingMudarFotoPerfilCliente);
+        mudarNome = findViewById(R.id.button_modificar_nome_cliente);
+        mudarEmail = findViewById(R.id.button_modificar_email_cliente);
+        mudarSenha = findViewById(R.id.button_modificar_senha_cliente);
+        apagarConta = findViewById(R.id.button_modificar_apagar_conta_cliente);
+        sair = findViewById(R.id.button_modificar_sair_cliente);
 
     }
 
@@ -56,14 +60,27 @@ public class AtualizarPerfilClienteActivity extends AppCompatActivity {
 
     public void telaMudarSenhaCliente(View view) {
         //this.mudarTela();
+
     }
 
     public void telaApagarContaCliente(View view) {
-        //this.mudarTela();
+        SimOuNaoDialog.show(getSupportFragmentManager(),"Deseja mesmo apagar sua conta?", new SimOuNaoDialog.Callback() {
+            @Override
+            public void metodoSimAoDialog() {
+
+            }
+        });
     }
 
     public void telaSairCliente(View view) {
-        this.onBackPressed();
+        SimOuNaoDialog.show(getSupportFragmentManager(),"Deseja mesmo sair da sua conta?", new SimOuNaoDialog.Callback() {
+            @Override
+            public void metodoSimAoDialog() {
+                SessaoApplication.instance.onTerminate();
+                finish();
+
+            }
+        });
     }
 
     @Override // por enq dando o back e só fechando
