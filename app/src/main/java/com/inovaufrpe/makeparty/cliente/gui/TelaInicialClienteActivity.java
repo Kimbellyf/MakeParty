@@ -122,7 +122,7 @@ public class TelaInicialClienteActivity extends AppCompatActivity implements Nav
     }
     public void acoesReferentesAoBottomNavigation(){
         bottomNavigationView =  (BottomNavigationView) findViewById(R.id.tab_bar_opcoes_embaixo);
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+        bottomNavigationView.settar. Eu só sei manter aOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 if(item.getItemId()==R.id.action_pacotes){
