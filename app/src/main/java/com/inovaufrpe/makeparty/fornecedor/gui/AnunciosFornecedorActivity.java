@@ -15,6 +15,8 @@ import java.util.ArrayList;
 
 public class AnunciosFornecedorActivity extends AppCompatActivity {
     private ArrayList<Anuncio> lista;
+    private Button cadstarAnuncio;
+    private ListView listaAnuncios;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
